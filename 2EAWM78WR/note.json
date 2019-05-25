@@ -1,0 +1,68 @@
+{
+  "paragraphs": [
+    {
+      "text": "create table london_population\n(\n\tyear varchar(200) not null,\n\tvalue int not null\n);\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-05-25 21:06:02.085",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Query executed successfully. Affected rows : 0"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1558815072246_-700793186",
+      "id": "20190525-201112_1972726756",
+      "dateCreated": "2019-05-25 20:11:12.246",
+      "dateStarted": "2019-05-25 21:06:02.250",
+      "dateFinished": "2019-05-25 21:06:04.979",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1558817681749_54550951",
+      "id": "20190525-205441_1093274846",
+      "dateCreated": "2019-05-25 20:54:41.754",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "database/01_postgres_create_table",
+  "id": "2EAWM78WR",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": [],
+    "postgres_zeppelin_db:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

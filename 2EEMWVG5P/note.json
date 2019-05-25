@@ -1,0 +1,45 @@
+{
+  "paragraphs": [
+    {
+      "text": "%spark\n\nval connectionProperties \u003d new Properties()\nconnectionProperties.put(\"zeppelin_user\", \"zeppelin_user\")\nconnectionProperties.put(\"password\", \"password\")\nval jdbcDF2 \u003d spark.read\n  .jdbc(\"jdbc:postgresql:dbserver\", \"schema.tablename\", connectionProperties)",
+      "user": "anonymous",
+      "dateUpdated": "2019-05-25 16:07:48.079",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1558800444654_-398667236",
+      "id": "20190525-160724_1331720503",
+      "dateCreated": "2019-05-25 16:07:24.654",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "database/03_postgres_read_data",
+  "id": "2EEMWVG5P",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": [],
+    "postgres_zeppelin_db:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
