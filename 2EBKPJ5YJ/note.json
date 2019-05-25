@@ -43,9 +43,9 @@
     },
     {
       "title": "Load Data and create DataFrame",
-      "text": "%spark\nimport org.apache.commons.io.IOUtils\nimport java.net.URL\nimport java.nio.charset.Charset\n                \nval bankText \u003d sc.parallelize(\n    IOUtils.toString(\n        new URL(\"https://s3.amazonaws.com/apache-zeppelin/tutorial/bank/bank.csv\"),\n        Charset.forName(\"utf8\")).split(\"\\n\"))\n\ncase class Bank(age: Integer, job: String, marital: String, education: String, balance: Integer)\n\nval bank \u003d bankText.map(s \u003d\u003e s.split(\";\")).filter(s \u003d\u003e s(0) !\u003d \"\\\"age\\\"\").map(\n    s \u003d\u003e Bank(s(0).toInt, \n            s(1).replaceAll(\"\\\"\", \"\"),\n            s(2).replaceAll(\"\\\"\", \"\"),\n            s(3).replaceAll(\"\\\"\", \"\"),\n            s(5).replaceAll(\"\\\"\", \"\").toInt\n        )\n).toDF();",
+      "text": "%spark\nimport org.apache.commons.io.IOUtils\nimport java.net.URL\nimport java.nio.charset.Charset\n                \nval bankText \u003d sc.parallelize(\n    IOUtils.toString(\n        new URL(\"http://webdav:8083/bank.csv\"),\n        Charset.forName(\"utf8\")).split(\"\\n\"))\n\ncase class Bank(age: Integer, job: String, marital: String, education: String, balance: Integer)\n\nval bank \u003d bankText.map(s \u003d\u003e s.split(\";\")).filter(s \u003d\u003e s(0) !\u003d \"\\\"age\\\"\").map(\n    s \u003d\u003e Bank(s(0).toInt, \n            s(1).replaceAll(\"\\\"\", \"\"),\n            s(2).replaceAll(\"\\\"\", \"\"),\n            s(3).replaceAll(\"\\\"\", \"\"),\n            s(5).replaceAll(\"\\\"\", \"\").toInt\n        )\n).toDF();",
       "user": "anonymous",
-      "dateUpdated": "2019-05-23 09:59:38.772",
+      "dateUpdated": "2019-05-25 11:56:02.127",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -58,7 +58,51 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/scala",
-        "title": true
+        "title": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "java.net.MalformedURLException: unknown protocol: dav\n  at java.net.URL.\u003cinit\u003e(URL.java:600)\n  at java.net.URL.\u003cinit\u003e(URL.java:490)\n  at java.net.URL.\u003cinit\u003e(URL.java:439)\n  ... 41 elided\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1558605127386_-983772459",
+      "id": "20190523-095207_459748946",
+      "dateCreated": "2019-05-23 09:52:07.386",
+      "dateStarted": "2019-05-25 11:54:18.014",
+      "dateFinished": "2019-05-25 11:54:21.459",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Load Data and create DataFrame",
+      "text": "%spark\nimport org.apache.commons.io.IOUtils\nimport java.net.URL\nimport java.net.URLConnection\nimport java.nio.charset.Charset\nimport java.util.Base64\n\nval url \u003d new URL(\"http://webdav:80/bank.csv\")\nval uc \u003d url.openConnection()\nval userpass \u003d \"zeppelin:zeppelin\"\nval basicAuth \u003d \"Basic \" + new String(Base64.getEncoder().encode(userpass.getBytes()))\nuc.setRequestProperty (\"Authorization\", basicAuth)\nval in \u003d uc.getInputStream()\n                \nval bankText \u003d sc.parallelize(\n    IOUtils.toString(\n        in,\n        Charset.forName(\"utf8\")).split(\"\\n\"))\n\ncase class Bank(age: Integer, job: String, marital: String, education: String, balance: Integer)\n\nval bank \u003d bankText.map(s \u003d\u003e s.split(\";\")).filter(s \u003d\u003e s(0) !\u003d \"\\\"age\\\"\").map(\n    s \u003d\u003e Bank(s(0).toInt, \n            s(1).replaceAll(\"\\\"\", \"\"),\n            s(2).replaceAll(\"\\\"\", \"\"),\n            s(3).replaceAll(\"\\\"\", \"\"),\n            s(5).replaceAll(\"\\\"\", \"\").toInt\n        )\n).toDF()",
+      "user": "anonymous",
+      "dateUpdated": "2019-05-25 12:16:43.101",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true,
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -69,23 +113,23 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "import sqlContext.implicits._\nimport org.apache.commons.io.IOUtils\nimport java.net.URL\nimport java.nio.charset.Charset\nbankText: org.apache.spark.rdd.RDD[String] \u003d ParallelCollectionRDD[4] at parallelize at \u003cconsole\u003e:38\ndefined class Bank\nbank: org.apache.spark.sql.DataFrame \u003d [age: int, job: string ... 3 more fields]\n"
+            "data": "import sqlContext.implicits._\nimport org.apache.commons.io.IOUtils\nimport java.net.URL\nimport java.net.URLConnection\nimport java.nio.charset.Charset\nimport java.util.Base64\nurl: java.net.URL \u003d http://webdav:80/bank.csv\nuc: java.net.URLConnection \u003d sun.net.www.protocol.http.HttpURLConnection:http://webdav:80/bank.csv\nuserpass: String \u003d zeppelin:zeppelin\nbasicAuth: String \u003d Basic emVwcGVsaW46emVwcGVsaW4\u003d\nin: java.io.InputStream \u003d sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@46738f32\nbankText: org.apache.spark.rdd.RDD[String] \u003d ParallelCollectionRDD[0] at parallelize at \u003cconsole\u003e:29\ndefined class Bank\nbank: org.apache.spark.sql.DataFrame \u003d [age: int, job: string ... 3 more fields]\n"
           }
         ]
       },
       "apps": [],
-      "jobName": "paragraph_1558605127386_-983772459",
-      "id": "20190523-095207_459748946",
-      "dateCreated": "2019-05-23 09:52:07.386",
-      "dateStarted": "2019-05-23 09:52:49.054",
-      "dateFinished": "2019-05-23 09:52:51.847",
+      "jobName": "paragraph_1558783297375_-1924356371",
+      "id": "20190525-112137_823641999",
+      "dateCreated": "2019-05-25 11:21:37.376",
+      "dateStarted": "2019-05-25 12:16:43.252",
+      "dateFinished": "2019-05-25 12:17:43.412",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark\nbank.createOrReplaceTempView(\"bank\")",
       "user": "anonymous",
-      "dateUpdated": "2019-05-23 09:56:00.236",
+      "dateUpdated": "2019-05-25 12:17:47.246",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -111,15 +155,15 @@
       "jobName": "paragraph_1558605284172_986601545",
       "id": "20190523-095444_549777848",
       "dateCreated": "2019-05-23 09:54:44.172",
-      "dateStarted": "2019-05-23 09:56:00.274",
-      "dateFinished": "2019-05-23 09:56:00.397",
+      "dateStarted": "2019-05-25 12:17:47.369",
+      "dateFinished": "2019-05-25 12:17:48.500",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark.sql\nselect age, avg(balance), min(balance), max(balance) from bank group by age order by age\n",
       "user": "anonymous",
-      "dateUpdated": "2019-05-23 11:27:14.462",
+      "dateUpdated": "2019-05-25 12:18:00.376",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -214,12 +258,24 @@
           }
         ]
       },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.20.0.4:4040/jobs/job?id\u003d0"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "apps": [],
       "jobName": "paragraph_1558605150517_-643688708",
       "id": "20190523-095230_1321209630",
       "dateCreated": "2019-05-23 09:52:30.517",
-      "dateStarted": "2019-05-23 09:56:03.152",
-      "dateFinished": "2019-05-23 09:56:06.273",
+      "dateStarted": "2019-05-25 12:17:50.557",
+      "dateFinished": "2019-05-25 12:18:00.117",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -244,7 +300,9 @@
   "id": "2EBKPJ5YJ",
   "noteParams": {},
   "noteForms": {},
-  "angularObjects": {},
+  "angularObjects": {
+    "spark:shared_process": []
+  },
   "config": {
     "isZeppelinNotebookCronEnable": false
   },
