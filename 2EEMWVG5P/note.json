@@ -3,7 +3,7 @@
     {
       "text": "%spark\n\nval connectionProperties \u003d new Properties()\nconnectionProperties.put(\"zeppelin_user\", \"zeppelin_user\")\nconnectionProperties.put(\"password\", \"password\")\nval jdbcDF2 \u003d spark.read\n  .jdbc(\"jdbc:postgresql:dbserver\", \"schema.tablename\", connectionProperties)",
       "user": "anonymous",
-      "dateUpdated": "2019-05-25 16:07:48.079",
+      "dateUpdated": "2019-05-26 18:56:08.930",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -22,10 +22,37 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cconsole\u003e:23: error: not found: type Properties\n       val connectionProperties \u003d new Properties()\n                                      ^\n"
+          }
+        ]
+      },
       "apps": [],
       "jobName": "paragraph_1558800444654_-398667236",
       "id": "20190525-160724_1331720503",
       "dateCreated": "2019-05-25 16:07:24.654",
+      "dateStarted": "2019-05-26 18:56:09.088",
+      "dateFinished": "2019-05-26 18:56:44.997",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-05-26 18:56:08.933",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1558896968930_638628800",
+      "id": "20190526-185608_1422775666",
+      "dateCreated": "2019-05-26 18:56:08.930",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
@@ -35,7 +62,8 @@
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
-    "spark:shared_process": [],
+    "spark::2EEMWVG5P": [],
+    "sh:shared_process": [],
     "postgres_zeppelin_db:shared_process": []
   },
   "config": {
