@@ -111,11 +111,12 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "dependency/Analyze Dependency",
+  "name": "Dependency/Local Maven",
   "id": "2ED98KQ4U",
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
+    "md:shared_process": [],
     "sh:shared_process": [],
     "spark:shared_process": []
   },

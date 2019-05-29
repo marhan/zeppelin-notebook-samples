@@ -3,7 +3,7 @@
     {
       "text": "%md\n# Hallo\n",
       "user": "anonymous",
-      "dateUpdated": "2019-05-25 21:58:34.870",
+      "dateUpdated": "2019-05-29 13:31:58.100",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -36,8 +36,8 @@
       "jobName": "paragraph_1558605533527_408690116",
       "id": "20190523-095853_1055852159",
       "dateCreated": "2019-05-23 09:58:53.527",
-      "dateStarted": "2019-05-25 21:58:34.942",
-      "dateFinished": "2019-05-25 21:58:37.476",
+      "dateStarted": "2019-05-29 13:31:58.146",
+      "dateFinished": "2019-05-29 13:32:00.390",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -45,7 +45,7 @@
       "title": "Load Data and create DataFrame",
       "text": "%spark\nimport org.apache.commons.io.IOUtils\nimport java.net.URL\nimport java.net.URLConnection\nimport java.nio.charset.Charset\nimport java.util.Base64\n\nval url \u003d new URL(\"http://webdav/bank.csv\")\nval uc \u003d url.openConnection()\nval userpass \u003d \"zeppelin:zeppelin\"\nval basicAuth \u003d \"Basic \" + new String(Base64.getEncoder().encode(userpass.getBytes()))\nuc.setRequestProperty (\"Authorization\", basicAuth)\nval in \u003d uc.getInputStream()\n                \nval bankText \u003d sc.parallelize(\n    IOUtils.toString(\n        in,\n        Charset.forName(\"utf8\")).split(\"\\n\"))\n\ncase class Bank(age: Integer, job: String, marital: String, education: String, balance: Integer)\n\nval bank \u003d bankText.map(s \u003d\u003e s.split(\";\")).filter(s \u003d\u003e s(0) !\u003d \"\\\"age\\\"\").map(\n    s \u003d\u003e Bank(s(0).toInt, \n            s(1).replaceAll(\"\\\"\", \"\"),\n            s(2).replaceAll(\"\\\"\", \"\"),\n            s(3).replaceAll(\"\\\"\", \"\"),\n            s(5).replaceAll(\"\\\"\", \"\").toInt)).toDF()",
       "user": "anonymous",
-      "dateUpdated": "2019-05-25 21:58:37.518",
+      "dateUpdated": "2019-05-29 13:32:00.461",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -71,7 +71,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "import sqlContext.implicits._\nimport org.apache.commons.io.IOUtils\nimport java.net.URL\nimport java.net.URLConnection\nimport java.nio.charset.Charset\nimport java.util.Base64\nurl: java.net.URL \u003d http://webdav/bank.csv\nuc: java.net.URLConnection \u003d sun.net.www.protocol.http.HttpURLConnection:http://webdav/bank.csv\nuserpass: String \u003d zeppelin:zeppelin\nbasicAuth: String \u003d Basic emVwcGVsaW46emVwcGVsaW4\u003d\nin: java.io.InputStream \u003d sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@5986f353\nbankText: org.apache.spark.rdd.RDD[String] \u003d ParallelCollectionRDD[22] at parallelize at \u003cconsole\u003e:38\ndefined class Bank\nbank: org.apache.spark.sql.DataFrame \u003d [age: int, job: string ... 3 more fields]\n"
+            "data": "import sqlContext.implicits._\nimport org.apache.commons.io.IOUtils\nimport java.net.URL\nimport java.net.URLConnection\nimport java.nio.charset.Charset\nimport java.util.Base64\nurl: java.net.URL \u003d http://webdav/bank.csv\nuc: java.net.URLConnection \u003d sun.net.www.protocol.http.HttpURLConnection:http://webdav/bank.csv\nuserpass: String \u003d zeppelin:zeppelin\nbasicAuth: String \u003d Basic emVwcGVsaW46emVwcGVsaW4\u003d\nin: java.io.InputStream \u003d sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@581484b6\nbankText: org.apache.spark.rdd.RDD[String] \u003d ParallelCollectionRDD[0] at parallelize at \u003cconsole\u003e:31\ndefined class Bank\nbank: org.apache.spark.sql.DataFrame \u003d [age: int, job: string ... 3 more fields]\n"
           }
         ]
       },
@@ -79,15 +79,15 @@
       "jobName": "paragraph_1558783297375_-1924356371",
       "id": "20190525-112137_823641999",
       "dateCreated": "2019-05-25 11:21:37.376",
-      "dateStarted": "2019-05-25 21:58:37.839",
-      "dateFinished": "2019-05-25 21:58:43.115",
+      "dateStarted": "2019-05-29 13:32:00.487",
+      "dateFinished": "2019-05-29 13:32:03.691",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark\nbank.createOrReplaceTempView(\"bank\")",
       "user": "anonymous",
-      "dateUpdated": "2019-05-25 21:58:43.209",
+      "dateUpdated": "2019-05-29 13:32:03.706",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -113,15 +113,15 @@
       "jobName": "paragraph_1558605284172_986601545",
       "id": "20190523-095444_549777848",
       "dateCreated": "2019-05-23 09:54:44.172",
-      "dateStarted": "2019-05-25 21:58:43.561",
-      "dateFinished": "2019-05-25 21:58:44.066",
+      "dateStarted": "2019-05-29 13:32:03.771",
+      "dateFinished": "2019-05-29 13:32:04.480",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark.sql\nselect age, avg(balance), min(balance), max(balance) from bank group by age order by age\n",
       "user": "anonymous",
-      "dateUpdated": "2019-05-25 21:58:44.149",
+      "dateUpdated": "2019-05-29 13:34:51.845",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -204,11 +204,15 @@
         "forms": {}
       },
       "results": {
-        "code": "ERROR",
+        "code": "SUCCESS",
         "msg": [
           {
+            "type": "TABLE",
+            "data": "age\tavg(balance)\tmin(balance)\tmax(balance)\n19\t393.5\t0\t1169\n20\t661.3333333333334\t291\t1191\n21\t1774.2857142857142\t6\t6844\n22\t1455.3333333333333\t47\t4111\n23\t2117.95\t-306\t9216\n24\t634.625\t-254\t4500\n25\t1240.0681818181818\t-589\t16874\n26\t788.5584415584416\t-887\t5533\n27\t851.7765957446809\t-1202\t8366\n28\t1025.0970873786407\t-427\t11555\n29\t1261.8762886597938\t-478\t22171\n30\t1113.0333333333333\t-970\t19358\n31\t1288.4824120603016\t-617\t26965\n32\t1256.549107142857\t-1053\t14533\n33\t1545.4139784946237\t-988\t23663\n34\t1111.5367965367966\t-566\t13683\n35\t1192.8277777777778\t-587\t13658\n36\t1226.8936170212767\t-872\t27359\n37\t1463.9192546583852\t-296\t22856\n38\t1718.993710691824\t-762\t16957\n39\t1104.8615384615384\t-735\t12437\n40\t1399.5070422535211\t-1212\t13669\n41\t1505.7925925925927\t-516\t21515\n42\t1612.3617021276596\t-1310\t42045\n43\t1807.8347826086956\t-1164\t27733\n44\t1836.5523809523809\t-1746\t17361\n45\t1187.3660714285713\t-839\t13117\n46\t998.7731092436975\t-1400\t12186\n47\t1363.0462962962963\t-1148\t8515\n48\t1462.359649122807\t-583\t10655\n49\t1591.107142857143\t-1680\t25824\n50\t1645.0594059405942\t-701\t26394\n51\t1528.5714285714287\t-2082\t21244\n52\t782.2906976744187\t-1224\t14363\n53\t1588.3085106382978\t-905\t22370\n54\t1656.661971830986\t-932\t26306\n55\t1244.9444444444443\t-966\t9756\n56\t2120.135135135135\t-1206\t22196\n57\t1665.6263736263736\t-3313\t27069\n58\t1755.0823529411764\t-123\t16264\n59\t1582.4788732394366\t-47\t9976\n60\t2964.574468085106\t-396\t71188\n61\t2407.5\t76\t6610\n62\t516.1428571428571\t0\t1859\n63\t2286.375\t133\t8044\n64\t1103.2857142857142\t43\t2923\n65\t1638.1666666666667\t300\t4717\n66\t3313.8888888888887\t206\t10177\n67\t4149.4\t696\t16353\n68\t11753.0\t4189\t19317\n69\t774.3333333333334\t279\t2144\n70\t5084.571428571428\t616\t15834\n71\t3787.3333333333335\t261\t14220\n72\t2526.0\t763\t4415\n73\t525.8333333333334\t19\t1388\n74\t1978.3333333333333\t921\t4079\n75\t7046.5\t852\t26452\n76\t1338.0\t86\t2590\n77\t2405.1666666666665\t0\t7802\n78\t318.0\t226\t499\n79\t4087.75\t429\t8556\n80\t4183.5\t0\t8304\n81\t1.0\t1\t1\n83\t380.5\t0\t1097\n84\t639.0\t639\t639\n86\t1503.0\t1503\t1503\n87\t230.0\t230\t230\n"
+          },
+          {
             "type": "TEXT",
-            "data": "java.lang.ClassCastException: cannot assign instance of scala.collection.immutable.List$SerializationProxy to field org.apache.spark.rdd.RDD.org$apache$spark$rdd$RDD$$dependencies_ of type scala.collection.Seq in instance of org.apache.spark.rdd.MapPartitionsRDD\n\tat java.io.ObjectStreamClass$FieldReflector.setObjFieldValues(ObjectStreamClass.java:2287)\n\tat java.io.ObjectStreamClass.setObjFieldValues(ObjectStreamClass.java:1417)\n\tat java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2293)\n\tat java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2211)\n\tat java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)\n\tat java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)\n\tat java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2287)\n\tat java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2211)\n\tat java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)\n\tat java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)\n\tat java.io.ObjectInputStream.readObject(ObjectInputStream.java:431)\n\tat scala.collection.immutable.List$SerializationProxy.readObject(List.scala:479)\n\tat sun.reflect.GeneratedMethodAccessor16.invoke(Unknown Source)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1170)\n\tat java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2178)\n\tat java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)\n\tat java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)\n\tat java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2287)\n\tat java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2211)\n\tat java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)\n\tat java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)\n\tat java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2287)\n\tat java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2211)\n\tat java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)\n\tat java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)\n\tat java.io.ObjectInputStream.readObject(ObjectInputStream.java:431)\n\tat scala.collection.immutable.List$SerializationProxy.readObject(List.scala:479)\n\tat sun.reflect.GeneratedMethodAccessor16.invoke(Unknown Source)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1170)\n\tat java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2178)\n\tat java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)\n\tat java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)\n\tat java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2287)\n\tat java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2211)\n\tat java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)\n\tat java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)\n\tat java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2287)\n\tat java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2211)\n\tat java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)\n\tat java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)\n\tat java.io.ObjectInputStream.readObject(ObjectInputStream.java:431)\n\tat scala.collection.immutable.List$SerializationProxy.readObject(List.scala:479)\n\tat sun.reflect.GeneratedMethodAccessor16.invoke(Unknown Source)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1170)\n\tat java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2178)\n\tat java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)\n\tat java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)\n\tat java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2287)\n\tat java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2211)\n\tat java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)\n\tat java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)\n\tat java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2287)\n\tat java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2211)\n\tat java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)\n\tat java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)\n\tat java.io.ObjectInputStream.readObject(ObjectInputStream.java:431)\n\tat scala.collection.immutable.List$SerializationProxy.readObject(List.scala:479)\n\tat sun.reflect.GeneratedMethodAccessor16.invoke(Unknown Source)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1170)\n\tat java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2178)\n\tat java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)\n\tat java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)\n\tat java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2287)\n\tat java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2211)\n\tat java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)\n\tat java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)\n\tat java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2287)\n\tat java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2211)\n\tat java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)\n\tat java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)\n\tat java.io.ObjectInputStream.readObject(ObjectInputStream.java:431)\n\tat scala.collection.immutable.List$SerializationProxy.readObject(List.scala:479)\n\tat sun.reflect.GeneratedMethodAccessor16.invoke(Unknown Source)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1170)\n\tat java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2178)\n\tat java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)\n\tat java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)\n\tat java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2287)\n\tat java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2211)\n\tat java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)\n\tat java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)\n\tat java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2287)\n\tat java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2211)\n\tat java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)\n\tat java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)\n\tat java.io.ObjectInputStream.readObject(ObjectInputStream.java:431)\n\tat scala.collection.immutable.List$SerializationProxy.readObject(List.scala:479)\n\tat sun.reflect.GeneratedMethodAccessor16.invoke(Unknown Source)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1170)\n\tat java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2178)\n\tat java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)\n\tat java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)\n\tat java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2287)\n\tat java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2211)\n\tat java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)\n\tat java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)\n\tat java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2287)\n\tat java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2211)\n\tat java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2069)\n\tat java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1573)\n\tat java.io.ObjectInputStream.readObject(ObjectInputStream.java:431)\n\tat org.apache.spark.serializer.JavaDeserializationStream.readObject(JavaSerializer.scala:75)\n\tat org.apache.spark.serializer.JavaSerializerInstance.deserialize(JavaSerializer.scala:114)\n\tat org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:85)\n\tat org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:53)\n\tat org.apache.spark.scheduler.Task.run(Task.scala:108)\n\tat org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:338)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat java.lang.Thread.run(Thread.java:748)\n"
+            "data": ""
           }
         ]
       },
@@ -219,8 +223,7 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://172.20.0.2:4040/jobs/job?id\u003d6",
-            "http://172.20.0.2:4040/jobs/job?id\u003d6"
+            "http://8200f6bcd022:4040/jobs/job?id\u003d0"
           ],
           "interpreterSettingId": "spark"
         }
@@ -229,16 +232,28 @@
       "jobName": "paragraph_1558605150517_-643688708",
       "id": "20190523-095230_1321209630",
       "dateCreated": "2019-05-23 09:52:30.517",
-      "dateStarted": "2019-05-25 21:58:44.363",
-      "dateFinished": "2019-05-25 21:58:46.770",
-      "status": "ERROR",
+      "dateStarted": "2019-05-29 13:32:04.601",
+      "dateFinished": "2019-05-29 13:32:09.469",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark.sql\n",
       "user": "anonymous",
-      "dateUpdated": "2019-05-23 09:54:08.336",
-      "config": {},
+      "dateUpdated": "2019-05-29 13:32:09.523",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
       "settings": {
         "params": {},
         "forms": {}
@@ -247,11 +262,11 @@
       "jobName": "paragraph_1558605248336_-1683435316",
       "id": "20190523-095408_399905256",
       "dateCreated": "2019-05-23 09:54:08.336",
-      "status": "READY",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "/Bank/BankDataAnalysis",
+  "name": "/Visualization/BankDataAnalysis",
   "id": "2EBKPJ5YJ",
   "noteParams": {},
   "noteForms": {},

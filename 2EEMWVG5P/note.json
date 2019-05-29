@@ -57,13 +57,14 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "database/03_postgres_read_data",
+  "name": "Database/03_postgres_read_data",
   "id": "2EEMWVG5P",
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
-    "spark::2EEMWVG5P": [],
+    "md:shared_process": [],
     "sh:shared_process": [],
+    "spark:shared_process": [],
     "postgres_zeppelin_db:shared_process": []
   },
   "config": {

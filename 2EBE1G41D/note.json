@@ -3,7 +3,7 @@
     {
       "text": "import com.amazonaws.AmazonServiceException\nimport com.amazonaws.services.s3.AmazonS3\nimport com.amazonaws.services.s3.AmazonS3ClientBuilder\nimport com.amazonaws.services.s3.model.S3Object\nimport com.amazonaws.services.s3.model.S3ObjectInputStream\nimport java.io.File\nimport java.io.FileNotFoundException\nimport java.io.FileOutputStream\nimport java.io.IOException\n\n\nval bucketName \u003d \"zeppelin\"\nval keyName \u003d \"bank.csv\"\n\nval credentials \u003d new BasicAWSCredentials(\"zeppelin\", \"zeppelin\")\nval clientConfiguration \u003d new ClientConfiguration()\nclientConfiguration.setSignerOverride(\"AWSS3V4SignerType\")\n\nval s3Client \u003d AmazonS3ClientBuilder\n                .standard()\n                .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(\"http://localhost:9000\", Regions.US_EAST_1.name()))\n                .withPathStyleAccessEnabled(true)\n                .withClientConfiguration(clientConfiguration)\n                .withCredentials(new AWSStaticCredentialsProvider(credentials))\n                .build()\n\nGetObjectRequest rangeObjectRequest \u003d new GetObjectRequest(bucketName, keyName)\nS3Object objectPortion \u003d s3Client.getObject(rangeObjectRequest)\nobjectPortion.getObjectContent()\n",
       "user": "anonymous",
-      "dateUpdated": "2019-05-27 20:24:41.569",
+      "dateUpdated": "2019-05-29 13:28:55.643",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -26,7 +26,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "\u003cconsole\u003e:37: error: not found: type BasicAWSCredentials\n       val credentials \u003d new BasicAWSCredentials(\"zeppelin\", \"zeppelin\")\n                             ^\n\u003cconsole\u003e:38: error: not found: type ClientConfiguration\n       val clientConfiguration \u003d new ClientConfiguration()\n                                     ^\n\u003cconsole\u003e:25: error: object amazonaws is not a member of package com\n       import com.amazonaws.services.s3.AmazonS3ClientBuilder\n                  ^\n\u003cconsole\u003e:41: error: not found: value AmazonS3ClientBuilder\n       val s3Client \u003d AmazonS3ClientBuilder\n                      ^\n\u003cconsole\u003e:43: error: not found: value AwsClientBuilder\n                       .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(\"http://localhost:9000\", Regions.US_EAST_1.name()))\n                                                      ^\n\u003cconsole\u003e:43: error: not found: value Regions\n                       .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(\"http://localhost:9000\", Regions.US_EAST_1.name()))\n                                                                                                                      ^\n\u003cconsole\u003e:46: error: not found: type AWSStaticCredentialsProvider\n                       .withCredentials(new AWSStaticCredentialsProvider(credentials))\n                                            ^\n\u003cconsole\u003e:53: error: not found: value objectPortion\n       objectPortion.getObjectContent()\n       ^\n\u003cconsole\u003e:70: error: not found: value GetObjectRequest\nval $ires6 \u003d GetObjectRequest.rangeObjectRequest\n             ^\n\u003cconsole\u003e:26: error: object amazonaws is not a member of package com\n       import com.amazonaws.services.s3.model.S3Object\n                  ^\n\u003cconsole\u003e:71: error: not found: value S3Object\nval $ires7 \u003d S3Object.objectPortion\n             ^\n\u003cconsole\u003e:23: error: object amazonaws is not a member of package com\n       import com.amazonaws.AmazonServiceException\n                  ^\n\u003cconsole\u003e:24: error: object amazonaws is not a member of package com\n       import com.amazonaws.services.s3.AmazonS3\n                  ^\n\u003cconsole\u003e:27: error: object amazonaws is not a member of package com\n       import com.amazonaws.services.s3.model.S3ObjectInputStream\n                  ^\n\u003cconsole\u003e:49: error: not found: value GetObjectRequest\n       GetObjectRequest rangeObjectRequest \u003d new GetObjectRequest(bucketName, keyName)\n       ^\n\u003cconsole\u003e:50: error: not found: value S3Object\n       S3Object objectPortion \u003d s3Client.getObject(rangeObjectRequest)\n       ^\n"
+            "data": "\u003cconsole\u003e:37: error: not found: type BasicAWSCredentials\n       val credentials \u003d new BasicAWSCredentials(\"zeppelin\", \"zeppelin\")\n                             ^\n\u003cconsole\u003e:38: error: not found: type ClientConfiguration\n       val clientConfiguration \u003d new ClientConfiguration()\n                                     ^\n\u003cconsole\u003e:43: error: not found: value AwsClientBuilder\n                       .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(\"http://localhost:9000\", Regions.US_EAST_1.name()))\n                                                      ^\n\u003cconsole\u003e:43: error: not found: value Regions\n                       .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(\"http://localhost:9000\", Regions.US_EAST_1.name()))\n                                                                                                                      ^\n\u003cconsole\u003e:46: error: not found: type AWSStaticCredentialsProvider\n                       .withCredentials(new AWSStaticCredentialsProvider(credentials))\n                                            ^\n\u003cconsole\u003e:53: error: not found: value objectPortion\n       objectPortion.getObjectContent()\n       ^\n\u003cconsole\u003e:70: error: not found: value GetObjectRequest\nval $ires6 \u003d GetObjectRequest.rangeObjectRequest\n             ^\n\u003cconsole\u003e:71: error: value objectPortion is not a member of object com.amazonaws.services.s3.model.S3Object\nval $ires7 \u003d S3Object.objectPortion\n                      ^\n\u003cconsole\u003e:49: error: not found: value GetObjectRequest\n       GetObjectRequest rangeObjectRequest \u003d new GetObjectRequest(bucketName, keyName)\n       ^\n\u003cconsole\u003e:50: error: value objectPortion is not a member of object com.amazonaws.services.s3.model.S3Object\n       S3Object objectPortion \u003d s3Client.getObject(rangeObjectRequest)\n                ^\n"
           }
         ]
       },
@@ -34,8 +34,8 @@
       "jobName": "paragraph_1558905143742_546252646",
       "id": "20190526-211223_1000649234",
       "dateCreated": "2019-05-26 21:12:23.742",
-      "dateStarted": "2019-05-27 20:24:41.849",
-      "dateFinished": "2019-05-27 20:25:47.728",
+      "dateStarted": "2019-05-29 13:28:55.699",
+      "dateFinished": "2019-05-29 13:29:05.290",
       "status": "ERROR",
       "progressUpdateIntervalMs": 500
     },
@@ -54,11 +54,13 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "s3/amazon",
+  "name": "S3/Amazon",
   "id": "2EBE1G41D",
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
+    "md:shared_process": [],
+    "sh:shared_process": [],
     "spark:shared_process": []
   },
   "config": {
