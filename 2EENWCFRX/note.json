@@ -1,0 +1,188 @@
+{
+  "paragraphs": [
+    {
+      "text": "%spark\n\nval stringRdd \u003d sc.parallelize(Seq(\"\u003d\u003d\u003d\u003e This is test content in a text file \u003c\u003d\u003d\u003d\"))\nstringRdd.saveAsTextFile(\"/opt/files/sample_output.txt\")",
+      "user": "anonymous",
+      "dateUpdated": "2019-05-29 14:05:39.027",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "stringRdd: org.apache.spark.rdd.RDD[String] \u003d ParallelCollectionRDD[44] at parallelize at \u003cconsole\u003e:50\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://8200f6bcd022:4040/jobs/job?id\u003d10"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1559138049779_1814239651",
+      "id": "20190529-135409_1085553568",
+      "dateCreated": "2019-05-29 13:54:09.779",
+      "dateStarted": "2019-05-29 14:05:39.043",
+      "dateFinished": "2019-05-29 14:05:39.307",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n\nval rdd \u003d sc.textFile(\"/opt/files/sample_output.txt\")\n\nrdd.collect().foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2019-05-29 14:05:39.343",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003d\u003d\u003d\u003e This is test content in a text file \u003c\u003d\u003d\u003d\nrdd: org.apache.spark.rdd.RDD[String] \u003d /opt/files/sample_output.txt MapPartitionsRDD[47] at textFile at \u003cconsole\u003e:50\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://8200f6bcd022:4040/jobs/job?id\u003d11"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1559138231039_-691895812",
+      "id": "20190529-135711_961900571",
+      "dateCreated": "2019-05-29 13:57:11.039",
+      "dateStarted": "2019-05-29 14:05:39.360",
+      "dateFinished": "2019-05-29 14:05:39.675",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nimport org.apache.hadoop.conf.Configuration\nimport org.apache.hadoop.fs.{Path, FileSystem}\n\nval fs \u003d FileSystem.get(new Configuration())\nfs.delete(new Path(\"/opt/files\"), true)",
+      "user": "anonymous",
+      "dateUpdated": "2019-05-29 14:05:39.764",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.hadoop.conf.Configuration\nimport org.apache.hadoop.fs.{Path, FileSystem}\nfs: org.apache.hadoop.fs.FileSystem \u003d org.apache.hadoop.fs.LocalFileSystem@25e85c7c\nres22: Boolean \u003d true\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559138011858_-1792605073",
+      "id": "20190529-135331_552666562",
+      "dateCreated": "2019-05-29 13:53:31.858",
+      "dateStarted": "2019-05-29 14:05:39.782",
+      "dateFinished": "2019-05-29 14:05:39.924",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-05-29 14:05:39.983",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559138701498_888865864",
+      "id": "20190529-140501_82812054",
+      "dateCreated": "2019-05-29 14:05:01.498",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "FS/Spark filesystem interaction",
+  "id": "2EENWCFRX",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": [],
+    "postgres_zeppelin_db:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
