@@ -3,7 +3,7 @@
     {
       "text": "%sh\n\nmkdir -p /tmp/postgres_data/\nwget --user zeppelin --password zeppelin http://webdav/london-population-history.csv -O /tmp/postgres_data/london-population-history.csv\n",
       "user": "anonymous",
-      "dateUpdated": "2019-05-27 20:29:38.820",
+      "dateUpdated": "2019-05-29 11:47:37.164",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -27,7 +27,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "--2019-05-27 20:29:38--  http://webdav/london-population-history.csv\nResolving webdav (webdav)... 172.20.0.4\nConnecting to webdav (webdav)|172.20.0.4|:80... connected.\nHTTP request sent, awaiting response... 401 Unauthorized\nAuthentication selected: Basic realm\u003d\"WebDAV\"\nReusing existing connection to webdav:80.\nHTTP request sent, awaiting response... 200 OK\nLength: 1056 (1.0K) [text/csv]\nSaving to: ‘/tmp/postgres_data/london-population-history.csv’\n\n     0K .                                                     100% 15.2M\u003d0s\n\n2019-05-27 20:29:39 (15.2 MB/s) - ‘/tmp/postgres_data/london-population-history.csv’ saved [1056/1056]\n\n"
+            "data": "--2019-05-29 11:47:38--  http://webdav/london-population-history.csv\nResolving webdav (webdav)... 172.23.0.4\nConnecting to webdav (webdav)|172.23.0.4|:80... connected.\nHTTP request sent, awaiting response... 401 Unauthorized\nAuthentication selected: Basic realm\u003d\"WebDAV\"\nReusing existing connection to webdav:80.\nHTTP request sent, awaiting response... 200 OK\nLength: 1056 (1.0K) [text/csv]\nSaving to: ‘/tmp/postgres_data/london-population-history.csv’\n\n     0K .                                                     100%  266M\u003d0s\n\n2019-05-29 11:47:38 (266 MB/s) - ‘/tmp/postgres_data/london-population-history.csv’ saved [1056/1056]\n\n"
           }
         ]
       },
@@ -35,20 +35,28 @@
       "jobName": "paragraph_1558820730569_-24508487",
       "id": "20190525-214530_316409362",
       "dateCreated": "2019-05-25 21:45:30.569",
-      "dateStarted": "2019-05-27 20:29:38.941",
-      "dateFinished": "2019-05-27 20:29:39.142",
+      "dateStarted": "2019-05-29 11:47:37.223",
+      "dateFinished": "2019-05-29 11:47:38.843",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark\nimport org.apache.spark.sql.SQLContext\n                \nimport org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType, DateType};\n\nval customSchema \u003d StructType( Array( StructField(\"year\", DateType, true), \n                                      StructField(\"value\", IntegerType, true)))\n\nval sqlContext \u003d new SQLContext(sc)\nval populationHistoryDF \u003d sqlContext.read.format(\"com.databricks.spark.csv\").\n                         option(\"header\", \"true\").\n                         option(\"delimiter\",\",\").\n                         option(\"charset\", \"UTF-8\").\n                         option(\"treatEmptyValuesAsNulls\", \"True\").\n                         option(\"mode\", \"DROPMALFORMED\").\n                         schema(customSchema).load(\"/tmp/postgres_data/london-population-history.csv\")\n\n//populationHistoryDF.printSchema()                         \n//populationHistoryDF.show()\n\n",
       "user": "anonymous",
-      "dateUpdated": "2019-05-27 20:29:39.242",
+      "dateUpdated": "2019-05-29 11:47:38.936",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
-        "results": {},
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 454.0,
+              "optionOpen": false
+            }
+          }
+        },
         "editorSetting": {
           "language": "scala",
           "editOnDblClick": false,
@@ -67,7 +75,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "warning: there was one deprecation warning; re-run with -deprecation for details\nimport org.apache.spark.sql.SQLContext\nimport org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType, DateType}\ncustomSchema: org.apache.spark.sql.types.StructType \u003d StructType(StructField(year,DateType,true), StructField(value,IntegerType,true))\nsqlContext: org.apache.spark.sql.SQLContext \u003d org.apache.spark.sql.SQLContext@444c651a\npopulationHistoryDF: org.apache.spark.sql.DataFrame \u003d [year: date, value: int]\n"
+            "data": "warning: there was one deprecation warning; re-run with -deprecation for details\nimport org.apache.spark.sql.SQLContext\nimport org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType, DateType}\ncustomSchema: org.apache.spark.sql.types.StructType \u003d StructType(StructField(year,DateType,true), StructField(value,IntegerType,true))\nsqlContext: org.apache.spark.sql.SQLContext \u003d org.apache.spark.sql.SQLContext@29f19b\npopulationHistoryDF: org.apache.spark.sql.DataFrame \u003d [year: date, value: int]\n"
           }
         ]
       },
@@ -75,15 +83,15 @@
       "jobName": "paragraph_1558818688235_424198837",
       "id": "20190525-211128_640148044",
       "dateCreated": "2019-05-25 21:11:28.236",
-      "dateStarted": "2019-05-27 20:29:39.496",
-      "dateFinished": "2019-05-27 20:29:49.043",
+      "dateStarted": "2019-05-29 11:47:38.966",
+      "dateFinished": "2019-05-29 11:47:50.987",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "import java.util.Properties\n\n\nval connectionProperties \u003d new Properties()\nconnectionProperties.put(\"user\", \"zeppelin_admin\")\nconnectionProperties.put(\"password\", \"zeppelin_admin\")\n  \n\npopulationHistoryDF.write\n    .option(\"driver\", \"org.postgresql.Driver\")\n    .mode(\"overwrite\")\n    .jdbc(\"jdbc:postgresql://postgresdb:5432/zeppelin\", \"zeppelin.london_population\", connectionProperties)",
       "user": "anonymous",
-      "dateUpdated": "2019-05-27 20:29:49.096",
+      "dateUpdated": "2019-05-29 11:47:51.034",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -102,26 +110,38 @@
         "forms": {}
       },
       "results": {
-        "code": "ERROR",
+        "code": "SUCCESS",
         "msg": [
           {
             "type": "TEXT",
-            "data": "java.lang.ClassNotFoundException: org.postgresql.Driver\n  at scala.reflect.internal.util.AbstractFileClassLoader.findClass(AbstractFileClassLoader.scala:62)\n  at java.lang.ClassLoader.loadClass(ClassLoader.java:424)\n  at java.lang.ClassLoader.loadClass(ClassLoader.java:357)\n  at org.apache.spark.sql.execution.datasources.jdbc.DriverRegistry$.register(DriverRegistry.scala:38)\n  at org.apache.spark.sql.execution.datasources.jdbc.JDBCOptions$$anonfun$6.apply(JDBCOptions.scala:78)\n  at org.apache.spark.sql.execution.datasources.jdbc.JDBCOptions$$anonfun$6.apply(JDBCOptions.scala:78)\n  at scala.Option.foreach(Option.scala:257)\n  at org.apache.spark.sql.execution.datasources.jdbc.JDBCOptions.\u003cinit\u003e(JDBCOptions.scala:78)\n  at org.apache.spark.sql.execution.datasources.jdbc.JDBCOptions.\u003cinit\u003e(JDBCOptions.scala:34)\n  at org.apache.spark.sql.execution.datasources.jdbc.JdbcRelationProvider.createRelation(JdbcRelationProvider.scala:60)\n  at org.apache.spark.sql.execution.datasources.DataSource.write(DataSource.scala:469)\n  at org.apache.spark.sql.execution.datasources.SaveIntoDataSourceCommand.run(SaveIntoDataSourceCommand.scala:50)\n  at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:58)\n  at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:56)\n  at org.apache.spark.sql.execution.command.ExecutedCommandExec.doExecute(commands.scala:74)\n  at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$1.apply(SparkPlan.scala:117)\n  at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$1.apply(SparkPlan.scala:117)\n  at org.apache.spark.sql.execution.SparkPlan$$anonfun$executeQuery$1.apply(SparkPlan.scala:138)\n  at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)\n  at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:135)\n  at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:116)\n  at org.apache.spark.sql.execution.QueryExecution.toRdd$lzycompute(QueryExecution.scala:92)\n  at org.apache.spark.sql.execution.QueryExecution.toRdd(QueryExecution.scala:92)\n  at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:609)\n  at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:233)\n  at org.apache.spark.sql.DataFrameWriter.jdbc(DataFrameWriter.scala:460)\n  ... 47 elided\n"
+            "data": "import java.util.Properties\nconnectionProperties: java.util.Properties \u003d {user\u003dzeppelin_admin, password\u003dzeppelin_admin}\n"
           }
         ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://6f90ea235fba:4040/jobs/job?id\u003d0"
+          ],
+          "interpreterSettingId": "spark"
+        }
       },
       "apps": [],
       "jobName": "paragraph_1558818559114_-67579491",
       "id": "20190525-210919_390534389",
       "dateCreated": "2019-05-25 21:09:19.114",
-      "dateStarted": "2019-05-27 20:29:49.329",
-      "dateFinished": "2019-05-27 20:29:51.122",
-      "status": "ERROR",
+      "dateStarted": "2019-05-29 11:47:51.065",
+      "dateFinished": "2019-05-29 11:47:54.816",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "user": "anonymous",
-      "dateUpdated": "2019-05-26 20:59:09.858",
+      "dateUpdated": "2019-05-29 11:47:54.878",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -153,8 +173,7 @@
   "noteForms": {},
   "angularObjects": {
     "sh:shared_process": [],
-    "spark:shared_process": [],
-    "postgres_zeppelin_db:shared_process": []
+    "spark:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false
