@@ -91,7 +91,7 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "Database/01_Direct_Database_Interaction",
+  "name": "Database/Direct_Database_Interaction",
   "id": "2EAWM78WR",
   "noteParams": {},
   "noteForms": {},

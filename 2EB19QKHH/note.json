@@ -219,7 +219,7 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "Database/02_Spark_Database_Interaction",
+  "name": "Database/Spark_Database_Interaction",
   "id": "2EB19QKHH",
   "noteParams": {},
   "noteForms": {},
