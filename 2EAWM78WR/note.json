@@ -3,7 +3,7 @@
     {
       "text": "create table london_population\n(\n\tyear varchar(200) not null,\n\tvalue int not null\n);\n",
       "user": "anonymous",
-      "dateUpdated": "2019-05-26 18:52:26.114",
+      "dateUpdated": "2019-05-29 10:35:37.651",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -33,15 +33,15 @@
       "jobName": "paragraph_1558815072246_-700793186",
       "id": "20190525-201112_1972726756",
       "dateCreated": "2019-05-25 20:11:12.246",
-      "dateStarted": "2019-05-26 18:52:26.213",
-      "dateFinished": "2019-05-26 18:52:26.368",
+      "dateStarted": "2019-05-29 10:35:37.676",
+      "dateFinished": "2019-05-29 10:35:39.869",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "drop table london_population;",
       "user": "anonymous",
-      "dateUpdated": "2019-05-26 18:52:21.485",
+      "dateUpdated": "2019-05-29 10:35:46.126",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -59,11 +59,11 @@
         "forms": {}
       },
       "results": {
-        "code": "ERROR",
+        "code": "SUCCESS",
         "msg": [
           {
             "type": "TEXT",
-            "data": "org.postgresql.util.PSQLException: ERROR: table \"london_population\" does not exist\n\tat org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2440)\n\tat org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2183)\n\tat org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:308)\n\tat org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:441)\n\tat org.postgresql.jdbc.PgStatement.execute(PgStatement.java:365)\n\tat org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:307)\n\tat org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:293)\n\tat org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:270)\n\tat org.postgresql.jdbc.PgStatement.execute(PgStatement.java:266)\n\tat org.apache.commons.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:291)\n\tat org.apache.commons.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:291)\n\tat org.apache.zeppelin.jdbc.JDBCInterpreter.executeSql(JDBCInterpreter.java:736)\n\tat org.apache.zeppelin.jdbc.JDBCInterpreter.interpret(JDBCInterpreter.java:819)\n\tat org.apache.zeppelin.interpreter.LazyOpenInterpreter.interpret(LazyOpenInterpreter.java:103)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterServer$InterpretJob.jobRun(RemoteInterpreterServer.java:632)\n\tat org.apache.zeppelin.scheduler.Job.run(Job.java:188)\n\tat org.apache.zeppelin.scheduler.ParallelScheduler$JobRunner.run(ParallelScheduler.java:162)\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat java.lang.Thread.run(Thread.java:748)\n"
+            "data": "Query executed successfully. Affected rows : 0"
           }
         ]
       },
@@ -71,9 +71,9 @@
       "jobName": "paragraph_1558817681749_54550951",
       "id": "20190525-205441_1093274846",
       "dateCreated": "2019-05-25 20:54:41.754",
-      "dateStarted": "2019-05-26 18:52:21.561",
-      "dateFinished": "2019-05-26 18:52:21.660",
-      "status": "ERROR",
+      "dateStarted": "2019-05-29 10:35:46.148",
+      "dateFinished": "2019-05-29 10:35:46.166",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
