@@ -1,4 +1,4 @@
-# Zeppelin sample Notebook
+# Zeppelin sample Notebook (Work in progress)
 
 Apache Zeppelin sample Notebooks for different use cases and external systems.
 
@@ -7,7 +7,9 @@ This repository is used in a Docker based Zeppelin instance, hosted in [another 
 ### TODO
 
 - [ ] Welcome page
-- [ ] Introduction in all Notebooks
+- [ ] Introductions and descriptions in all Notebooks
+- [ ] Use case with Forms
+- [ ] Use case with Properties
 - [ ] Use case with Java
 - [ ] Use case with Python
 - [ ] Use case with Matlab
