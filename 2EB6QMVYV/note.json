@@ -1,0 +1,30 @@
+{
+  "paragraphs": [
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559246192551_1901827784",
+      "id": "20190530-195632_2096594358",
+      "dateCreated": "2019-05-30 19:56:32.552",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Visualization/Forms",
+  "id": "2EB6QMVYV",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "sh:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

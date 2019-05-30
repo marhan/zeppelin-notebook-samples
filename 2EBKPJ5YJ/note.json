@@ -121,7 +121,7 @@
     {
       "text": "%spark.sql\nselect age, avg(balance), min(balance), max(balance) from bank group by age order by age\n",
       "user": "anonymous",
-      "dateUpdated": "2019-05-29 13:50:20.957",
+      "dateUpdated": "2019-05-30 19:56:36.566",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -215,18 +215,6 @@
             "data": ""
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://8200f6bcd022:4040/jobs/job?id\u003d0"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1558605150517_-643688708",
