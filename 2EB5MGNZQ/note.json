@@ -1,9 +1,77 @@
 {
   "paragraphs": [
     {
-      "text": "%dep\n\nz.addRepo(\"Spark Packages Repo\").url(\"http://dl.bintray.com/spark-packages/maven\")\nz.addRepo(\"Maven Central\").url(\"http://central.maven.org/maven2/\")\n\nz.load(\"io.minio:minio:jar:6.0.7\")\nz.load(\"com.google.http-client:google-http-client-xml:jar:1.20.0\")\nz.load(\"com.google.http-client:google-http-client:jar:1.20.0\")\nz.load(\"xpp3:xpp3:jar:1.1.4c\")\nz.load(\"com.google.guava:guava:jar:25.1-jre\")\nz.load(\"org.checkerframework:checker-qual:jar:2.0.0\")\nz.load(\"com.google.errorprone:error_prone_annotations:jar:2.1.3\")\nz.load(\"com.google.j2objc:j2objc-annotations:jar:1.1\")\nz.load(\"org.codehaus.mojo:animal-sniffer-annotations:jar:1.14\")\nz.load(\"com.squareup.okhttp3:okhttp:jar:3.13.1\")\nz.load(\"com.squareup.okio:okio:jar:1.17.3\")\nz.load(\"joda-time:joda-time:jar:2.7\")\nz.load(\"com.fasterxml.jackson.core:jackson-annotations:jar:2.9.6\")\nz.load(\"com.fasterxml.jackson.core:jackson-core:jar:2.9.6\")\nz.load(\"com.fasterxml.jackson.core:jackson-databind:jar:2.9.6\")\nz.load(\"com.google.code.findbugs:annotations:jar:3.0.1\")\nz.load(\"net.jcip:jcip-annotations:jar:1.0\")\nz.load(\"com.google.code.findbugs:jsr305:jar:3.0.1\")\nz.load(\"org.postgresql:postgresql:jar:42.2.5\")\nz.load(\"com.amazonaws:aws-java-sdk:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-mediapackagevod:jar:1.11.560\")\nz.load(\"com.amazonaws:jmespath-java:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-managedblockchain:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-textract:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-worklink:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-backup:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-docdb:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-apigatewayv2:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-apigatewaymanagementapi:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-kafka:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-appmesh:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-licensemanager:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-securityhub:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-fsx:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-mediaconnect:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-kinesisanalyticsv2:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-comprehendmedical:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-globalaccelerator:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-transfer:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-datasync:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-robomaker:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-amplify:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-quicksight:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-rdsdata:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-route53resolver:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-ram:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-s3control:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-pinpointsmsvoice:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-pinpointemail:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-chime:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-signer:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-dlm:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-macie:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-eks:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-mediatailor:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-neptune:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-pi:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-iot1clickprojects:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-iot1clickdevices:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-iotanalytics:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-acmpca:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-secretsmanager:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-fms:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-connect:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-transcribe:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-autoscalingplans:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-workmail:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-servicediscovery:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-cloud9:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-serverlessapplicationrepository:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-alexaforbusiness:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-resourcegroups:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-comprehend:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-translate:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-sagemaker:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-iotjobsdataplane:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-sagemakerruntime:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-kinesisvideo:jar:1.11.560\")\nz.load(\"io.netty:netty-codec-http:jar:4.1.17.Final\")\nz.load(\"io.netty:netty-codec:jar:4.1.17.Final\")\nz.load(\"io.netty:netty-handler:jar:4.1.17.Final\")\nz.load(\"io.netty:netty-buffer:jar:4.1.17.Final\")\nz.load(\"io.netty:netty-common:jar:4.1.17.Final\")\nz.load(\"io.netty:netty-transport:jar:4.1.17.Final\")\nz.load(\"io.netty:netty-resolver:jar:4.1.17.Final\")\nz.load(\"com.amazonaws:aws-java-sdk-appsync:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-guardduty:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-mq:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-mediaconvert:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-mediastore:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-mediastoredata:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-medialive:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-mediapackage:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-costexplorer:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-pricing:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-mobile:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-cloudhsmv2:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-glue:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-migrationhub:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-dax:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-greengrass:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-athena:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-marketplaceentitlement:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-codestar:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-lexmodelbuilding:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-resourcegroupstaggingapi:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-pinpoint:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-xray:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-opsworkscm:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-support:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-simpledb:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-servicecatalog:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-servermigration:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-simpleworkflow:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-storagegateway:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-route53:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-s3:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-importexport:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-sts:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-sqs:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-rds:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-redshift:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-elasticbeanstalk:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-glacier:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-iam:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-datapipeline:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-elasticloadbalancing:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-elasticloadbalancingv2:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-emr:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-elasticache:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-elastictranscoder:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-ec2:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-dynamodb:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-sns:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-budgets:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-cloudtrail:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-cloudwatch:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-logs:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-events:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-cognitoidentity:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-cognitosync:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-directconnect:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-cloudformation:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-cloudfront:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-clouddirectory:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-kinesis:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-opsworks:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-ses:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-autoscaling:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-cloudsearch:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-cloudwatchmetrics:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-codedeploy:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-codepipeline:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-kms:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-config:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-lambda:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-ecs:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-ecr:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-cloudhsm:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-ssm:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-workspaces:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-machinelearning:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-directory:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-efs:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-codecommit:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-devicefarm:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-elasticsearch:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-waf:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-marketplacecommerceanalytics:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-inspector:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-iot:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-api-gateway:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-acm:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-gamelift:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-dms:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-marketplacemeteringservice:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-cognitoidp:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-discovery:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-applicationautoscaling:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-snowball:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-rekognition:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-polly:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-lightsail:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-stepfunctions:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-health:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-costandusagereport:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-codebuild:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-appstream:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-shield:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-batch:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-lex:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-mechanicalturkrequester:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-organizations:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-workdocs:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-core:jar:1.11.560\")\nz.load(\"commons-logging:commons-logging:jar:1.1.3\")\nz.load(\"org.apache.httpcomponents:httpclient:jar:4.5.5\")\nz.load(\"org.apache.httpcomponents:httpcore:jar:4.4.9\")\nz.load(\"commons-codec:commons-codec:jar:1.10\")\nz.load(\"software.amazon.ion:ion-java:jar:1.0.2\")\nz.load(\"com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:jar:2.6.7\")\nz.load(\"com.amazonaws:aws-java-sdk-models:jar:1.11.560\")\nz.load(\"com.amazonaws:aws-java-sdk-swf-libraries:jar:1.11.22\")\n// manual added\nz.load(\"io.netty:netty-tcnative:2.0.25.Final\")\n",
+      "text": "%md\n\n# \n",
       "user": "anonymous",
-      "dateUpdated": "2019-05-26 22:09:27.862",
+      "dateUpdated": "2019-05-30 18:44:49.177",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559241876418_55069897",
+      "id": "20190530-184436_1356762432",
+      "dateCreated": "2019-05-30 18:44:36.418",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%dep\n\nz.addRepo(\"Spark Packages Repo\").url(\"http://dl.bintray.com/spark-packages/maven\")\nz.addRepo(\"Maven Central\").url(\"http://central.maven.org/maven2/\")\n\nz.load(\"org.postgresql:postgresql:jar:42.2.5\")\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-05-30 18:44:32.749",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@3b1bd02f\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1558897099309_-1070089196",
+      "id": "20190526-185819_1442309039",
+      "dateCreated": "2019-05-26 18:58:19.310",
+      "dateStarted": "2019-05-30 18:44:03.189",
+      "dateFinished": "2019-05-30 18:44:24.904",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%dep\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-05-30 18:44:24.991",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -21,38 +89,11 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "ERROR",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "org.sonatype.aether.resolution.DependencyResolutionException: Could not find artifact io.netty:netty-tcnative:jar:${os.detected.classifier}:2.0.7.Final in central (http://repo1.maven.org/maven2/)"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1558897099309_-1070089196",
-      "id": "20190526-185819_1442309039",
-      "dateCreated": "2019-05-26 18:58:19.310",
-      "dateStarted": "2019-05-26 22:09:27.945",
-      "dateFinished": "2019-05-26 22:09:46.159",
-      "status": "ERROR",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%dep\n",
-      "user": "anonymous",
-      "dateUpdated": "2019-05-26 20:55:58.007",
-      "config": {},
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
       "apps": [],
       "jobName": "paragraph_1558904158004_-613698348",
       "id": "20190526-205558_986283811",
       "dateCreated": "2019-05-26 20:55:58.005",
-      "status": "READY",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     }
   ],
@@ -62,8 +103,8 @@
   "noteForms": {},
   "angularObjects": {
     "md:shared_process": [],
-    "sh:shared_process": [],
-    "spark:shared_process": []
+    "spark:shared_process": [],
+    "postgres_zeppelin_db:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false
