@@ -1,0 +1,115 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n[Spark s3select](https://docs.aws.amazon.com/de_de/emr/latest/ReleaseGuide/emr-spark-s3select.html)",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-01 06:59:14.737",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003e\u003ca href\u003d\"https://docs.aws.amazon.com/de_de/emr/latest/ReleaseGuide/emr-spark-s3select.html\"\u003eSpark s3select\u003c/a\u003e\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559372312177_1934527590",
+      "id": "20190601-065832_850901460",
+      "dateCreated": "2019-06-01 06:58:32.177",
+      "dateStarted": "2019-06-01 06:59:14.737",
+      "dateFinished": "2019-06-01 06:59:21.167",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n\nspark\n  .read\n  .format(\"s3selectCSV\")\n  .options(\"header\", \"true\")\n  .load(\"s3://localhost:10003/bank.csv\")\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-01 07:08:17.345",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cconsole\u003e:29: error: overloaded method value options with alternatives:\n  (options: java.util.Map[String,String])org.apache.spark.sql.DataFrameReader \u003cand\u003e\n  (options: scala.collection.Map[String,String])org.apache.spark.sql.DataFrameReader\n cannot be applied to (String, String)\n         .options(\"header\", \"true\")\n          ^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559372354554_-1810404279",
+      "id": "20190601-065914_2031281241",
+      "dateCreated": "2019-06-01 06:59:14.555",
+      "dateStarted": "2019-06-01 07:08:17.716",
+      "dateFinished": "2019-06-01 07:08:18.740",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-01 07:01:52.664",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559372512658_-1925184250",
+      "id": "20190601-070152_1652146864",
+      "dateCreated": "2019-06-01 07:01:52.659",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "S3/Spark",
+  "id": "2ECVDEN73",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "maria_zeppelin_db:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": [],
+    "postgres_zeppelin_db:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

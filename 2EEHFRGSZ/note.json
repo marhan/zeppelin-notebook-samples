@@ -1,9 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "# What you will find here",
+      "text": "# What you will find here\n\nThis ",
       "user": "anonymous",
-      "dateUpdated": "2019-05-29 13:51:14.208",
+      "dateUpdated": "2019-06-01 06:49:45.439",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -15,7 +15,7 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
+        "editorHide": false,
         "tableHide": false
       },
       "settings": {
@@ -62,8 +62,7 @@
   "angularObjects": {
     "md:shared_process": [],
     "sh:shared_process": [],
-    "spark:shared_process": [],
-    "postgres_zeppelin_db:shared_process": []
+    "spark:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false

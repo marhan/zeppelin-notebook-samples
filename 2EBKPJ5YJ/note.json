@@ -121,7 +121,7 @@
     {
       "text": "%spark.sql\nselect age, avg(balance), min(balance), max(balance) from bank group by age order by age\n",
       "user": "anonymous",
-      "dateUpdated": "2019-05-30 19:56:36.566",
+      "dateUpdated": "2019-06-01 07:20:48.268",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,

@@ -1,9 +1,37 @@
 {
   "paragraphs": [
     {
-      "text": "import com.amazonaws.AmazonServiceException\nimport com.amazonaws.services.s3.AmazonS3\nimport com.amazonaws.services.s3.AmazonS3ClientBuilder\nimport com.amazonaws.services.s3.model.S3Object\nimport com.amazonaws.services.s3.model.S3ObjectInputStream\nimport java.io.File\nimport java.io.FileNotFoundException\nimport java.io.FileOutputStream\nimport java.io.IOException\n\n\nval bucketName \u003d \"zeppelin\"\nval keyName \u003d \"bank.csv\"\n\nval credentials \u003d new BasicAWSCredentials(\"zeppelin\", \"zeppelin\")\nval clientConfiguration \u003d new ClientConfiguration()\nclientConfiguration.setSignerOverride(\"AWSS3V4SignerType\")\n\nval s3Client \u003d AmazonS3ClientBuilder\n                .standard()\n                .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(\"http://localhost:9000\", Regions.US_EAST_1.name()))\n                .withPathStyleAccessEnabled(true)\n                .withClientConfiguration(clientConfiguration)\n                .withCredentials(new AWSStaticCredentialsProvider(credentials))\n                .build()\n\nGetObjectRequest rangeObjectRequest \u003d new GetObjectRequest(bucketName, keyName)\nS3Object objectPortion \u003d s3Client.getObject(rangeObjectRequest)\nobjectPortion.getObjectContent()\n",
+      "text": "%md\n\nIn this example the Java Amazon Web Service Client is integrated as a Jar file in the folder \"/opt/custom_library\" and linked as dependency \n\n",
       "user": "anonymous",
-      "dateUpdated": "2019-05-29 13:28:55.643",
+      "dateUpdated": "2019-06-01 06:54:52.813",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559371942053_23606337",
+      "id": "20190601-065222_214477902",
+      "dateCreated": "2019-06-01 06:52:22.054",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "import com.amazonaws.AmazonServiceException\nimport com.amazonaws.services.s3.AmazonS3\nimport com.amazonaws.services.s3.AmazonS3ClientBuilder\nimport com.amazonaws.services.s3.model.S3Object\nimport com.amazonaws.services.s3.model.S3ObjectInputStream\nimport java.io.File\nimport java.io.FileNotFoundException\nimport java.io.FileOutputStream\nimport java.io.IOException\nimport com.amazonaws.auth.BasicAWSCredentials\nimport com.amazonaws.ClientConfiguration\nimport com.amazonaws.client.builder.AwsClientBuilder\nimport com.amazonaws.auth.AWSStaticCredentialsProvider\nimport com.amazonaws.regions.Regions\n\n\nval bucketName \u003d \"zeppelin\"\nval keyName \u003d \"bank.csv\"\n\nval credentials \u003d new BasicAWSCredentials(\"zeppelin\", \"zeppelin\")\nval clientConfiguration \u003d new ClientConfiguration()\nclientConfiguration.setSignerOverride(\"AWSS3V4SignerType\")\n\nval s3Client \u003d AmazonS3ClientBuilder\n                .standard()\n                .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(\"http://localhost:9000\", Regions.US_EAST_1.name()))\n                .withPathStyleAccessEnabled(true)\n                .withClientConfiguration(clientConfiguration)\n                .withCredentials(new AWSStaticCredentialsProvider(credentials))\n                .build()\n\nGetObjectRequest rangeObjectRequest \u003d new GetObjectRequest(bucketName, keyName)\nval objectPortion \u003d s3Client.getObject(rangeObjectRequest)\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-01 09:03:59.792",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -26,7 +54,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "\u003cconsole\u003e:37: error: not found: type BasicAWSCredentials\n       val credentials \u003d new BasicAWSCredentials(\"zeppelin\", \"zeppelin\")\n                             ^\n\u003cconsole\u003e:38: error: not found: type ClientConfiguration\n       val clientConfiguration \u003d new ClientConfiguration()\n                                     ^\n\u003cconsole\u003e:43: error: not found: value AwsClientBuilder\n                       .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(\"http://localhost:9000\", Regions.US_EAST_1.name()))\n                                                      ^\n\u003cconsole\u003e:43: error: not found: value Regions\n                       .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(\"http://localhost:9000\", Regions.US_EAST_1.name()))\n                                                                                                                      ^\n\u003cconsole\u003e:46: error: not found: type AWSStaticCredentialsProvider\n                       .withCredentials(new AWSStaticCredentialsProvider(credentials))\n                                            ^\n\u003cconsole\u003e:53: error: not found: value objectPortion\n       objectPortion.getObjectContent()\n       ^\n\u003cconsole\u003e:70: error: not found: value GetObjectRequest\nval $ires6 \u003d GetObjectRequest.rangeObjectRequest\n             ^\n\u003cconsole\u003e:71: error: value objectPortion is not a member of object com.amazonaws.services.s3.model.S3Object\nval $ires7 \u003d S3Object.objectPortion\n                      ^\n\u003cconsole\u003e:49: error: not found: value GetObjectRequest\n       GetObjectRequest rangeObjectRequest \u003d new GetObjectRequest(bucketName, keyName)\n       ^\n\u003cconsole\u003e:50: error: value objectPortion is not a member of object com.amazonaws.services.s3.model.S3Object\n       S3Object objectPortion \u003d s3Client.getObject(rangeObjectRequest)\n                ^\n"
+            "data": "\u003cconsole\u003e:55: error: not found: value rangeObjectRequest\n       val objectPortion \u003d s3Client.getObject(rangeObjectRequest)\n                                              ^\n\u003cconsole\u003e:77: error: not found: value GetObjectRequest\nval $ires6 \u003d GetObjectRequest.rangeObjectRequest\n             ^\n\u003cconsole\u003e:54: error: not found: value GetObjectRequest\n       GetObjectRequest rangeObjectRequest \u003d new GetObjectRequest(bucketName, keyName)\n       ^\n"
           }
         ]
       },
@@ -34,22 +62,91 @@
       "jobName": "paragraph_1558905143742_546252646",
       "id": "20190526-211223_1000649234",
       "dateCreated": "2019-05-26 21:12:23.742",
-      "dateStarted": "2019-05-29 13:28:55.699",
-      "dateFinished": "2019-05-29 13:29:05.290",
+      "dateStarted": "2019-06-01 09:04:00.116",
+      "dateFinished": "2019-06-01 09:05:02.943",
       "status": "ERROR",
       "progressUpdateIntervalMs": 500
     },
     {
+      "text": "%md\n\n- [Hadoop S3a Doc](https://hadoop.apache.org/docs/current/hadoop-aws/tools/hadoop-aws/index.html#S3A)\n- [apache-spark-with-minio](https://github.com/minio/cookbook/blob/master/docs/apache-spark-with-minio.md)\n",
       "user": "anonymous",
+      "dateUpdated": "2019-06-01 10:37:09.536",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559383332391_68952284",
+      "id": "20190601-100212_876028801",
+      "dateCreated": "2019-06-01 10:02:12.392",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n\n\n//sc.hadoopConfiguration.set(\"fs.s3a.connection.ssl.enabled\", \"false\")\n//sc.hadoopConfiguration.set(\"fs.s3a.aws.credentials.provider\", \"org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider\")\n//sc.hadoopConfiguration.set(\"fs.s3a.access.key\", \"zeppelin\")\n//sc.hadoopConfiguration.set(\"fs.s3a.secret.key\", \"zeppelin\")\n\nval bankText \u003d sc.textFile(\"s3a://zeppelin/bank.csv\")\n\ncase class Bank(age: Integer, job: String, marital: String, education: String, balance: Integer)\n\nval bank \u003d bankText.map(s \u003d\u003e s.split(\";\")).filter(s \u003d\u003e s(0) !\u003d \"\\\"age\\\"\").map(\n    s \u003d\u003e Bank(s(0).toInt, \n            s(1).replaceAll(\"\\\"\", \"\"),\n            s(2).replaceAll(\"\\\"\", \"\"),\n            s(3).replaceAll(\"\\\"\", \"\"),\n            s(5).replaceAll(\"\\\"\", \"\").toInt)).toDF()\n            \nbank.collect().foreach(println)\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-01 11:07:34.904",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "com.amazonaws.AmazonClientException: Unable to execute HTTP request: zeppelin.http: Name or service not known\n  at com.amazonaws.http.AmazonHttpClient.executeHelper(AmazonHttpClient.java:454)\n  at com.amazonaws.http.AmazonHttpClient.execute(AmazonHttpClient.java:232)\n  at com.amazonaws.services.s3.AmazonS3Client.invoke(AmazonS3Client.java:3556)\n  at com.amazonaws.services.s3.AmazonS3Client.headBucket(AmazonS3Client.java:1036)\n  at com.amazonaws.services.s3.AmazonS3Client.doesBucketExist(AmazonS3Client.java:999)\n  at org.apache.hadoop.fs.s3a.S3AFileSystem.initialize(S3AFileSystem.java:297)\n  at org.apache.hadoop.fs.FileSystem.createFileSystem(FileSystem.java:2669)\n  at org.apache.hadoop.fs.FileSystem.access$200(FileSystem.java:94)\n  at org.apache.hadoop.fs.FileSystem$Cache.getInternal(FileSystem.java:2703)\n  at org.apache.hadoop.fs.FileSystem$Cache.get(FileSystem.java:2685)\n  at org.apache.hadoop.fs.FileSystem.get(FileSystem.java:373)\n  at org.apache.hadoop.fs.Path.getFileSystem(Path.java:295)\n  at org.apache.hadoop.mapred.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:258)\n  at org.apache.hadoop.mapred.FileInputFormat.listStatus(FileInputFormat.java:229)\n  at org.apache.hadoop.mapred.FileInputFormat.getSplits(FileInputFormat.java:315)\n  at org.apache.spark.rdd.HadoopRDD.getPartitions(HadoopRDD.scala:204)\n  at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:253)\n  at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:251)\n  at scala.Option.getOrElse(Option.scala:121)\n  at org.apache.spark.rdd.RDD.partitions(RDD.scala:251)\n  at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:49)\n  at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:253)\n  at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:251)\n  at scala.Option.getOrElse(Option.scala:121)\n  at org.apache.spark.rdd.RDD.partitions(RDD.scala:251)\n  at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:49)\n  at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:253)\n  at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:251)\n  at scala.Option.getOrElse(Option.scala:121)\n  at org.apache.spark.rdd.RDD.partitions(RDD.scala:251)\n  at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:49)\n  at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:253)\n  at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:251)\n  at scala.Option.getOrElse(Option.scala:121)\n  at org.apache.spark.rdd.RDD.partitions(RDD.scala:251)\n  at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:49)\n  at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:253)\n  at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:251)\n  at scala.Option.getOrElse(Option.scala:121)\n  at org.apache.spark.rdd.RDD.partitions(RDD.scala:251)\n  at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:49)\n  at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:253)\n  at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:251)\n  at scala.Option.getOrElse(Option.scala:121)\n  at org.apache.spark.rdd.RDD.partitions(RDD.scala:251)\n  at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:49)\n  at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:253)\n  at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:251)\n  at scala.Option.getOrElse(Option.scala:121)\n  at org.apache.spark.rdd.RDD.partitions(RDD.scala:251)\n  at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:49)\n  at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:253)\n  at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:251)\n  at scala.Option.getOrElse(Option.scala:121)\n  at org.apache.spark.rdd.RDD.partitions(RDD.scala:251)\n  at org.apache.spark.SparkContext.runJob(SparkContext.scala:2126)\n  at org.apache.spark.rdd.RDD$$anonfun$collect$1.apply(RDD.scala:945)\n  at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)\n  at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)\n  at org.apache.spark.rdd.RDD.withScope(RDD.scala:363)\n  at org.apache.spark.rdd.RDD.collect(RDD.scala:944)\n  at org.apache.spark.sql.execution.SparkPlan.executeCollect(SparkPlan.scala:299)\n  at org.apache.spark.sql.Dataset.org$apache$spark$sql$Dataset$$collectFromPlan(Dataset.scala:3383)\n  at org.apache.spark.sql.Dataset$$anonfun$collect$1.apply(Dataset.scala:2782)\n  at org.apache.spark.sql.Dataset$$anonfun$collect$1.apply(Dataset.scala:2782)\n  at org.apache.spark.sql.Dataset$$anonfun$53.apply(Dataset.scala:3364)\n  at org.apache.spark.sql.execution.SQLExecution$$anonfun$withNewExecutionId$1.apply(SQLExecution.scala:78)\n  at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:125)\n  at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:73)\n  at org.apache.spark.sql.Dataset.withAction(Dataset.scala:3363)\n  at org.apache.spark.sql.Dataset.collect(Dataset.scala:2782)\n  ... 41 elided\nCaused by: java.net.UnknownHostException: zeppelin.http: Name or service not known\n  at java.net.Inet4AddressImpl.lookupAllHostAddr(Native Method)\n  at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:929)\n  at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1324)\n  at java.net.InetAddress.getAllByName0(InetAddress.java:1277)\n  at java.net.InetAddress.getAllByName(InetAddress.java:1193)\n  at java.net.InetAddress.getAllByName(InetAddress.java:1127)\n  at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)\n  at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:259)\n  at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:159)\n  at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)\n  at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611)\n  at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446)\n  at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:882)\n  at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)\n  at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)\n  at com.amazonaws.http.AmazonHttpClient.executeHelper(AmazonHttpClient.java:384)\n  ... 111 more\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1558907118435_1962157078",
+      "id": "20190526-214518_204877608",
+      "dateCreated": "2019-05-26 21:45:18.435",
+      "dateStarted": "2019-06-01 11:07:35.154",
+      "dateFinished": "2019-06-01 11:10:38.873",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-01 07:18:53.349",
       "config": {},
       "settings": {
         "params": {},
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1558907118435_1962157078",
-      "id": "20190526-214518_204877608",
-      "dateCreated": "2019-05-26 21:45:18.435",
+      "jobName": "paragraph_1559373533346_583563276",
+      "id": "20190601-071853_997169325",
+      "dateCreated": "2019-06-01 07:18:53.347",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
@@ -60,7 +157,6 @@
   "noteForms": {},
   "angularObjects": {
     "md:shared_process": [],
-    "sh:shared_process": [],
     "spark:shared_process": []
   },
   "config": {
