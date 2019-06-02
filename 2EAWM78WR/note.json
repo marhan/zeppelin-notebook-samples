@@ -1,9 +1,90 @@
 {
   "paragraphs": [
     {
-      "text": "%postgres_zeppelin_db\n\ncreate table london_population\n(\n\tyear varchar(200) not null,\n\tvalue int not null\n);\n",
+      "text": "%md\n\n# Direct database interactions\n\nDatabase connectivity can be realized via dedicated Interpreters per database connections. They are configured via JDBC Drivers.\n\n\n",
       "user": "anonymous",
-      "dateUpdated": "2019-05-30 19:13:56.560",
+      "dateUpdated": "2019-06-02 16:13:45.575",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eDirect database interactions\u003c/h1\u003e\n\u003cp\u003eDatabase connectivity can be realized via dedicated Interpreters per database connections. They are configured via JDBC Drivers.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559490633802_-855585866",
+      "id": "20190602-155033_2017381444",
+      "dateCreated": "2019-06-02 15:50:33.803",
+      "dateStarted": "2019-06-02 16:13:45.637",
+      "dateFinished": "2019-06-02 16:13:45.655",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\n# PostgreSQL\n\nThis [PostgreSQL](https://www.postgresql.org/) JDBC Interpreter uses a Java Jar file, which is placed into a customized library folder. \nThe Jar file is referenced as an artifact within the Interpreter dependency settings via local filesystem path (`/opt/custom_lib/postgresql-42.2.5.jar`).\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-02 16:13:45.729",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003ePostgreSQL\u003c/h1\u003e\n\u003cp\u003eThis \u003ca href\u003d\"https://www.postgresql.org/\"\u003ePostgreSQL\u003c/a\u003e JDBC Interpreter uses a Java Jar file, which is placed into a customized library folder.\u003cbr/\u003eThe Jar file is referenced as an artifact within the Interpreter dependency settings via local filesystem path (\u003ccode\u003e/opt/custom_lib/postgresql-42.2.5.jar\u003c/code\u003e).\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559490763458_1833843413",
+      "id": "20190602-155243_1905469979",
+      "dateCreated": "2019-06-02 15:52:43.458",
+      "dateStarted": "2019-06-02 16:13:45.835",
+      "dateFinished": "2019-06-02 16:13:45.922",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Create table",
+      "text": "%postgres_zeppelin_db\n\ncreate table people\n(\n\tname varchar(200) not null,\n\tage int not null\n);",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-02 16:13:46.024",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -14,7 +95,10 @@
           "editOnDblClick": false,
           "completionSupport": true
         },
-        "editorMode": "ace/mode/sql"
+        "editorMode": "ace/mode/sql",
+        "editorHide": false,
+        "tableHide": false,
+        "title": true
       },
       "settings": {
         "params": {},
@@ -33,15 +117,16 @@
       "jobName": "paragraph_1558815072246_-700793186",
       "id": "20190525-201112_1972726756",
       "dateCreated": "2019-05-25 20:11:12.246",
-      "dateStarted": "2019-05-30 19:13:56.654",
-      "dateFinished": "2019-05-30 19:13:56.952",
+      "dateStarted": "2019-06-02 16:13:46.075",
+      "dateFinished": "2019-06-02 16:13:46.120",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%postgres_zeppelin_db\n\ndrop table london_population;",
+      "title": "Insert data",
+      "text": "%postgres_zeppelin_db\n\ninsert into people (name, age) values (\u0027Mike\u0027, 22);\ninsert into people (name, age) values (\u0027Anna\u0027, 31);",
       "user": "anonymous",
-      "dateUpdated": "2019-05-30 19:13:59.183",
+      "dateUpdated": "2019-06-02 16:13:46.170",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -52,7 +137,183 @@
           "editOnDblClick": false,
           "completionSupport": true
         },
-        "editorMode": "ace/mode/sql"
+        "editorMode": "ace/mode/sql",
+        "editorHide": false,
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Query executed successfully. Affected rows : 1"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559488696400_-1655674967",
+      "id": "20190602-151816_1161247916",
+      "dateCreated": "2019-06-02 15:18:16.400",
+      "dateStarted": "2019-06-02 16:13:46.255",
+      "dateFinished": "2019-06-02 16:13:46.362",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Select data",
+      "text": "%postgres_zeppelin_db\n\nselect * from people;",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-02 16:13:46.455",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 148.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "name",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {
+                          "priority": 0.0,
+                          "direction": "asc"
+                        },
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "age",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 250.0
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "name": "string",
+                      "age": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "name",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "age",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": false,
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tage\nMike\t22\nAnna\t31\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559488920089_73090572",
+      "id": "20190602-152200_1215052282",
+      "dateCreated": "2019-06-02 15:22:00.089",
+      "dateStarted": "2019-06-02 16:13:46.518",
+      "dateFinished": "2019-06-02 16:13:46.545",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Drop table",
+      "text": "%postgres_zeppelin_db\n\ndrop table people;",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-02 16:13:46.614",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": false,
+        "tableHide": false,
+        "title": true
       },
       "settings": {
         "params": {},
@@ -71,42 +332,55 @@
       "jobName": "paragraph_1558817681749_54550951",
       "id": "20190525-205441_1093274846",
       "dateCreated": "2019-05-25 20:54:41.754",
-      "dateStarted": "2019-05-30 19:13:59.230",
-      "dateFinished": "2019-05-30 19:13:59.285",
+      "dateStarted": "2019-06-02 16:13:46.662",
+      "dateFinished": "2019-06-02 16:13:46.703",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md",
+      "text": "%md\n\n# MariaDB\n\nThis [MariaDB](https://mariadb.org/) JDBC Interpreter uses a Java Jar file, which is addressed via [Maven](https://maven.apache.org/) artifact coordinates.\nThe Driver is configured as artifact within the Interpreter dependency settings as maven dependency (`org.mariadb.jdbc:mariadb-java-client:1.5.4`).\nMaven will download the file by the configured Maven repositories.\n",
       "user": "anonymous",
-      "dateUpdated": "2019-05-30 19:13:26.104",
+      "dateUpdated": "2019-06-02 16:13:46.762",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "sql",
-          "editOnDblClick": false,
-          "completionSupport": true
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
         },
-        "editorMode": "ace/mode/sql"
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eMariaDB\u003c/h1\u003e\n\u003cp\u003eThis \u003ca href\u003d\"https://mariadb.org/\"\u003eMariaDB\u003c/a\u003e JDBC Interpreter uses a Java Jar file, which is addressed via \u003ca href\u003d\"https://maven.apache.org/\"\u003eMaven\u003c/a\u003e artifact coordinates.\u003cbr/\u003eThe Driver is configured as artifact within the Interpreter dependency settings as maven dependency (\u003ccode\u003eorg.mariadb.jdbc:mariadb-java-client:1.5.4\u003c/code\u003e).\u003cbr/\u003eMaven will download the file by the configured Maven repositories.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
       "apps": [],
       "jobName": "paragraph_1559243599870_166653179",
       "id": "20190530-191319_184152533",
       "dateCreated": "2019-05-30 19:13:19.871",
-      "status": "READY",
+      "dateStarted": "2019-06-02 16:13:46.803",
+      "dateFinished": "2019-06-02 16:13:46.818",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%maria_zeppelin_db\n\ncreate table london_population\n(\n\tyear varchar(200) not null,\n\tvalue int not null\n);\n\n",
+      "text": "%maria_zeppelin_db\n\ncreate table people\n(\n\tname varchar(200) not null,\n\tage int not null\n);",
       "user": "anonymous",
-      "dateUpdated": "2019-05-30 19:13:03.357",
+      "dateUpdated": "2019-06-02 16:13:46.900",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -117,7 +391,9 @@
           "editOnDblClick": false,
           "completionSupport": true
         },
-        "editorMode": "ace/mode/sql"
+        "editorMode": "ace/mode/sql",
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -136,23 +412,187 @@
       "jobName": "paragraph_1558896716790_-1667341832",
       "id": "20190526-185156_443246392",
       "dateCreated": "2019-05-26 18:51:56.791",
-      "dateStarted": "2019-05-30 19:13:03.464",
-      "dateFinished": "2019-05-30 19:13:07.569",
+      "dateStarted": "2019-06-02 16:13:46.962",
+      "dateFinished": "2019-06-02 16:13:47.021",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
+      "text": "%maria_zeppelin_db\n\ninsert into people (name, age) values (\u0027Mike\u0027, 22), (\u0027Anna\u0027, 31);\n",
       "user": "anonymous",
-      "config": {},
+      "dateUpdated": "2019-06-02 16:13:47.061",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": false,
+        "tableHide": false
+      },
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Query executed successfully. Affected rows : 2"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559488967967_212550885",
+      "id": "20190602-152247_23393458",
+      "dateCreated": "2019-06-02 15:22:47.967",
+      "dateStarted": "2019-06-02 16:13:47.111",
+      "dateFinished": "2019-06-02 16:13:47.147",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%maria_zeppelin_db\n\nselect * from people;\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-02 16:13:47.210",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 118.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "name": "string",
+                      "age": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": false,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tage\nMike\t22\nAnna\t31\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559488970808_-1074992512",
+      "id": "20190602-152250_1424188531",
+      "dateCreated": "2019-06-02 15:22:50.808",
+      "dateStarted": "2019-06-02 16:13:47.266",
+      "dateFinished": "2019-06-02 16:13:47.465",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%maria_zeppelin_db\n\ndrop table people;",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-02 16:13:47.467",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": false,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Query executed successfully. Affected rows : 0"
+          }
+        ]
       },
       "apps": [],
       "jobName": "paragraph_1559243504056_-1072164167",
       "id": "20190530-191144_621308101",
       "dateCreated": "2019-05-30 19:11:44.057",
-      "status": "READY",
+      "dateStarted": "2019-06-02 16:13:47.574",
+      "dateFinished": "2019-06-02 16:13:47.603",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%maria_zeppelin_db\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-02 16:13:47.671",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": false,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559488649875_-899304260",
+      "id": "20190602-151729_2075406696",
+      "dateCreated": "2019-06-02 15:17:29.876",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     }
   ],
@@ -161,7 +601,9 @@
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
+    "md:shared_process": [],
     "maria_zeppelin_db:shared_process": [],
+    "spark:shared_process": [],
     "postgres_zeppelin_db:shared_process": []
   },
   "config": {
