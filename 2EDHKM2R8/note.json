@@ -1,9 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "%spark\n\nimport io.minio.MinioClient\nimport org.apache.commons.io.IOUtils\nimport java.nio.charset.Charset\nimport java.net.URL\n\nval minioClient \u003d new MinioClient(\"http://minio:9000\", \"zeppelin\", \"zeppelin\")\n\nval bankText \u003d IOUtils.toString(\n                    minioClient.getObject(\"zeppelin\",\"bank.csv\"),\n                    Charset.forName(\"utf8\")).split(\"\\n\")",
+      "text": "%spark\n\nimport io.minio.MinioClient\nimport org.apache.commons.io.IOUtils\nimport java.nio.charset.Charset\nimport java.net.URL\n\nval minioClient \u003d new MinioClient(\"http://minio:9000\", \"zeppelin\", \"zeppelin\")\n\nval bankText \u003d sc.parallelize(IOUtils.toString(\n                    minioClient.getObject(\"zeppelin\",\"bank.csv\"),\n                    Charset.forName(\"utf8\")).split(\"\\n\"))\n                    \ncase class Bank(age: Integer, job: String, marital: String, education: String, balance: Integer)\n                    \nval bank \u003d bankText.map(s \u003d\u003e s.split(\";\")).filter(s \u003d\u003e s(0) !\u003d \"\\\"age\\\"\").map(\n    s \u003d\u003e Bank(s(0).toInt, \n            s(1).replaceAll(\"\\\"\", \"\"),\n            s(2).replaceAll(\"\\\"\", \"\"),\n            s(3).replaceAll(\"\\\"\", \"\"),\n            s(5).replaceAll(\"\\\"\", \"\").toInt\n        )\n).toDF()\n\nbank.show()\n\nbank.registerTempTable(\"bank\")\n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-01 10:27:31.821",
+      "dateUpdated": "2019-06-01 13:45:17.279",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -22,11 +22,11 @@
         "forms": {}
       },
       "results": {
-        "code": "SUCCESS",
+        "code": "ERROR",
         "msg": [
           {
             "type": "TEXT",
-            "data": "import io.minio.MinioClient\nimport org.apache.commons.io.IOUtils\nimport java.nio.charset.Charset\nimport java.net.URL\nminioClient: io.minio.MinioClient \u003d io.minio.MinioClient@dca2086\nbankText: Array[String] \u003d Array(\"age\";\"job\";\"marital\";\"education\";\"default\";\"balance\";\"housing\";\"loan\";\"contact\";\"day\";\"month\";\"duration\";\"campaign\";\"pdays\";\"previous\";\"poutcome\";\"y\", 30;\"unemployed\";\"married\";\"primary\";\"no\";1787;\"no\";\"no\";\"cellular\";19;\"oct\";79;1;-1;0;\"unknown\";\"no\", 33;\"services\";\"married\";\"secondary\";\"no\";4789;\"yes\";\"yes\";\"cellular\";11;\"may\";220;1;339;4;\"failure\";\"no\", 35;\"management\";\"single\";\"tertiary\";\"no\";1350;\"yes\";\"no\";\"cellular\";16;\"apr\";185;1;330;1;\"failure\";\"no\", 30;\"management\";\"married\";\"tertiary\";\"no\";1476;\"yes\";\"yes\";\"unknown\";3;\"jun\";199;4;-1;0;\"unknown\";\"no\", 59;\"blue-colla..."
+            "data": "java.lang.NoClassDefFoundError: Could not initialize class com.google.common.io.BaseEncoding\n  at io.minio.Digest.sha256Hash(Digest.java:73)\n  at io.minio.MinioClient.createRequest(MinioClient.java:973)\n  at io.minio.MinioClient.executeReq(MinioClient.java:1089)\n  at io.minio.MinioClient.execute(MinioClient.java:1070)\n  at io.minio.MinioClient.updateRegionCache(MinioClient.java:1219)\n  at io.minio.MinioClient.getRegion(MinioClient.java:1264)\n  at io.minio.MinioClient.executeGet(MinioClient.java:1298)\n  at io.minio.MinioClient.getObject(MinioClient.java:1874)\n  at io.minio.MinioClient.getObject(MinioClient.java:1608)\n  ... 41 elided\n"
           }
         ]
       },
@@ -34,9 +34,9 @@
       "jobName": "paragraph_1559136579389_177584045",
       "id": "20190529-132939_1264301413",
       "dateCreated": "2019-05-29 13:29:39.389",
-      "dateStarted": "2019-06-01 10:27:31.954",
-      "dateFinished": "2019-06-01 10:28:31.230",
-      "status": "FINISHED",
+      "dateStarted": "2019-06-01 13:44:31.205",
+      "dateFinished": "2019-06-01 13:44:38.370",
+      "status": "ERROR",
       "progressUpdateIntervalMs": 500
     },
     {
