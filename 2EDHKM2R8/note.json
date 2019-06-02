@@ -56,7 +56,7 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "S3/Minio",
+  "name": "~Trash/S3/Minio",
   "id": "2EDHKM2R8",
   "noteParams": {},
   "noteForms": {},

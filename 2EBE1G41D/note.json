@@ -84,7 +84,7 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "S3/Amazon",
+  "name": "~Trash/S3/Amazon",
   "id": "2EBE1G41D",
   "noteParams": {},
   "noteForms": {},
