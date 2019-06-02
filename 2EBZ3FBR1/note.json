@@ -1,0 +1,146 @@
+{
+  "paragraphs": [
+    {
+      "text": "%spark\n\nz.put(\"fileOfInterest\", \"london-population-history.csv\")\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-02 16:40:45.190",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1559493563477_-2121188001",
+      "id": "20190602-163923_877641311",
+      "dateCreated": "2019-06-02 16:39:23.478",
+      "dateStarted": "2019-06-02 16:40:45.288",
+      "dateFinished": "2019-06-02 16:41:51.780",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n\n\nwget --user zeppelin --password zeppelin http://webdav/{fileOfInterest} -O /tmp/{fileOfInterest}\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-02 16:41:51.827",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "--2019-06-02 16:41:52--  http://webdav/%7BfileOfInterest%7D\nResolving webdav (webdav)... 172.20.0.2\nConnecting to webdav (webdav)|172.20.0.2|:80... connected.\nHTTP request sent, awaiting response... 401 Unauthorized\nAuthentication selected: Basic realm\u003d\"WebDAV\"\nReusing existing connection to webdav:80.\nHTTP request sent, awaiting response... 404 Not Found\n2019-06-02 16:41:52 ERROR 404: Not Found.\n\n"
+          },
+          {
+            "type": "TEXT",
+            "data": "ExitValue: 8"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559492693199_128338243",
+      "id": "20190602-162453_256284855",
+      "dateCreated": "2019-06-02 16:24:53.199",
+      "dateStarted": "2019-06-02 16:41:52.026",
+      "dateFinished": "2019-06-02 16:41:52.325",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n\ncat  /tmp/{fileOfInterest}",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-02 16:40:36.523",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Year,Value\n1961-01-01,7977000\n1962-01-01,7970000\n1963-01-01,7926000\n1964-01-01,7894000\n1965-01-01,7857000\n1966-01-01,7810000\n1967-01-01,7761000\n1968-01-01,7693000\n1969-01-01,7619000\n1970-01-01,7530000\n1971-01-01,7529400\n1972-01-01,7442800\n1973-01-01,7362400\n1974-01-01,7263600\n1975-01-01,7179000\n1976-01-01,7089100\n1977-01-01,7012000\n1978-01-01,6946800\n1979-01-01,6887600\n1980-01-01,6850600\n1981-01-01,6805600\n1982-01-01,6765100\n1983-01-01,6753000\n1984-01-01,6754700\n1985-01-01,6767000\n1986-01-01,6774200\n1987-01-01,6765600\n1988-01-01,6729300\n1989-01-01,6751600\n1990-01-01,6798800\n1991-01-01,6829300\n1992-01-01,6829400\n1993-01-01,6844500\n1994-01-01,6873500\n1995-01-01,6913100\n1996-01-01,6974400\n1997-01-01,7014800\n1998-01-01,7065500\n1999-01-01,7153900\n2000-01-01,7236700\n2001-01-01,7322400\n2002-01-01,7376700\n2003-01-01,7394800\n2004-01-01,7432700\n2005-01-01,7519000\n2006-01-01,7597800\n2007-01-01,7693500\n2008-01-01,7812200\n2009-01-01,7942600\n2010-01-01,8061500\n2011-01-01,8204400\n2012-01-01,8308400\n2013-01-01,8416500\n2014-01-01,8538700\n2015-01-01,8673713\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559492709707_1531288057",
+      "id": "20190602-162509_514371720",
+      "dateCreated": "2019-06-02 16:25:09.707",
+      "dateStarted": "2019-06-02 16:36:37.901",
+      "dateFinished": "2019-06-02 16:36:38.051",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-02 16:36:37.788",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559493397785_616283447",
+      "id": "20190602-163637_763355980",
+      "dateCreated": "2019-06-02 16:36:37.785",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Shell/WebDAV",
+  "id": "2EBZ3FBR1",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "sh:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

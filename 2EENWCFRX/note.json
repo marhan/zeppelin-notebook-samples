@@ -30,18 +30,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://8200f6bcd022:4040/jobs/job?id\u003d10"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1559138049779_1814239651",
       "id": "20190529-135409_1085553568",
@@ -52,9 +40,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%spark\n\nval rdd \u003d sc.textFile(\"/opt/files/sample_output.txt\")\n\nrdd.collect().foreach(println)",
+      "text": "%spark\n\nval stringRdd \u003d sc.textFile(\"/opt/files/sample_output.txt\")\n\nstringRdd.collect().foreach(println)",
       "user": "anonymous",
-      "dateUpdated": "2019-05-29 14:05:39.343",
+      "dateUpdated": "2019-06-02 16:17:09.518",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -81,18 +69,6 @@
             "data": "\u003d\u003d\u003d\u003e This is test content in a text file \u003c\u003d\u003d\u003d\nrdd: org.apache.spark.rdd.RDD[String] \u003d /opt/files/sample_output.txt MapPartitionsRDD[47] at textFile at \u003cconsole\u003e:50\n"
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://8200f6bcd022:4040/jobs/job?id\u003d11"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1559138231039_-691895812",
