@@ -75,18 +75,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://3ffea045f327:4040/jobs/job?id\u003d29"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1559395845208_825612468",
       "id": "20190601-133045_372817550",
@@ -129,18 +117,6 @@
             "data": "stringRdd: org.apache.spark.rdd.RDD[String] \u003d ParallelCollectionRDD[130] at parallelize at \u003cconsole\u003e:55\n"
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://3ffea045f327:4040/jobs/job?id\u003d30"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1559372512658_-1925184250",
@@ -226,19 +202,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://3ffea045f327:4040/jobs/job?id\u003d31",
-            "http://3ffea045f327:4040/jobs/job?id\u003d32"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1559372354554_-1810404279",
       "id": "20190601-065914_2031281241",
@@ -281,18 +244,6 @@
             "data": "defined class Record\nrecordDf: org.apache.spark.sql.DataFrame \u003d [key: int, value: string]\n"
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://3ffea045f327:4040/jobs/job?id\u003d33"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1559487068811_1863005427",
@@ -378,18 +329,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://3ffea045f327:4040/jobs/job?id\u003d34"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1559486111956_-762488362",
       "id": "20190602-143511_237558558",
@@ -472,13 +411,16 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "S3/Spark",
+  "name": "External files/S3",
   "id": "2ECVDEN73",
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
     "md:shared_process": [],
-    "spark:shared_process": []
+    "maria_zeppelin_db:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": [],
+    "postgres_zeppelin_db:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false

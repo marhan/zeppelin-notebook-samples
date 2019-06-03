@@ -147,7 +147,7 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "FS/Spark filesystem interaction",
+  "name": "Local files/Spark text",
   "id": "2EENWCFRX",
   "noteParams": {},
   "noteForms": {},

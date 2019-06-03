@@ -1,49 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "%sh\n\nmkdir -p /tmp/postgres_data/\nwget --user zeppelin --password zeppelin http://webdav/london-population-history.csv -O /tmp/postgres_data/london-population-history.csv\n",
+      "text": "%spark\nimport org.apache.spark.sql.SQLContext\n                \nimport org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType, DateType};\n\nval customSchema \u003d StructType( Array( StructField(\"year\", DateType, true), \n                                      StructField(\"value\", IntegerType, true)))\n\nval populationHistoryDF \u003d spark.read.format(\"com.databricks.spark.csv\").\n                         option(\"header\", \"true\").\n                         option(\"delimiter\",\",\").\n                         option(\"charset\", \"UTF-8\").\n                         option(\"treatEmptyValuesAsNulls\", \"True\").\n                         option(\"mode\", \"DROPMALFORMED\").\n                         schema(customSchema).load(\"s3a://zeppelin/london-population-history.csv\")\n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-03 17:31:18.884",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "sh",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "editorMode": "ace/mode/sh",
-        "tableHide": false
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "--2019-06-03 17:31:20--  http://webdav/london-population-history.csv\nResolving webdav (webdav)... 172.23.0.6\nConnecting to webdav (webdav)|172.23.0.6|:80... connected.\nHTTP request sent, awaiting response... 401 Unauthorized\nAuthentication selected: Basic realm\u003d\"WebDAV\"\nReusing existing connection to webdav:80.\nHTTP request sent, awaiting response... 200 OK\nLength: 1056 (1.0K) [text/csv]\nSaving to: ‘/tmp/postgres_data/london-population-history.csv’\n\n     0K .                                                     100% 20.3M\u003d0s\n\n2019-06-03 17:31:20 (20.3 MB/s) - ‘/tmp/postgres_data/london-population-history.csv’ saved [1056/1056]\n\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1558820730569_-24508487",
-      "id": "20190525-214530_316409362",
-      "dateCreated": "2019-05-25 21:45:30.569",
-      "dateStarted": "2019-06-03 17:31:18.979",
-      "dateFinished": "2019-06-03 17:31:20.980",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%spark\nimport org.apache.spark.sql.SQLContext\n                \nimport org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType, DateType};\n\nval customSchema \u003d StructType( Array( StructField(\"year\", DateType, true), \n                                      StructField(\"value\", IntegerType, true)))\n\nval sqlContext \u003d new SQLContext(sc)\nval populationHistoryDF \u003d sqlContext.read.format(\"com.databricks.spark.csv\").\n                         option(\"header\", \"true\").\n                         option(\"delimiter\",\",\").\n                         option(\"charset\", \"UTF-8\").\n                         option(\"treatEmptyValuesAsNulls\", \"True\").\n                         option(\"mode\", \"DROPMALFORMED\").\n                         schema(customSchema).load(\"/tmp/postgres_data/london-population-history.csv\")\n\npopulationHistoryDF.printSchema()                         \npopulationHistoryDF.show()\n\n",
-      "user": "anonymous",
-      "dateUpdated": "2019-06-03 17:31:20.991",
+      "dateUpdated": "2019-06-03 18:24:46.993",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -75,35 +35,24 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "warning: there was one deprecation warning; re-run with -deprecation for details\nroot\n |-- year: date (nullable \u003d true)\n |-- value: integer (nullable \u003d true)\n\n+----------+-------+\n|      year|  value|\n+----------+-------+\n|1961-01-01|7977000|\n|1962-01-01|7970000|\n|1963-01-01|7926000|\n|1964-01-01|7894000|\n|1965-01-01|7857000|\n|1966-01-01|7810000|\n|1967-01-01|7761000|\n|1968-01-01|7693000|\n|1969-01-01|7619000|\n|1970-01-01|7530000|\n|1971-01-01|7529400|\n|1972-01-01|7442800|\n|1973-01-01|7362400|\n|1974-01-01|7263600|\n|1975-01-01|7179000|\n|1976-01-01|7089100|\n|1977-01-01|7012000|\n|1978-01-01|6946800|\n|1979-01-01|6887600|\n|1980-01-01|6850600|\n+----------+-------+\nonly showing top 20 rows\n\nimport org.apache.spark.sql.SQLContext\nimport org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType, DateType}\ncustomSchema: org.apache.spark.sql.types.StructType \u003d StructType(StructField(year,DateType,true), StructField(value,IntegerType,true))\nsqlContext: org.apache.spark.sql.SQLContext \u003d org.apache.spark.sql.SQLContext@59fc97eb\npopulationHistoryDF: org.apache.spark.sql.DataFrame \u003d [year: date, value: int]\n"
+            "data": "import org.apache.spark.sql.SQLContext\nimport org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType, DateType}\ncustomSchema: org.apache.spark.sql.types.StructType \u003d StructType(StructField(year,DateType,true), StructField(value,IntegerType,true))\npopulationHistoryDF: org.apache.spark.sql.DataFrame \u003d [year: date, value: int]\n"
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://b679e34348d9:4040/jobs/job?id\u003d0"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1558818688235_424198837",
       "id": "20190525-211128_640148044",
       "dateCreated": "2019-05-25 21:11:28.236",
-      "dateStarted": "2019-06-03 17:31:21.066",
-      "dateFinished": "2019-06-03 17:31:39.319",
+      "dateStarted": "2019-06-03 18:24:40.078",
+      "dateFinished": "2019-06-03 18:24:40.314",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "import java.util.Properties\n\n\n\nval connectionProperties \u003d new Properties()\nconnectionProperties.put(\"user\", sc.getConf.get(\"spark.app.postgres.root.user\"))\nconnectionProperties.put(\"password\", sc.getConf.get(\"spark.app.postgres.root.password\"))\n\nprintln(sc.getConf.get(\"spark.app.postgres.root.password\"))\n\n//connectionProperties.put(\"user\", \"zeppelin_user\")\n//connectionProperties.put(\"password\", \"zeppelin\")\n\npopulationHistoryDF.write\n    .option(\"driver\", \"org.postgresql.Driver\")\n    .mode(\"overwrite\")\n    .jdbc(\"jdbc:postgresql://postgresdb:5432/zeppelin\", \"zeppelin.london_population\", connectionProperties)",
+      "title": "Write DataFrame to Database",
+      "text": "import java.util.Properties\n\nval connectionProperties \u003d new Properties()\nconnectionProperties.put(\"user\", sc.getConf.get(\"spark.app.postgres.root.user\"))\nconnectionProperties.put(\"password\", sc.getConf.get(\"spark.app.postgres.root.password\"))\n\npopulationHistoryDF.write\n    .option(\"driver\", \"org.postgresql.Driver\")\n    .mode(\"overwrite\")\n    .jdbc(\"jdbc:postgresql://postgresdb:5432/zeppelin\", \"zeppelin.london_population\", connectionProperties)",
       "user": "anonymous",
-      "dateUpdated": "2019-06-03 17:31:39.343",
+      "dateUpdated": "2019-06-03 18:24:40.379",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -115,7 +64,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/scala",
+        "title": true
       },
       "settings": {
         "params": {},
@@ -126,7 +76,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "zeppelin_admin\nimport java.util.Properties\nconnectionProperties: java.util.Properties \u003d {user\u003dzeppelin_admin, password\u003dzeppelin_admin}\n"
+            "data": "import java.util.Properties\nconnectionProperties: java.util.Properties \u003d {user\u003dzeppelin_admin, password\u003dzeppelin_admin}\n"
           }
         ]
       },
@@ -137,7 +87,7 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://b679e34348d9:4040/jobs/job?id\u003d1"
+            "http://b679e34348d9:4040/jobs/job?id\u003d6"
           ],
           "interpreterSettingId": "spark"
         }
@@ -146,15 +96,16 @@
       "jobName": "paragraph_1558818559114_-67579491",
       "id": "20190525-210919_390534389",
       "dateCreated": "2019-05-25 21:09:19.114",
-      "dateStarted": "2019-06-03 17:31:39.376",
-      "dateFinished": "2019-06-03 17:31:40.229",
+      "dateStarted": "2019-06-03 18:24:40.405",
+      "dateFinished": "2019-06-03 18:24:40.734",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
+      "title": "Read Database into DataFrame",
       "text": "%spark\n\nval retrievedPopulationHistoryDF \u003d spark.read\n    .option(\"driver\", \"org.postgresql.Driver\")\n    .jdbc(\"jdbc:postgresql://postgresdb:5432/zeppelin\", \"zeppelin.london_population\", connectionProperties)\n    \nretrievedPopulationHistoryDF.show()",
       "user": "anonymous",
-      "dateUpdated": "2019-06-03 17:31:40.279",
+      "dateUpdated": "2019-06-03 18:25:13.835",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -166,7 +117,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/scala",
+        "title": true
       },
       "settings": {
         "params": {},
@@ -188,7 +140,7 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://b679e34348d9:4040/jobs/job?id\u003d2"
+            "http://b679e34348d9:4040/jobs/job?id\u003d7"
           ],
           "interpreterSettingId": "spark"
         }
@@ -197,15 +149,15 @@
       "jobName": "paragraph_1558821700218_1466119925",
       "id": "20190525-220140_263692590",
       "dateCreated": "2019-05-25 22:01:40.218",
-      "dateStarted": "2019-06-03 17:31:40.308",
-      "dateFinished": "2019-06-03 17:31:40.654",
+      "dateStarted": "2019-06-03 18:24:40.821",
+      "dateFinished": "2019-06-03 18:24:41.033",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%spark\n",
+      "text": "",
       "user": "anonymous",
-      "dateUpdated": "2019-06-03 17:31:40.709",
+      "dateUpdated": "2019-06-03 18:49:54.518",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -236,8 +188,10 @@
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
+    "md:shared_process": [],
     "sh:shared_process": [],
-    "spark:shared_process": []
+    "spark:shared_process": [],
+    "postgres_zeppelin_db:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false
