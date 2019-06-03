@@ -1,0 +1,117 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n# Use external Properties\n\nProperties can be parsed from a file. To achive this, you have to reference the file shown below.\n\n`SPARK_SUBMIT_OPTIONS\u003d\"--properties-file /path_to/spark.properties\"`",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-03 17:37:16.979",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {
+          "CUSTOM_PROPERTIES": ""
+        },
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eUse external Properties\u003c/h1\u003e\n\u003cp\u003eProperties can be parsed from a file. To achive this, you have to reference the file shown below.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eSPARK_SUBMIT_OPTIONS\u003d\u0026quot;--properties-file /path_to/spark.properties\u0026quot;\u003c/code\u003e\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559583142364_985620086",
+      "id": "20190603-173222_614932227",
+      "dateCreated": "2019-06-03 17:32:22.364",
+      "dateStarted": "2019-06-03 17:37:16.986",
+      "dateFinished": "2019-06-03 17:37:16.998",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Retrieve the properties value",
+      "text": "println(\"Postgres User: \" + sc.getConf.get(\"spark.app.postgres.root.user\"))\nprintln(\"Minio Access key: \" + sc.getConf.get(\"spark.app.minio.access.key\"))",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-03 17:47:26.880",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Postgres User: zeppelin_admin\nMinio Access key: zeppelin\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559583128515_-23786696",
+      "id": "20190603-173208_1893286664",
+      "dateCreated": "2019-06-03 17:32:08.515",
+      "dateStarted": "2019-06-03 17:47:26.913",
+      "dateFinished": "2019-06-03 17:47:27.056",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-03 17:39:58.054",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559583598053_-2133853466",
+      "id": "20190603-173958_1028527440",
+      "dateCreated": "2019-06-03 17:39:58.053",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Configuration/Properties",
+  "id": "2EF86WH8Q",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

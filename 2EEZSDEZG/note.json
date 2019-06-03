@@ -1,0 +1,346 @@
+{
+  "paragraphs": [
+    {
+      "title": "Empty Form",
+      "text": "%md\n\nI am ${My Name}",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-03 17:58:14.689",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "title": true
+      },
+      "settings": {
+        "params": {
+          "formName": "test",
+          "My Name": "Markus"
+        },
+        "forms": {
+          "My Name": {
+            "type": "TextBox",
+            "name": "My Name",
+            "defaultValue": "",
+            "hidden": false
+          }
+        }
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eI am Markus\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559584419241_2126462547",
+      "id": "20190603-175339_168759498",
+      "dateCreated": "2019-06-03 17:53:39.241",
+      "dateStarted": "2019-06-03 17:56:52.126",
+      "dateFinished": "2019-06-03 17:56:52.131",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Form with default value",
+      "text": "%md\n\nI am ${My Name\u003dUnkown}",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-03 18:03:32.733",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "tableHide": true,
+        "title": true
+      },
+      "settings": {
+        "params": {
+          "My Name": "Markus"
+        },
+        "forms": {
+          "My Name": {
+            "type": "TextBox",
+            "name": "My Name",
+            "defaultValue": "Unkown",
+            "hidden": false
+          }
+        }
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eI am Markus\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559584420761_-1105642514",
+      "id": "20190603-175340_1649745596",
+      "dateCreated": "2019-06-03 17:53:40.761",
+      "dateStarted": "2019-06-03 17:57:56.527",
+      "dateFinished": "2019-06-03 17:57:56.533",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "From with selection",
+      "text": "%md\n\nMy job is ${job\u003ddeveloper,developer|tester|CTO}",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-03 18:03:11.214",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "tableHide": true,
+        "runOnSelectionChange": true,
+        "title": true
+      },
+      "settings": {
+        "params": {
+          "job": "developer"
+        },
+        "forms": {
+          "job": {
+            "type": "Select",
+            "options": [
+              {
+                "value": "developer"
+              },
+              {
+                "value": "tester"
+              },
+              {
+                "value": "CTO"
+              }
+            ],
+            "name": "job",
+            "defaultValue": "developer",
+            "hidden": false
+          }
+        }
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eMy job is developer\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559584441433_592919767",
+      "id": "20190603-175401_2087187357",
+      "dateCreated": "2019-06-03 17:54:01.433",
+      "dateStarted": "2019-06-03 17:59:47.960",
+      "dateFinished": "2019-06-03 17:59:47.966",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Form with checkbox",
+      "text": "%md\n\nMy sex is ${checkbox:sex\u003dmen,men|woman}",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-03 18:03:29.865",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false,
+        "runOnSelectionChange": true,
+        "title": true
+      },
+      "settings": {
+        "params": {
+          "sex": []
+        },
+        "forms": {
+          "sex": {
+            "type": "CheckBox",
+            "options": [
+              {
+                "value": "men"
+              },
+              {
+                "value": "woman"
+              }
+            ],
+            "name": "sex",
+            "defaultValue": [
+              "men"
+            ],
+            "hidden": false
+          }
+        }
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eMy sex is \u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559584776498_-947833618",
+      "id": "20190603-175936_494122595",
+      "dateCreated": "2019-06-03 17:59:36.498",
+      "dateStarted": "2019-06-03 18:03:29.866",
+      "dateFinished": "2019-06-03 18:03:29.872",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Form with selection programmed with spark",
+      "text": "%spark\nprintln(\"Day \"+ z.select(\"day\", Seq((\"1\",\"mon\"),\n                                    (\"2\",\"tue\"),\n                                    (\"3\",\"wed\"),\n                                    (\"4\",\"thurs\"),\n                                    (\"5\",\"fri\"),\n                                    (\"6\",\"sat\"),\n                                    (\"7\",\"sun\"))) + \" of the week\")",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-03 18:05:28.867",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "runOnSelectionChange": true,
+        "title": true
+      },
+      "settings": {
+        "params": {
+          "day": "4"
+        },
+        "forms": {
+          "day": {
+            "type": "Select",
+            "options": [
+              {
+                "value": "1",
+                "displayName": "mon"
+              },
+              {
+                "value": "2",
+                "displayName": "tue"
+              },
+              {
+                "value": "3",
+                "displayName": "wed"
+              },
+              {
+                "value": "4",
+                "displayName": "thurs"
+              },
+              {
+                "value": "5",
+                "displayName": "fri"
+              },
+              {
+                "value": "6",
+                "displayName": "sat"
+              },
+              {
+                "value": "7",
+                "displayName": "sun"
+              }
+            ],
+            "name": "day",
+            "displayName": "day",
+            "defaultValue": "",
+            "hidden": false
+          }
+        }
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Day 4 of the week\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559584930941_-579794764",
+      "id": "20190603-180210_412364134",
+      "dateCreated": "2019-06-03 18:02:10.941",
+      "dateStarted": "2019-06-03 18:05:28.888",
+      "dateFinished": "2019-06-03 18:05:29.106",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-03 18:04:08.095",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559585048095_-1607701449",
+      "id": "20190603-180408_702311990",
+      "dateCreated": "2019-06-03 18:04:08.095",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Form/Input",
+  "id": "2EEZSDEZG",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

@@ -1,0 +1,163 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n# Object Exchange\n\nValues can be defined in one paragraph and accessed by another one.\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-03 17:53:02.221",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eObject Exchange\u003c/h1\u003e\n\u003cp\u003eValues can be defined in one paragraph and accessed by another one.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559584301599_-2041147602",
+      "id": "20190603-175141_1806162674",
+      "dateCreated": "2019-06-03 17:51:41.599",
+      "dateStarted": "2019-06-03 17:53:02.241",
+      "dateFinished": "2019-06-03 17:53:02.250",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Set the value",
+      "text": "%spark\n\nz.put(\"myObject\", \"My object value\")\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-03 17:53:02.340",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1559584228441_-1139852020",
+      "id": "20190603-175028_136164752",
+      "dateCreated": "2019-06-03 17:50:28.441",
+      "dateStarted": "2019-06-03 17:53:02.359",
+      "dateFinished": "2019-06-03 17:53:02.489",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Get the value",
+      "text": "%spark\n\nz.get(\"myObject\")",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-03 17:53:02.559",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res23: Object \u003d My object value\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559584257029_-354673619",
+      "id": "20190603-175057_948865297",
+      "dateCreated": "2019-06-03 17:50:57.029",
+      "dateStarted": "2019-06-03 17:53:02.576",
+      "dateFinished": "2019-06-03 17:53:02.701",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-03 17:53:02.776",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559584295892_-945478844",
+      "id": "20190603-175135_182611672",
+      "dateCreated": "2019-06-03 17:51:35.892",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Configuration/ObjectExchange",
+  "id": "2ECBKCGNS",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
