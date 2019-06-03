@@ -4,7 +4,7 @@
       "title": "Empty Form",
       "text": "%md\n\nI am ${My Name}",
       "user": "anonymous",
-      "dateUpdated": "2019-06-03 17:58:14.689",
+      "dateUpdated": "2019-06-03 18:09:13.907",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -56,7 +56,7 @@
       "title": "Form with default value",
       "text": "%md\n\nI am ${My Name\u003dUnkown}",
       "user": "anonymous",
-      "dateUpdated": "2019-06-03 18:03:32.733",
+      "dateUpdated": "2019-06-03 18:09:13.927",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -69,7 +69,7 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": false,
+        "editorHide": true,
         "tableHide": true,
         "title": true
       },
@@ -108,7 +108,7 @@
       "title": "From with selection",
       "text": "%md\n\nMy job is ${job\u003ddeveloper,developer|tester|CTO}",
       "user": "anonymous",
-      "dateUpdated": "2019-06-03 18:03:11.214",
+      "dateUpdated": "2019-06-03 18:09:13.941",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -121,7 +121,7 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": false,
+        "editorHide": true,
         "tableHide": true,
         "runOnSelectionChange": true,
         "title": true
@@ -172,7 +172,7 @@
       "title": "Form with checkbox",
       "text": "%md\n\nMy sex is ${checkbox:sex\u003dmen,men|woman}",
       "user": "anonymous",
-      "dateUpdated": "2019-06-03 18:03:29.865",
+      "dateUpdated": "2019-06-03 18:09:13.957",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -232,10 +232,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Form with selection programmed with spark",
-      "text": "%spark\nprintln(\"Day \"+ z.select(\"day\", Seq((\"1\",\"mon\"),\n                                    (\"2\",\"tue\"),\n                                    (\"3\",\"wed\"),\n                                    (\"4\",\"thurs\"),\n                                    (\"5\",\"fri\"),\n                                    (\"6\",\"sat\"),\n                                    (\"7\",\"sun\"))) + \" of the week\")",
+      "text": "%spark\n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-03 18:05:28.867",
+      "dateUpdated": "2019-06-03 18:09:13.974",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -248,76 +247,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/scala",
-        "runOnSelectionChange": true,
-        "title": true
+        "editorHide": true
       },
-      "settings": {
-        "params": {
-          "day": "4"
-        },
-        "forms": {
-          "day": {
-            "type": "Select",
-            "options": [
-              {
-                "value": "1",
-                "displayName": "mon"
-              },
-              {
-                "value": "2",
-                "displayName": "tue"
-              },
-              {
-                "value": "3",
-                "displayName": "wed"
-              },
-              {
-                "value": "4",
-                "displayName": "thurs"
-              },
-              {
-                "value": "5",
-                "displayName": "fri"
-              },
-              {
-                "value": "6",
-                "displayName": "sat"
-              },
-              {
-                "value": "7",
-                "displayName": "sun"
-              }
-            ],
-            "name": "day",
-            "displayName": "day",
-            "defaultValue": "",
-            "hidden": false
-          }
-        }
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "Day 4 of the week\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1559584930941_-579794764",
-      "id": "20190603-180210_412364134",
-      "dateCreated": "2019-06-03 18:02:10.941",
-      "dateStarted": "2019-06-03 18:05:28.888",
-      "dateFinished": "2019-06-03 18:05:29.106",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%spark\n",
-      "user": "anonymous",
-      "dateUpdated": "2019-06-03 18:04:08.095",
-      "config": {},
       "settings": {
         "params": {},
         "forms": {}
@@ -330,7 +261,7 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "Form/Input",
+  "name": "Forms/Markdown",
   "id": "2EEZSDEZG",
   "noteParams": {},
   "noteForms": {},

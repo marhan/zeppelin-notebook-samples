@@ -1,0 +1,181 @@
+{
+  "paragraphs": [
+    {
+      "title": "Form with selection",
+      "text": "%spark\nprintln(\"Day \"+ z.select(\"day\", Seq((\"1\",\"mon\"),\n                                    (\"2\",\"tue\"),\n                                    (\"3\",\"wed\"),\n                                    (\"4\",\"thurs\"),\n                                    (\"5\",\"fri\"),\n                                    (\"6\",\"sat\"),\n                                    (\"7\",\"sun\"))) + \" of the week\")",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-03 18:09:09.684",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true,
+        "runOnSelectionChange": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {
+          "day": "3"
+        },
+        "forms": {
+          "day": {
+            "type": "Select",
+            "options": [
+              {
+                "value": "1",
+                "displayName": "mon"
+              },
+              {
+                "value": "2",
+                "displayName": "tue"
+              },
+              {
+                "value": "3",
+                "displayName": "wed"
+              },
+              {
+                "value": "4",
+                "displayName": "thurs"
+              },
+              {
+                "value": "5",
+                "displayName": "fri"
+              },
+              {
+                "value": "6",
+                "displayName": "sat"
+              },
+              {
+                "value": "7",
+                "displayName": "sun"
+              }
+            ],
+            "name": "day",
+            "displayName": "day",
+            "defaultValue": "",
+            "hidden": false
+          }
+        }
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Day 3 of the week\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559585228617_1778605368",
+      "id": "20190603-180708_334368485",
+      "dateCreated": "2019-06-03 18:07:08.617",
+      "dateStarted": "2019-06-03 18:09:09.699",
+      "dateFinished": "2019-06-03 18:09:09.857",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Form with default value",
+      "text": "%spark\n\nprintln(\"Hello \"+z.textbox(\"name\", \"Wilhelm\")) ",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-03 18:09:03.769",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {
+          "name": "sun"
+        },
+        "forms": {
+          "name": {
+            "type": "TextBox",
+            "name": "name",
+            "displayName": "name",
+            "defaultValue": "Wilhelm",
+            "hidden": false
+          }
+        }
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Hello sun\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559585261717_-527817050",
+      "id": "20190603-180741_41398684",
+      "dateCreated": "2019-06-03 18:07:41.717",
+      "dateStarted": "2019-06-03 18:09:03.787",
+      "dateFinished": "2019-06-03 18:09:03.907",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-03 18:09:03.988",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559585303740_-205363260",
+      "id": "20190603-180823_1127717479",
+      "dateCreated": "2019-06-03 18:08:23.740",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Forms/Spark",
+  "id": "2EEXC2R3X",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
