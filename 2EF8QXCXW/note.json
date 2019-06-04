@@ -1,0 +1,193 @@
+{
+  "paragraphs": [
+    {
+      "title": "Create DataFrame",
+      "text": "%spark\nimport org.apache.spark.sql.SQLContext\n                \nimport org.apache.spark.sql.types.{StructType, StructField, StringType, DoubleType, DateType};\n\nval customSchema \u003d StructType( Array( StructField(\"year\", DateType, true), \n                                      StructField(\"value\", DoubleType, true)))\n\nval populationHistoryDF \u003d spark.read.format(\"com.databricks.spark.csv\").\n                         option(\"header\", \"true\").\n                         option(\"delimiter\",\",\").\n                         option(\"charset\", \"UTF-8\").\n                         option(\"treatEmptyValuesAsNulls\", \"True\").\n                         option(\"mode\", \"DROPMALFORMED\").\n                         schema(customSchema).load(\"s3a://zeppelin/london-population-history.csv\")\n                         \npopulationHistoryDF.printSchema\npopulationHistoryDF.show\n\npopulationHistoryDF.createOrReplaceTempView(\"london_population_history\")\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-04 12:41:53.464",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "title": true,
+        "results": {},
+        "enabled": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- year: date (nullable \u003d true)\n |-- value: double (nullable \u003d true)\n\n+----------+---------+\n|      year|    value|\n+----------+---------+\n|1961-01-01|7977000.0|\n|1962-01-01|7970000.0|\n|1963-01-01|7926000.0|\n|1964-01-01|7894000.0|\n|1965-01-01|7857000.0|\n|1966-01-01|7810000.0|\n|1967-01-01|7761000.0|\n|1968-01-01|7693000.0|\n|1969-01-01|7619000.0|\n|1970-01-01|7530000.0|\n|1971-01-01|7529400.0|\n|1972-01-01|7442800.0|\n|1973-01-01|7362400.0|\n|1974-01-01|7263600.0|\n|1975-01-01|7179000.0|\n|1976-01-01|7089100.0|\n|1977-01-01|7012000.0|\n|1978-01-01|6946800.0|\n|1979-01-01|6887600.0|\n|1980-01-01|6850600.0|\n+----------+---------+\nonly showing top 20 rows\n\nimport org.apache.spark.sql.SQLContext\nimport org.apache.spark.sql.types.{StructType, StructField, StringType, DoubleType, DateType}\ncustomSchema: org.apache.spark.sql.types.StructType \u003d StructType(StructField(year,DateType,true), StructField(value,DoubleType,true))\npopulationHistoryDF: org.apache.spark.sql.DataFrame \u003d [year: date, value: double]\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://b679e34348d9:4040/jobs/job?id\u003d60"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1559651950475_1009958599",
+      "id": "20190603-183303_856308170",
+      "dateCreated": "2019-06-04 12:39:10.475",
+      "dateStarted": "2019-06-04 12:41:51.455",
+      "dateFinished": "2019-06-04 12:41:51.755",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Filter with Spark Scala",
+      "text": "%spark\n\nval filteredPopulationDF \u003d populationHistoryDF.filter(\"value \u003e 8000000\")\n\nfilteredPopulationDF.show\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-04 12:45:18.926",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----------+---------+\n|      year|    value|\n+----------+---------+\n|2010-01-01|8061500.0|\n|2011-01-01|8204400.0|\n|2012-01-01|8308400.0|\n|2013-01-01|8416500.0|\n|2014-01-01|8538700.0|\n|2015-01-01|8673713.0|\n+----------+---------+\n\nfilteredPopulationDF: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [year: date, value: double]\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://b679e34348d9:4040/jobs/job?id\u003d63"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1559651950477_-1381464127",
+      "id": "20190604-111115_1418220838",
+      "dateCreated": "2019-06-04 12:39:10.477",
+      "dateStarted": "2019-06-04 12:42:51.315",
+      "dateFinished": "2019-06-04 12:42:51.502",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Filter with Spark SQL",
+      "text": "%spark\n\nval filteredPopulationSQLDF \u003d spark.sql(\"\"\"\n    select * from london_population_history where value \u003e 8000000\n\"\"\")\n\nfilteredPopulationSQLDF.show\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-04 12:45:36.767",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----------+---------+\n|      year|    value|\n+----------+---------+\n|2010-01-01|8061500.0|\n|2011-01-01|8204400.0|\n|2012-01-01|8308400.0|\n|2013-01-01|8416500.0|\n|2014-01-01|8538700.0|\n|2015-01-01|8673713.0|\n+----------+---------+\n\nfilteredPopulationSQLDF: org.apache.spark.sql.DataFrame \u003d [year: date, value: double]\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://b679e34348d9:4040/jobs/job?id\u003d65"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1559652120594_3854361",
+      "id": "20190604-124200_1857787881",
+      "dateCreated": "2019-06-04 12:42:00.594",
+      "dateStarted": "2019-06-04 12:45:35.765",
+      "dateFinished": "2019-06-04 12:45:35.929",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-04 12:44:25.644",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559652265643_1785799492",
+      "id": "20190604-124425_1761506211",
+      "dateCreated": "2019-06-04 12:44:25.643",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Analysis/Filter",
+  "id": "2EF8QXCXW",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

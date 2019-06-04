@@ -82,7 +82,7 @@
     {
       "text": "%spark.sql\nselect age, avg(balance), min(balance), max(balance) from bank group by age order by age\n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-03 18:32:38.144",
+      "dateUpdated": "2019-06-04 12:45:47.771",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -177,18 +177,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://b679e34348d9:4040/jobs/job?id\u003d8"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1558605150517_-643688708",
       "id": "20190523-095230_1321209630",
@@ -268,19 +256,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://b679e34348d9:4040/jobs/job?id\u003d9",
-            "http://b679e34348d9:4040/jobs/job?id\u003d10"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1558605248336_-1683435316",
       "id": "20190523-095408_399905256",
@@ -325,7 +300,6 @@
   "noteForms": {},
   "angularObjects": {
     "md:shared_process": [],
-    "sh:shared_process": [],
     "spark:shared_process": []
   },
   "config": {

@@ -346,6 +346,114 @@
       "progressUpdateIntervalMs": 500
     },
     {
+      "title": "Read JSON file",
+      "text": "%spark\n\n\nval employeesDF \u003d spark.read.json(\"s3a://zeppelin/employees.json\")\n\nemployeesDF.printSchema\nemployeesDF.show",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-04 12:54:59.386",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- name: string (nullable \u003d true)\n |-- salary: long (nullable \u003d true)\n\n+-------+------+\n|   name|salary|\n+-------+------+\n|Michael|  3000|\n|   Andy|  4500|\n| Justin|  3500|\n|  Berta|  4000|\n+-------+------+\n\nemployeesDF: org.apache.spark.sql.DataFrame \u003d [name: string, salary: bigint]\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://b679e34348d9:4040/jobs/job?id\u003d68",
+            "http://b679e34348d9:4040/jobs/job?id\u003d69"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1559652754147_-1971985759",
+      "id": "20190604-125234_306559602",
+      "dateCreated": "2019-06-04 12:52:34.147",
+      "dateStarted": "2019-06-04 12:54:59.408",
+      "dateFinished": "2019-06-04 12:54:59.668",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Write JSON file",
+      "text": "%spark\n\nval otherPeopleDF \u003d spark.read.json(\"s3a://zeppelin/employees.json\")\n\notherPeopleDF.write.mode(\"overwrite\").json(\"s3a://zeppelin/sample_output.json\")\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-04 12:59:26.576",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "otherPeopleDF: org.apache.spark.sql.DataFrame \u003d [name: string, salary: bigint]\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://b679e34348d9:4040/jobs/job?id\u003d71",
+            "http://b679e34348d9:4040/jobs/job?id\u003d72"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1559652942813_-1086113280",
+      "id": "20190604-125542_3348471",
+      "dateCreated": "2019-06-04 12:55:42.813",
+      "dateStarted": "2019-06-04 12:59:26.597",
+      "dateFinished": "2019-06-04 12:59:39.294",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
       "title": "Write Parquet file",
       "text": "%spark\n\ncase class Record(key: Int, value: String)\nval recordDf \u003d spark.createDataFrame((1 to 100).map(i \u003d\u003e Record(i, s\"val_$i\")))\n\nrecordDf.write.parquet(\"s3a://zeppelin/sample_output.parquet\")\n",
       "user": "anonymous",
