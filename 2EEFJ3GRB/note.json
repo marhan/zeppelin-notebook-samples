@@ -1,27 +1,81 @@
 {
   "paragraphs": [
     {
+      "title": "Custom schema with Class",
+      "text": "%spark\nimport spark.implicits._\n\ncase class Employee(name: String, salary: Long)\n\nval populationHistoryDF \u003d spark.read.json(\"s3a://zeppelin/employees.json\").as[Employee]\n\npopulationHistoryDF.printSchema()                         \npopulationHistoryDF.show()",
       "user": "anonymous",
+      "dateUpdated": "2019-06-04 19:39:20.258",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- name: string (nullable \u003d true)\n |-- salary: long (nullable \u003d true)\n\n+-------+------+\n|   name|salary|\n+-------+------+\n|Michael|  3000|\n|   Andy|  4500|\n| Justin|  3500|\n|  Berta|  4000|\n+-------+------+\n\nimport spark.implicits._\ndefined class Employee\npopulationHistoryDF: org.apache.spark.sql.Dataset[Employee] \u003d [name: string, salary: bigint]\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://bf1ba2b788b4:4040/jobs/job?id\u003d10",
+            "http://bf1ba2b788b4:4040/jobs/job?id\u003d11"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1559585643569_913501465",
+      "id": "20190603-181403_1382984012",
+      "dateCreated": "2019-06-03 18:14:03.569",
+      "dateStarted": "2019-06-04 19:37:52.284",
+      "dateFinished": "2019-06-04 19:37:55.885",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-04 19:26:43.405",
       "config": {},
       "settings": {
         "params": {},
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1559585643569_913501465",
-      "id": "20190603-181403_1382984012",
-      "dateCreated": "2019-06-03 18:14:03.569",
+      "jobName": "paragraph_1559676403402_579454716",
+      "id": "20190604-192643_1008868061",
+      "dateCreated": "2019-06-04 19:26:43.402",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "Structures/Classes",
+  "name": "Schema/Class",
   "id": "2EEFJ3GRB",
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
-    "md:shared_process": [],
-    "sh:shared_process": [],
     "spark:shared_process": []
   },
   "config": {

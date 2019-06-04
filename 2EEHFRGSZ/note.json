@@ -1,9 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "# What you will find here\n\nThis ",
+      "text": "# What you will find here\n\nThese notebooks are as collection of code snippets for Zeppelin and Spark, to give you an example t build upon your own solutions. \n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-01 06:49:45.439",
+      "dateUpdated": "2019-06-04 19:04:33.442",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -15,7 +15,7 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": false,
+        "editorHide": true,
         "tableHide": false
       },
       "settings": {
@@ -27,7 +27,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eWhat you will find here\u003c/h1\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eWhat you will find here\u003c/h1\u003e\n\u003cp\u003eThese notebooks are as collection of code snippets for Zeppelin and Spark, to give you an example t build upon your own solutions.\u003c/p\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -35,8 +35,8 @@
       "jobName": "paragraph_1559137859640_1681151132",
       "id": "20190529-135059_1382149379",
       "dateCreated": "2019-05-29 13:50:59.640",
-      "dateStarted": "2019-05-29 13:51:14.209",
-      "dateFinished": "2019-05-29 13:51:14.218",
+      "dateStarted": "2019-06-04 19:04:33.448",
+      "dateFinished": "2019-06-04 19:04:33.524",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },

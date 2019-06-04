@@ -3,7 +3,7 @@
     {
       "text": "%spark\nimport org.apache.spark.sql.SQLContext\n                \nimport org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType, DateType};\n\nval customSchema \u003d StructType( Array( StructField(\"year\", DateType, true), \n                                      StructField(\"value\", IntegerType, true)))\n\nval populationHistoryDF \u003d spark.read.format(\"com.databricks.spark.csv\").\n                         option(\"header\", \"true\").\n                         option(\"delimiter\",\",\").\n                         option(\"charset\", \"UTF-8\").\n                         option(\"treatEmptyValuesAsNulls\", \"True\").\n                         option(\"mode\", \"DROPMALFORMED\").\n                         schema(customSchema).load(\"s3a://zeppelin/london-population-history.csv\")\n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-03 18:24:46.993",
+      "dateUpdated": "2019-06-04 19:17:19.330",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -43,8 +43,8 @@
       "jobName": "paragraph_1558818688235_424198837",
       "id": "20190525-211128_640148044",
       "dateCreated": "2019-05-25 21:11:28.236",
-      "dateStarted": "2019-06-03 18:24:40.078",
-      "dateFinished": "2019-06-03 18:24:40.314",
+      "dateStarted": "2019-06-04 19:17:19.722",
+      "dateFinished": "2019-06-04 19:18:23.540",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -79,18 +79,6 @@
             "data": "import java.util.Properties\nconnectionProperties: java.util.Properties \u003d {user\u003dzeppelin_admin, password\u003dzeppelin_admin}\n"
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://b679e34348d9:4040/jobs/job?id\u003d6"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1558818559114_-67579491",
@@ -132,18 +120,6 @@
             "data": "+----------+-------+\n|      year|  value|\n+----------+-------+\n|1961-01-01|7977000|\n|1962-01-01|7970000|\n|1963-01-01|7926000|\n|1964-01-01|7894000|\n|1965-01-01|7857000|\n|1966-01-01|7810000|\n|1967-01-01|7761000|\n|1968-01-01|7693000|\n|1969-01-01|7619000|\n|1970-01-01|7530000|\n|1971-01-01|7529400|\n|1972-01-01|7442800|\n|1973-01-01|7362400|\n|1974-01-01|7263600|\n|1975-01-01|7179000|\n|1976-01-01|7089100|\n|1977-01-01|7012000|\n|1978-01-01|6946800|\n|1979-01-01|6887600|\n|1980-01-01|6850600|\n+----------+-------+\nonly showing top 20 rows\n\nretrievedPopulationHistoryDF: org.apache.spark.sql.DataFrame \u003d [year: date, value: int]\n"
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://b679e34348d9:4040/jobs/job?id\u003d7"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1558821700218_1466119925",
@@ -188,10 +164,7 @@
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
-    "md:shared_process": [],
-    "sh:shared_process": [],
-    "spark:shared_process": [],
-    "postgres_zeppelin_db:shared_process": []
+    "spark:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false
