@@ -2,9 +2,9 @@
   "paragraphs": [
     {
       "title": "Create DataFrame",
-      "text": "%spark\nimport org.apache.spark.sql.SQLContext\n                \nimport org.apache.spark.sql.types.{StructType, StructField, StringType, DoubleType, DateType};\n\nval customSchema \u003d StructType( Array( StructField(\"year\", DateType, true), \n                                      StructField(\"value\", DoubleType, true)))\n\nval populationHistoryDF \u003d spark.read.format(\"com.databricks.spark.csv\").\n                         option(\"header\", \"true\").\n                         option(\"delimiter\",\",\").\n                         option(\"charset\", \"UTF-8\").\n                         option(\"treatEmptyValuesAsNulls\", \"True\").\n                         option(\"mode\", \"DROPMALFORMED\").\n                         schema(customSchema).load(\"s3a://zeppelin/london-population-history.csv\")\n                         \npopulationHistoryDF.printSchema\npopulationHistoryDF.show\n",
+      "text": "%spark\nimport org.apache.spark.sql.SQLContext\n                \nimport org.apache.spark.sql.types.{StructType, StructField, StringType, DoubleType, DateType};\n\nval customSchema \u003d StructType( Array( StructField(\"year\", DateType, true), \n                                      StructField(\"value\", DoubleType, true)))\n\nval populationHistoryDF \u003d spark.read.format(\"com.databricks.spark.csv\").\n                         option(\"header\", \"true\").\n                         option(\"delimiter\",\",\").\n                         option(\"charset\", \"UTF-8\").\n                         option(\"treatEmptyValuesAsNulls\", \"True\").\n                         option(\"mode\", \"DROPMALFORMED\").\n                         schema(customSchema).load(\"s3a://zeppelin/london-population-history.csv\")\n                         \npopulationHistoryDF.printSchema\npopulationHistoryDF.show\n\npopulationHistoryDF.createOrReplaceTempView(\"london_population_history\")\n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-03 18:58:52.092",
+      "dateUpdated": "2019-06-04 11:11:32.298",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -40,7 +40,7 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://b679e34348d9:4040/jobs/job?id\u003d27"
+            "http://b679e34348d9:4040/jobs/job?id\u003d1"
           ],
           "interpreterSettingId": "spark"
         }
@@ -49,8 +49,8 @@
       "jobName": "paragraph_1559586783417_-1474816295",
       "id": "20190603-183303_856308170",
       "dateCreated": "2019-06-03 18:33:03.417",
-      "dateStarted": "2019-06-03 18:54:18.779",
-      "dateFinished": "2019-06-03 18:54:19.227",
+      "dateStarted": "2019-06-04 11:11:32.329",
+      "dateFinished": "2019-06-04 11:11:32.797",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -58,7 +58,7 @@
       "title": "Reduce columns and redifine type",
       "text": "%spark\n\nvar reducedPopulationDF \u003d populationHistoryDF.select($\"value\".cast(\"long\").alias(\"population\"))\n\nreducedPopulationDF.printSchema()    \nreducedPopulationDF.show()",
       "user": "anonymous",
-      "dateUpdated": "2019-06-03 18:59:11.990",
+      "dateUpdated": "2019-06-04 11:12:59.723",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -85,18 +85,6 @@
             "data": "root\n |-- population: long (nullable \u003d true)\n\n+----------+\n|population|\n+----------+\n|   7977000|\n|   7970000|\n|   7926000|\n|   7894000|\n|   7857000|\n|   7810000|\n|   7761000|\n|   7693000|\n|   7619000|\n|   7530000|\n|   7529400|\n|   7442800|\n|   7362400|\n|   7263600|\n|   7179000|\n|   7089100|\n|   7012000|\n|   6946800|\n|   6887600|\n|   6850600|\n+----------+\nonly showing top 20 rows\n\nreducedPopulationDF: org.apache.spark.sql.DataFrame \u003d [population: bigint]\n"
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://b679e34348d9:4040/jobs/job?id\u003d30"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1559587578320_-955360271",
@@ -140,18 +128,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://b679e34348d9:4040/jobs/job?id\u003d32"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1559588010960_1483329371",
       "id": "20190603-185330_295757758",
@@ -162,18 +138,71 @@
       "progressUpdateIntervalMs": 500
     },
     {
+      "title": "Reduce columns and redifine type by SQL",
+      "text": "%spark\n\nval reducedPopulationWithSQLDF \u003d spark.sql(\"\"\"\n\nSELECT INT(value) FROM london_population_history\n   \n\"\"\")\n\nreducedPopulationWithSQLDF.printSchema()    \nreducedPopulationWithSQLDF.show()",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-04 11:13:15.399",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- value: integer (nullable \u003d true)\n\n+-------+\n|  value|\n+-------+\n|7977000|\n|7970000|\n|7926000|\n|7894000|\n|7857000|\n|7810000|\n|7761000|\n|7693000|\n|7619000|\n|7530000|\n|7529400|\n|7442800|\n|7362400|\n|7263600|\n|7179000|\n|7089100|\n|7012000|\n|6946800|\n|6887600|\n|6850600|\n+-------+\nonly showing top 20 rows\n\nreducedPopulationWithSQLDF: org.apache.spark.sql.DataFrame \u003d [value: int]\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://b679e34348d9:4040/jobs/job?id\u003d5"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1559588204488_-864920556",
+      "id": "20190603-185644_364867007",
+      "dateCreated": "2019-06-03 18:56:44.488",
+      "dateStarted": "2019-06-04 11:13:15.426",
+      "dateFinished": "2019-06-04 11:13:15.734",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
       "text": "%spark\n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-03 18:56:44.489",
+      "dateUpdated": "2019-06-04 11:11:15.091",
       "config": {},
       "settings": {
         "params": {},
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1559588204488_-864920556",
-      "id": "20190603-185644_364867007",
-      "dateCreated": "2019-06-03 18:56:44.488",
+      "jobName": "paragraph_1559646675090_-1111148141",
+      "id": "20190604-111115_1418220838",
+      "dateCreated": "2019-06-04 11:11:15.090",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
@@ -183,11 +212,7 @@
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
-    "md:shared_process": [],
-    "maria_zeppelin_db:shared_process": [],
-    "sh:shared_process": [],
-    "spark:shared_process": [],
-    "postgres_zeppelin_db:shared_process": []
+    "spark:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false

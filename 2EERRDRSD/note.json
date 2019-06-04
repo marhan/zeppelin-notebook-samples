@@ -1,9 +1,10 @@
 {
   "paragraphs": [
     {
+      "title": "Get London population data",
       "text": "%spark\nimport org.apache.spark.sql.SQLContext\n                \nimport org.apache.spark.sql.types.{StructType, StructField, StringType, DoubleType, DateType};\n\nval customSchema \u003d StructType( Array( StructField(\"year\", DateType, true), \n                                      StructField(\"value\", DoubleType, true)))\n\nval populationHistoryDF \u003d spark.read.format(\"com.databricks.spark.csv\").\n                         option(\"header\", \"true\").\n                         option(\"delimiter\",\",\").\n                         option(\"charset\", \"UTF-8\").\n                         option(\"treatEmptyValuesAsNulls\", \"True\").\n                         option(\"mode\", \"DROPMALFORMED\").\n                         schema(customSchema).load(\"s3a://zeppelin/london-population-history.csv\")\n                         \npopulationHistoryDF.createOrReplaceTempView(\"population_history\")\n                         \nval populationProjectionDF \u003d spark.read.format(\"com.databricks.spark.csv\").\n                         option(\"header\", \"true\").\n                         option(\"delimiter\",\",\").\n                         option(\"charset\", \"UTF-8\").\n                         option(\"treatEmptyValuesAsNulls\", \"True\").\n                         option(\"mode\", \"DROPMALFORMED\").\n                         schema(customSchema).load(\"s3a://zeppelin/london-population-projection.csv\")\n                         \npopulationProjectionDF.createOrReplaceTempView(\"population_projection\")\n\n\n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-03 18:51:24.779",
+      "dateUpdated": "2019-06-04 12:34:18.913",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -16,7 +17,9 @@
         "fontSize": 9.0,
         "editorHide": true,
         "results": {},
-        "enabled": true
+        "enabled": true,
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -35,14 +38,16 @@
       "jobName": "paragraph_1559587884778_-1369008295",
       "id": "20190603-183303_856308170",
       "dateCreated": "2019-06-03 18:51:24.778",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "2019-06-04 12:07:58.018",
+      "dateFinished": "2019-06-04 12:07:58.305",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
+      "title": "Show population history",
       "text": "%sql\nselect * from population_history",
       "user": "anonymous",
-      "dateUpdated": "2019-06-03 18:51:24.780",
+      "dateUpdated": "2019-06-04 12:34:35.976",
       "config": {
         "editorSetting": {
           "language": "sql",
@@ -111,7 +116,8 @@
             }
           }
         },
-        "enabled": true
+        "enabled": true,
+        "title": true
       },
       "settings": {
         "params": {},
@@ -139,9 +145,10 @@
       "progressUpdateIntervalMs": 500
     },
     {
+      "title": "Show population projection",
       "text": "%sql\nselect * from population_projection",
       "user": "anonymous",
-      "dateUpdated": "2019-06-03 18:51:24.782",
+      "dateUpdated": "2019-06-04 12:34:49.084",
       "config": {
         "editorSetting": {
           "language": "sql",
@@ -182,7 +189,8 @@
             }
           }
         },
-        "enabled": true
+        "enabled": true,
+        "title": true
       },
       "settings": {
         "params": {},
@@ -210,9 +218,219 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%spark\n\nval reducedPopulationHistoryDF \u003d spark.sql(\"\"\"\n\n\n\n\"\"\")",
+      "title": "Join with Spark Scala",
+      "text": "%spark\n\nval modifiedPopulationHistoryDF \u003d populationHistoryDF.withColumnRenamed(\"year\", \"year_history\").withColumnRenamed(\"value\", \"value_history\")\nval modifiedPopulationProjectionDF \u003d populationProjectionDF.withColumnRenamed(\"year\", \"year_projection\").withColumnRenamed(\"value\", \"value_projection\")\n\nval joinedPopulationDF \u003d modifiedPopulationHistoryDF\n    .join(modifiedPopulationProjectionDF,\n        modifiedPopulationProjectionDF.col(\"year_projection\") \u003d\u003d\u003d modifiedPopulationHistoryDF.col(\"year_history\"), \"outer\")\n\njoinedPopulationDF.createOrReplaceTempView(\"joined_population\")\n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-03 18:51:24.782",
+      "dateUpdated": "2019-06-04 12:36:04.068",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "modifiedPopulationHistoryDF: org.apache.spark.sql.DataFrame \u003d [year_history: date, value_history: double]\nmodifiedPopulationProjectionDF: org.apache.spark.sql.DataFrame \u003d [year_projection: date, value_projection: double]\njoinedPopulationDF: org.apache.spark.sql.DataFrame \u003d [year_history: date, value_history: double ... 2 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559649913639_1076161279",
+      "id": "20190604-120513_1148371225",
+      "dateCreated": "2019-06-04 12:05:13.639",
+      "dateStarted": "2019-06-04 12:24:35.051",
+      "dateFinished": "2019-06-04 12:24:35.239",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Show joined data",
+      "text": "%sql\n\nselect * from joined_population order by year_projection, year_history\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-04 12:36:12.236",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "year_history",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {
+                          "priority": 0.0,
+                          "direction": "desc"
+                        },
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "value_history",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "year_projection",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "value_projection",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 250.0
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "year_history": "string",
+                      "value_history": "string",
+                      "year_projection": "string",
+                      "value_projection": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "year_history",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "value_history",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "year_history\tvalue_history\tyear_projection\tvalue_projection\n1961-01-01\t7977000.0\tnull\tnull\n1962-01-01\t7970000.0\tnull\tnull\n1963-01-01\t7926000.0\tnull\tnull\n1964-01-01\t7894000.0\tnull\tnull\n1965-01-01\t7857000.0\tnull\tnull\n1966-01-01\t7810000.0\tnull\tnull\n1967-01-01\t7761000.0\tnull\tnull\n1968-01-01\t7693000.0\tnull\tnull\n1969-01-01\t7619000.0\tnull\tnull\n1970-01-01\t7530000.0\tnull\tnull\n1971-01-01\t7529400.0\tnull\tnull\n1972-01-01\t7442800.0\tnull\tnull\n1973-01-01\t7362400.0\tnull\tnull\n1974-01-01\t7263600.0\tnull\tnull\n1975-01-01\t7179000.0\tnull\tnull\n1976-01-01\t7089100.0\tnull\tnull\n1977-01-01\t7012000.0\tnull\tnull\n1978-01-01\t6946800.0\tnull\tnull\n1979-01-01\t6887600.0\tnull\tnull\n1980-01-01\t6850600.0\tnull\tnull\n1981-01-01\t6805600.0\tnull\tnull\n1982-01-01\t6765100.0\tnull\tnull\n1983-01-01\t6753000.0\tnull\tnull\n1984-01-01\t6754700.0\tnull\tnull\n1985-01-01\t6767000.0\tnull\tnull\n1986-01-01\t6774200.0\tnull\tnull\n1987-01-01\t6765600.0\tnull\tnull\n1988-01-01\t6729300.0\tnull\tnull\n1989-01-01\t6751600.0\tnull\tnull\n1990-01-01\t6798800.0\tnull\tnull\n1991-01-01\t6829300.0\tnull\tnull\n1992-01-01\t6829400.0\tnull\tnull\n1993-01-01\t6844500.0\tnull\tnull\n1994-01-01\t6873500.0\tnull\tnull\n1995-01-01\t6913100.0\tnull\tnull\n1996-01-01\t6974400.0\tnull\tnull\n1997-01-01\t7014800.0\tnull\tnull\n1998-01-01\t7065500.0\tnull\tnull\n1999-01-01\t7153900.0\tnull\tnull\n2000-01-01\t7236700.0\tnull\tnull\n2001-01-01\t7322400.0\tnull\tnull\n2002-01-01\t7376700.0\tnull\tnull\n2003-01-01\t7394800.0\tnull\tnull\n2004-01-01\t7432700.0\tnull\tnull\n2005-01-01\t7519000.0\tnull\tnull\n2006-01-01\t7597800.0\tnull\tnull\n2007-01-01\t7693500.0\tnull\tnull\n2008-01-01\t7812200.0\tnull\tnull\n2009-01-01\t7942600.0\tnull\tnull\n2010-01-01\t8061500.0\tnull\tnull\n2011-01-01\t8204400.0\t2011-01-01\t8217474.997\n2012-01-01\t8308400.0\t2012-01-01\t8321034.997\n2013-01-01\t8416500.0\t2013-01-01\t8428808.997\n2014-01-01\t8538700.0\t2014-01-01\t8550554.997\n2015-01-01\t8673713.0\t2015-01-01\t8685177.997\nnull\tnull\t2016-01-01\t8798956.997\nnull\tnull\t2017-01-01\t8904003.584\nnull\tnull\t2018-01-01\t9006352.174\nnull\tnull\t2019-01-01\t9106157.226\nnull\tnull\t2020-01-01\t9203331.267\nnull\tnull\t2021-01-01\t9298024.181\nnull\tnull\t2022-01-01\t9390069.006\nnull\tnull\t2023-01-01\t9479609.562\nnull\tnull\t2024-01-01\t9566482.117\nnull\tnull\t2025-01-01\t9650676.596\nnull\tnull\t2026-01-01\t9732424.75\nnull\tnull\t2027-01-01\t9811951.813\nnull\tnull\t2028-01-01\t9889686.113\nnull\tnull\t2029-01-01\t9965796.101\nnull\tnull\t2030-01-01\t1.0040425157E7\nnull\tnull\t2031-01-01\t1.0113737653E7\nnull\tnull\t2032-01-01\t1.0186039301E7\nnull\tnull\t2033-01-01\t1.0257459966E7\nnull\tnull\t2034-01-01\t1.0327806255E7\nnull\tnull\t2035-01-01\t1.0396960196E7\nnull\tnull\t2036-01-01\t1.0464787459E7\nnull\tnull\t2037-01-01\t1.0531108642E7\nnull\tnull\t2038-01-01\t1.059611197E7\nnull\tnull\t2039-01-01\t1.0659260144E7\nnull\tnull\t2040-01-01\t1.0718733674E7\nnull\tnull\t2041-01-01\t1.0776412364E7\nnull\tnull\t2042-01-01\t1.0832265871E7\nnull\tnull\t2043-01-01\t1.088627089E7\nnull\tnull\t2044-01-01\t1.0938319388E7\nnull\tnull\t2045-01-01\t1.0988366725E7\nnull\tnull\t2046-01-01\t1.1036382793E7\nnull\tnull\t2047-01-01\t1.1082364787E7\nnull\tnull\t2048-01-01\t1.1126313363E7\nnull\tnull\t2049-01-01\t1.1168254862E7\nnull\tnull\t2050-01-01\t1.1208247469E7\n"
+          },
+          {
+            "type": "TEXT",
+            "data": ""
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://b679e34348d9:4040/jobs/job?id\u003d59"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1559650468627_-1038780637",
+      "id": "20190604-121428_1876953706",
+      "dateCreated": "2019-06-04 12:14:28.627",
+      "dateStarted": "2019-06-04 12:33:34.934",
+      "dateFinished": "2019-06-04 12:33:35.883",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Join with Spark SQL",
+      "text": "%spark\n\nval joinedPopulationSQLDF \u003d spark.sql(\"\"\"\nselect \n    h.year as year_history, h.value as value_history, p.year as year_projection, p.value as value_projection \nfrom population_history h\n    FULL OUTER JOIN population_projection p on h.year\u003dp.year\n\"\"\")\n\njoinedPopulationSQLDF.createOrReplaceTempView(\"joined_population_sql\")",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-04 12:35:59.192",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -224,18 +442,133 @@
         "editorMode": "ace/mode/scala",
         "fontSize": 9.0,
         "results": {},
-        "enabled": true
+        "enabled": true,
+        "title": true
       },
       "settings": {
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "joinedPopulationSQLDF: org.apache.spark.sql.DataFrame \u003d [year_history: date, value_history: double ... 2 more fields]\n"
+          }
+        ]
+      },
       "apps": [],
       "jobName": "paragraph_1559587884782_-915092875",
       "id": "20190603-184618_1103564082",
       "dateCreated": "2019-06-03 18:51:24.782",
+      "dateStarted": "2019-06-04 12:33:04.655",
+      "dateFinished": "2019-06-04 12:33:04.794",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Show joined  data",
+      "text": "%sql\nselect * from joined_population_sql order by year_projection, year_history",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-04 12:36:22.475",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "year_history": "string",
+                      "value_history": "string",
+                      "year_projection": "string",
+                      "value_projection": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "year_history\tvalue_history\tyear_projection\tvalue_projection\n1961-01-01\t7977000.0\tnull\tnull\n1962-01-01\t7970000.0\tnull\tnull\n1963-01-01\t7926000.0\tnull\tnull\n1964-01-01\t7894000.0\tnull\tnull\n1965-01-01\t7857000.0\tnull\tnull\n1966-01-01\t7810000.0\tnull\tnull\n1967-01-01\t7761000.0\tnull\tnull\n1968-01-01\t7693000.0\tnull\tnull\n1969-01-01\t7619000.0\tnull\tnull\n1970-01-01\t7530000.0\tnull\tnull\n1971-01-01\t7529400.0\tnull\tnull\n1972-01-01\t7442800.0\tnull\tnull\n1973-01-01\t7362400.0\tnull\tnull\n1974-01-01\t7263600.0\tnull\tnull\n1975-01-01\t7179000.0\tnull\tnull\n1976-01-01\t7089100.0\tnull\tnull\n1977-01-01\t7012000.0\tnull\tnull\n1978-01-01\t6946800.0\tnull\tnull\n1979-01-01\t6887600.0\tnull\tnull\n1980-01-01\t6850600.0\tnull\tnull\n1981-01-01\t6805600.0\tnull\tnull\n1982-01-01\t6765100.0\tnull\tnull\n1983-01-01\t6753000.0\tnull\tnull\n1984-01-01\t6754700.0\tnull\tnull\n1985-01-01\t6767000.0\tnull\tnull\n1986-01-01\t6774200.0\tnull\tnull\n1987-01-01\t6765600.0\tnull\tnull\n1988-01-01\t6729300.0\tnull\tnull\n1989-01-01\t6751600.0\tnull\tnull\n1990-01-01\t6798800.0\tnull\tnull\n1991-01-01\t6829300.0\tnull\tnull\n1992-01-01\t6829400.0\tnull\tnull\n1993-01-01\t6844500.0\tnull\tnull\n1994-01-01\t6873500.0\tnull\tnull\n1995-01-01\t6913100.0\tnull\tnull\n1996-01-01\t6974400.0\tnull\tnull\n1997-01-01\t7014800.0\tnull\tnull\n1998-01-01\t7065500.0\tnull\tnull\n1999-01-01\t7153900.0\tnull\tnull\n2000-01-01\t7236700.0\tnull\tnull\n2001-01-01\t7322400.0\tnull\tnull\n2002-01-01\t7376700.0\tnull\tnull\n2003-01-01\t7394800.0\tnull\tnull\n2004-01-01\t7432700.0\tnull\tnull\n2005-01-01\t7519000.0\tnull\tnull\n2006-01-01\t7597800.0\tnull\tnull\n2007-01-01\t7693500.0\tnull\tnull\n2008-01-01\t7812200.0\tnull\tnull\n2009-01-01\t7942600.0\tnull\tnull\n2010-01-01\t8061500.0\tnull\tnull\n2011-01-01\t8204400.0\t2011-01-01\t8217474.997\n2012-01-01\t8308400.0\t2012-01-01\t8321034.997\n2013-01-01\t8416500.0\t2013-01-01\t8428808.997\n2014-01-01\t8538700.0\t2014-01-01\t8550554.997\n2015-01-01\t8673713.0\t2015-01-01\t8685177.997\nnull\tnull\t2016-01-01\t8798956.997\nnull\tnull\t2017-01-01\t8904003.584\nnull\tnull\t2018-01-01\t9006352.174\nnull\tnull\t2019-01-01\t9106157.226\nnull\tnull\t2020-01-01\t9203331.267\nnull\tnull\t2021-01-01\t9298024.181\nnull\tnull\t2022-01-01\t9390069.006\nnull\tnull\t2023-01-01\t9479609.562\nnull\tnull\t2024-01-01\t9566482.117\nnull\tnull\t2025-01-01\t9650676.596\nnull\tnull\t2026-01-01\t9732424.75\nnull\tnull\t2027-01-01\t9811951.813\nnull\tnull\t2028-01-01\t9889686.113\nnull\tnull\t2029-01-01\t9965796.101\nnull\tnull\t2030-01-01\t1.0040425157E7\nnull\tnull\t2031-01-01\t1.0113737653E7\nnull\tnull\t2032-01-01\t1.0186039301E7\nnull\tnull\t2033-01-01\t1.0257459966E7\nnull\tnull\t2034-01-01\t1.0327806255E7\nnull\tnull\t2035-01-01\t1.0396960196E7\nnull\tnull\t2036-01-01\t1.0464787459E7\nnull\tnull\t2037-01-01\t1.0531108642E7\nnull\tnull\t2038-01-01\t1.059611197E7\nnull\tnull\t2039-01-01\t1.0659260144E7\nnull\tnull\t2040-01-01\t1.0718733674E7\nnull\tnull\t2041-01-01\t1.0776412364E7\nnull\tnull\t2042-01-01\t1.0832265871E7\nnull\tnull\t2043-01-01\t1.088627089E7\nnull\tnull\t2044-01-01\t1.0938319388E7\nnull\tnull\t2045-01-01\t1.0988366725E7\nnull\tnull\t2046-01-01\t1.1036382793E7\nnull\tnull\t2047-01-01\t1.1082364787E7\nnull\tnull\t2048-01-01\t1.1126313363E7\nnull\tnull\t2049-01-01\t1.1168254862E7\nnull\tnull\t2050-01-01\t1.1208247469E7\n"
+          },
+          {
+            "type": "TEXT",
+            "data": ""
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://b679e34348d9:4040/jobs/job?id\u003d58"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1559651270765_1076959546",
+      "id": "20190604-122750_429581969",
+      "dateCreated": "2019-06-04 12:27:50.765",
+      "dateStarted": "2019-06-04 12:33:07.765",
+      "dateFinished": "2019-06-04 12:33:08.880",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-04 12:30:21.645",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559651421645_668640097",
+      "id": "20190604-123021_1274358185",
+      "dateCreated": "2019-06-04 12:30:21.645",
       "status": "READY",
-      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     }
   ],
@@ -245,10 +578,7 @@
   "noteForms": {},
   "angularObjects": {
     "md:shared_process": [],
-    "maria_zeppelin_db:shared_process": [],
-    "sh:shared_process": [],
-    "spark:shared_process": [],
-    "postgres_zeppelin_db:shared_process": []
+    "spark:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false
