@@ -1,9 +1,10 @@
 {
   "paragraphs": [
     {
+      "title": "Create file",
       "text": "%spark\n\nval stringRdd \u003d sc.parallelize(Seq(\"\u003d\u003d\u003d\u003e This is test content in a text file \u003c\u003d\u003d\u003d\"))\nstringRdd.saveAsTextFile(\"/opt/files/sample_output.txt\")",
       "user": "anonymous",
-      "dateUpdated": "2019-05-29 14:05:39.027",
+      "dateUpdated": "2019-06-05 16:22:08.872",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -15,7 +16,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/scala",
+        "title": true
       },
       "settings": {
         "params": {},
@@ -40,9 +42,10 @@
       "progressUpdateIntervalMs": 500
     },
     {
+      "title": "Read file",
       "text": "%spark\n\nval stringRdd \u003d sc.textFile(\"/opt/files/sample_output.txt\")\n\nstringRdd.collect().foreach(println)",
       "user": "anonymous",
-      "dateUpdated": "2019-06-02 16:17:09.518",
+      "dateUpdated": "2019-06-05 16:22:22.534",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -55,7 +58,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/scala",
-        "tableHide": false
+        "tableHide": false,
+        "title": true
       },
       "settings": {
         "params": {},
@@ -80,9 +84,10 @@
       "progressUpdateIntervalMs": 500
     },
     {
+      "title": "Delete files",
       "text": "%spark\nimport org.apache.hadoop.conf.Configuration\nimport org.apache.hadoop.fs.{Path, FileSystem}\n\nval fs \u003d FileSystem.get(new Configuration())\nfs.delete(new Path(\"/opt/files\"), true)",
       "user": "anonymous",
-      "dateUpdated": "2019-05-29 14:05:39.764",
+      "dateUpdated": "2019-06-05 16:22:36.612",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -94,7 +99,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/scala",
+        "title": true
       },
       "settings": {
         "params": {},
@@ -147,7 +153,7 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "Local files/Spark text",
+  "name": "05_Local files/Spark",
   "id": "2EENWCFRX",
   "noteParams": {},
   "noteForms": {},

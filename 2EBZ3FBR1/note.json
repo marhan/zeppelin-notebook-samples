@@ -131,14 +131,11 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "Shell/WebDAV",
+  "name": "01_Shell/WebDAV",
   "id": "2EBZ3FBR1",
   "noteParams": {},
   "noteForms": {},
-  "angularObjects": {
-    "sh:shared_process": [],
-    "spark:shared_process": []
-  },
+  "angularObjects": {},
   "config": {
     "isZeppelinNotebookCronEnable": false
   },

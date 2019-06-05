@@ -52,7 +52,7 @@
       "title": "Write DataFrame to Database",
       "text": "import java.util.Properties\n\nval connectionProperties \u003d new Properties()\nconnectionProperties.put(\"user\", sc.getConf.get(\"spark.app.postgres.root.user\"))\nconnectionProperties.put(\"password\", sc.getConf.get(\"spark.app.postgres.root.password\"))\n\npopulationHistoryDF.write\n    .option(\"driver\", \"org.postgresql.Driver\")\n    .mode(\"overwrite\")\n    .jdbc(\"jdbc:postgresql://postgresdb:5432/zeppelin\", \"zeppelin.london_population\", connectionProperties)",
       "user": "anonymous",
-      "dateUpdated": "2019-06-03 18:24:40.379",
+      "dateUpdated": "2019-06-05 16:05:32.971",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -159,12 +159,15 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "Database/Spark_Database_Interaction",
+  "name": "04_Database/Spark",
   "id": "2EB19QKHH",
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
-    "spark:shared_process": []
+    "md:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": [],
+    "postgres_zeppelin_db:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false

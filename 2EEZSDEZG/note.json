@@ -261,14 +261,16 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "Forms/Markdown",
+  "name": "08_Forms/Markdown",
   "id": "2EEZSDEZG",
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
     "md:shared_process": [],
+    "maria_zeppelin_db:shared_process": [],
     "sh:shared_process": [],
-    "spark:shared_process": []
+    "spark:shared_process": [],
+    "postgres_zeppelin_db:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false

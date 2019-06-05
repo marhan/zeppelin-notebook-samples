@@ -33,18 +33,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://b679e34348d9:4040/jobs/job?id\u003d1"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1559586783417_-1474816295",
       "id": "20190603-183303_856308170",
@@ -169,18 +157,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://b679e34348d9:4040/jobs/job?id\u003d5"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1559588204488_-864920556",
       "id": "20190603-185644_364867007",
@@ -207,12 +183,16 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "Analysis/Selection",
+  "name": "09_Analysis/Selection",
   "id": "2EF4BA69Y",
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
-    "spark:shared_process": []
+    "md:shared_process": [],
+    "maria_zeppelin_db:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": [],
+    "postgres_zeppelin_db:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false

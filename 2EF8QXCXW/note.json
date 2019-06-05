@@ -34,18 +34,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://b679e34348d9:4040/jobs/job?id\u003d60"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1559651950475_1009958599",
       "id": "20190603-183303_856308170",
@@ -86,18 +74,6 @@
             "data": "+----------+---------+\n|      year|    value|\n+----------+---------+\n|2010-01-01|8061500.0|\n|2011-01-01|8204400.0|\n|2012-01-01|8308400.0|\n|2013-01-01|8416500.0|\n|2014-01-01|8538700.0|\n|2015-01-01|8673713.0|\n+----------+---------+\n\nfilteredPopulationDF: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [year: date, value: double]\n"
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://b679e34348d9:4040/jobs/job?id\u003d63"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1559651950477_-1381464127",
@@ -140,18 +116,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://b679e34348d9:4040/jobs/job?id\u003d65"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1559652120594_3854361",
       "id": "20190604-124200_1857787881",
@@ -178,13 +142,16 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "Analysis/Filter",
+  "name": "09_Analysis/Filter",
   "id": "2EF8QXCXW",
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
     "md:shared_process": [],
-    "spark:shared_process": []
+    "maria_zeppelin_db:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": [],
+    "postgres_zeppelin_db:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false

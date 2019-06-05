@@ -34,18 +34,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://b679e34348d9:4040/jobs/job?id\u003d4"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1559585725660_318435537",
       "id": "20190603-181525_1485916260",
@@ -72,7 +60,7 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "External files/WebDAV",
+  "name": "06_External files/WebDAV",
   "id": "2EDW7TWPA",
   "noteParams": {},
   "noteForms": {},

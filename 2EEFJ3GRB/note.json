@@ -32,19 +32,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://bf1ba2b788b4:4040/jobs/job?id\u003d10",
-            "http://bf1ba2b788b4:4040/jobs/job?id\u003d11"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1559585643569_913501465",
       "id": "20190603-181403_1382984012",
@@ -71,12 +58,16 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "Schema/Class",
+  "name": "07_Schema/Class",
   "id": "2EEFJ3GRB",
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
-    "spark:shared_process": []
+    "md:shared_process": [],
+    "maria_zeppelin_db:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": [],
+    "postgres_zeppelin_db:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false

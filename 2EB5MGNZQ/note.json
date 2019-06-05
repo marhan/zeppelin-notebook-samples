@@ -1,9 +1,10 @@
 {
   "paragraphs": [
     {
+      "title": "Dynamic",
       "text": "%dep\n\nz.addRepo(\"Spark Packages Repo\").url(\"http://dl.bintray.com/spark-packages/maven\")\nz.addRepo(\"Maven Central\").url(\"http://central.maven.org/maven2/\")\n\nz.load(\"org.postgresql:postgresql:jar:42.2.5\")\n",
       "user": "anonymous",
-      "dateUpdated": "2019-05-30 18:44:32.749",
+      "dateUpdated": "2019-06-05 16:17:43.719",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -16,7 +17,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/scala",
-        "tableHide": false
+        "tableHide": false,
+        "title": true
       },
       "settings": {
         "params": {},
@@ -41,42 +43,74 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%dep\n",
+      "title": "Static",
+      "text": "%md\n\nExternal dependency can be integrated by spark options in `zeppelin-env.sh` file.\n\n`export SPARK_SUBMIT_OPTIONS\u003d\"--jars path/to/mylib.jar`\n",
       "user": "anonymous",
-      "dateUpdated": "2019-05-30 18:44:24.991",
+      "dateUpdated": "2019-06-05 16:19:47.040",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
+          "language": "markdown",
+          "editOnDblClick": true,
           "completionKey": "TAB",
-          "completionSupport": true
+          "completionSupport": false
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/markdown",
+        "title": true,
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eExternal dependency can be integrated by spark options in \u003ccode\u003ezeppelin-env.sh\u003c/code\u003e file.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eexport SPARK_SUBMIT_OPTIONS\u003d\u0026quot;--jars path/to/mylib.jar\u003c/code\u003e\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
       "apps": [],
       "jobName": "paragraph_1558904158004_-613698348",
       "id": "20190526-205558_986283811",
       "dateCreated": "2019-05-26 20:55:58.005",
+      "dateStarted": "2019-06-05 16:19:47.038",
+      "dateFinished": "2019-06-05 16:19:47.048",
       "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-05 16:19:47.017",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559751587016_-39299471",
+      "id": "20190605-161947_2126569761",
+      "dateCreated": "2019-06-05 16:19:47.016",
+      "status": "READY",
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "Dependency/External Dependencies",
+  "name": "02_Dependency/External Dependencies",
   "id": "2EB5MGNZQ",
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
     "md:shared_process": [],
     "sh:shared_process": [],
-    "spark:shared_process": []
+    "spark:shared_process": [],
+    "postgres_zeppelin_db:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false

@@ -1,0 +1,145 @@
+{
+  "paragraphs": [
+    {
+      "title": "Create file",
+      "text": "%sh\n\necho \u0027Hello, world\u0027 \u003e /opt/files/shell_sample_output.txt",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-05 16:24:49.259",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1559751780112_-1788447004",
+      "id": "20190605-162300_1471859641",
+      "dateCreated": "2019-06-05 16:23:00.112",
+      "dateStarted": "2019-06-05 16:24:20.425",
+      "dateFinished": "2019-06-05 16:24:20.437",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Show file content",
+      "text": "%sh\n\ncat /opt/files/shell_sample_output.txt",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-05 16:25:21.507",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Hello, world\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559751838061_318880261",
+      "id": "20190605-162358_2117507408",
+      "dateCreated": "2019-06-05 16:23:58.061",
+      "dateStarted": "2019-06-05 16:24:21.987",
+      "dateFinished": "2019-06-05 16:24:22.000",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Delete file",
+      "text": "%sh\n\nrm /opt/files/shell_sample_output.txt",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-05 16:25:29.821",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1559751850941_-2012711538",
+      "id": "20190605-162410_866980784",
+      "dateCreated": "2019-06-05 16:24:10.941",
+      "dateStarted": "2019-06-05 16:24:31.995",
+      "dateFinished": "2019-06-05 16:24:32.006",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-05 16:24:31.973",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559751871972_1080251068",
+      "id": "20190605-162431_1270227036",
+      "dateCreated": "2019-06-05 16:24:31.972",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "05_Local files/Shell",
+  "id": "2ED485NS8",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "maria_zeppelin_db:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": [],
+    "postgres_zeppelin_db:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

@@ -4,7 +4,7 @@
       "title": "Get London population data",
       "text": "%spark\nimport org.apache.spark.sql.SQLContext\n                \nimport org.apache.spark.sql.types.{StructType, StructField, StringType, DoubleType, DateType};\n\nval customSchema \u003d StructType( Array( StructField(\"year\", DateType, true), \n                                      StructField(\"value\", DoubleType, true)))\n\nval populationHistoryDF \u003d spark.read.format(\"com.databricks.spark.csv\").\n                         option(\"header\", \"true\").\n                         option(\"delimiter\",\",\").\n                         option(\"charset\", \"UTF-8\").\n                         option(\"treatEmptyValuesAsNulls\", \"True\").\n                         option(\"mode\", \"DROPMALFORMED\").\n                         schema(customSchema).load(\"s3a://zeppelin/london-population-history.csv\")\n                         \npopulationHistoryDF.createOrReplaceTempView(\"population_history\")\n                         \nval populationProjectionDF \u003d spark.read.format(\"com.databricks.spark.csv\").\n                         option(\"header\", \"true\").\n                         option(\"delimiter\",\",\").\n                         option(\"charset\", \"UTF-8\").\n                         option(\"treatEmptyValuesAsNulls\", \"True\").\n                         option(\"mode\", \"DROPMALFORMED\").\n                         schema(customSchema).load(\"s3a://zeppelin/london-population-projection.csv\")\n                         \npopulationProjectionDF.createOrReplaceTempView(\"population_projection\")\n\n\n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 12:34:18.913",
+      "dateUpdated": "2019-06-05 15:59:43.304",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -38,8 +38,8 @@
       "jobName": "paragraph_1559587884778_-1369008295",
       "id": "20190603-183303_856308170",
       "dateCreated": "2019-06-03 18:51:24.778",
-      "dateStarted": "2019-06-04 12:07:58.018",
-      "dateFinished": "2019-06-04 12:07:58.305",
+      "dateStarted": "2019-06-05 15:59:43.326",
+      "dateFinished": "2019-06-05 15:59:44.321",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -47,7 +47,7 @@
       "title": "Show population history",
       "text": "%sql\nselect * from population_history",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 12:34:35.976",
+      "dateUpdated": "2019-06-05 15:59:44.331",
       "config": {
         "editorSetting": {
           "language": "sql",
@@ -136,19 +136,32 @@
           }
         ]
       },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://a33b68bac088:4040/jobs/job?id\u003d9"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "apps": [],
       "jobName": "paragraph_1559587884780_516233664",
       "id": "20190603-183525_143190522",
       "dateCreated": "2019-06-03 18:51:24.780",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "2019-06-05 15:59:44.357",
+      "dateFinished": "2019-06-05 15:59:44.726",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Show population projection",
       "text": "%sql\nselect * from population_projection",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 12:34:49.084",
+      "dateUpdated": "2019-06-05 15:59:44.759",
       "config": {
         "editorSetting": {
           "language": "sql",
@@ -209,19 +222,32 @@
           }
         ]
       },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://a33b68bac088:4040/jobs/job?id\u003d10"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "apps": [],
       "jobName": "paragraph_1559587884781_-811899409",
       "id": "20190603-183637_1617636917",
       "dateCreated": "2019-06-03 18:51:24.781",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "2019-06-05 15:59:44.775",
+      "dateFinished": "2019-06-05 15:59:44.876",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Join with Spark Scala",
       "text": "%spark\n\nval modifiedPopulationHistoryDF \u003d populationHistoryDF.withColumnRenamed(\"year\", \"year_history\").withColumnRenamed(\"value\", \"value_history\")\nval modifiedPopulationProjectionDF \u003d populationProjectionDF.withColumnRenamed(\"year\", \"year_projection\").withColumnRenamed(\"value\", \"value_projection\")\n\nval joinedPopulationDF \u003d modifiedPopulationHistoryDF\n    .join(modifiedPopulationProjectionDF,\n        modifiedPopulationProjectionDF.col(\"year_projection\") \u003d\u003d\u003d modifiedPopulationHistoryDF.col(\"year_history\"), \"outer\")\n\njoinedPopulationDF.createOrReplaceTempView(\"joined_population\")\n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 12:36:04.068",
+      "dateUpdated": "2019-06-05 15:59:44.975",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -253,8 +279,8 @@
       "jobName": "paragraph_1559649913639_1076161279",
       "id": "20190604-120513_1148371225",
       "dateCreated": "2019-06-04 12:05:13.639",
-      "dateStarted": "2019-06-04 12:24:35.051",
-      "dateFinished": "2019-06-04 12:24:35.239",
+      "dateStarted": "2019-06-05 15:59:44.994",
+      "dateFinished": "2019-06-05 15:59:45.226",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -262,7 +288,7 @@
       "title": "Show joined data",
       "text": "%sql\n\nselect * from joined_population order by year_projection, year_history\n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 12:36:12.236",
+      "dateUpdated": "2019-06-05 15:59:45.295",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -412,7 +438,7 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://b679e34348d9:4040/jobs/job?id\u003d59"
+            "http://a33b68bac088:4040/jobs/job?id\u003d11"
           ],
           "interpreterSettingId": "spark"
         }
@@ -421,8 +447,8 @@
       "jobName": "paragraph_1559650468627_-1038780637",
       "id": "20190604-121428_1876953706",
       "dateCreated": "2019-06-04 12:14:28.627",
-      "dateStarted": "2019-06-04 12:33:34.934",
-      "dateFinished": "2019-06-04 12:33:35.883",
+      "dateStarted": "2019-06-05 15:59:45.318",
+      "dateFinished": "2019-06-05 15:59:46.860",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -430,7 +456,7 @@
       "title": "Join with Spark SQL",
       "text": "%spark\n\nval joinedPopulationSQLDF \u003d spark.sql(\"\"\"\nselect \n    h.year as year_history, h.value as value_history, p.year as year_projection, p.value as value_projection \nfrom population_history h\n    FULL OUTER JOIN population_projection p on h.year\u003dp.year\n\"\"\")\n\njoinedPopulationSQLDF.createOrReplaceTempView(\"joined_population_sql\")",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 12:35:59.192",
+      "dateUpdated": "2019-06-05 15:59:46.923",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -462,8 +488,8 @@
       "jobName": "paragraph_1559587884782_-915092875",
       "id": "20190603-184618_1103564082",
       "dateCreated": "2019-06-03 18:51:24.782",
-      "dateStarted": "2019-06-04 12:33:04.655",
-      "dateFinished": "2019-06-04 12:33:04.794",
+      "dateStarted": "2019-06-05 15:59:46.938",
+      "dateFinished": "2019-06-05 15:59:47.150",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -471,7 +497,7 @@
       "title": "Show joined  data",
       "text": "%sql\nselect * from joined_population_sql order by year_projection, year_history",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 12:36:22.475",
+      "dateUpdated": "2019-06-05 16:00:02.270",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -502,10 +528,32 @@
                   },
                   "updated": false,
                   "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
                 }
               },
-              "commonSetting": {}
-            }
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "year_history",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": []
+            },
+            "helium": {}
           }
         },
         "editorSetting": {
@@ -541,7 +589,7 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://b679e34348d9:4040/jobs/job?id\u003d58"
+            "http://a33b68bac088:4040/jobs/job?id\u003d12"
           ],
           "interpreterSettingId": "spark"
         }
@@ -550,16 +598,28 @@
       "jobName": "paragraph_1559651270765_1076959546",
       "id": "20190604-122750_429581969",
       "dateCreated": "2019-06-04 12:27:50.765",
-      "dateStarted": "2019-06-04 12:33:07.765",
-      "dateFinished": "2019-06-04 12:33:08.880",
+      "dateStarted": "2019-06-05 15:59:47.257",
+      "dateFinished": "2019-06-05 15:59:48.505",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sql\n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 12:30:21.645",
-      "config": {},
+      "dateUpdated": "2019-06-05 15:59:48.567",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
       "settings": {
         "params": {},
         "forms": {}
@@ -568,17 +628,20 @@
       "jobName": "paragraph_1559651421645_668640097",
       "id": "20190604-123021_1274358185",
       "dateCreated": "2019-06-04 12:30:21.645",
-      "status": "READY",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "Analysis/Joins",
+  "name": "09_Analysis/Joins",
   "id": "2EERRDRSD",
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
     "md:shared_process": [],
-    "spark:shared_process": []
+    "maria_zeppelin_db:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": [],
+    "postgres_zeppelin_db:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false

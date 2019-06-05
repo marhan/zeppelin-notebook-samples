@@ -1,0 +1,80 @@
+{
+  "paragraphs": [
+    {
+      "title": "Implicit partitioning",
+      "text": "%spark\n\ncase class Record(key: Int, value: String)\nval recordDf \u003d spark.createDataFrame((1 to 100).map(i \u003d\u003e Record(i, s\"val_$i\")))\n                \nrecordDf.write\n    .format(\"csv\")\n    .mode(\"overwrite\")\n    .save(\"s3a://zeppelin/sample_output_partitioned.csv\")\n ",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-05 16:30:26.586",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559752138340_-1367038710",
+      "id": "20190605-162858_864130487",
+      "dateCreated": "2019-06-05 16:28:58.340",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Explicit partitioning",
+      "text": "%spark\n\ncase class Record(key: Int, value: String)\nval recordDf \u003d spark.createDataFrame((1 to 100).map(i \u003d\u003e Record(i, s\"val_$i\")))\n         \nrecordDf\n    .coalesce(1) // \u003c- create one file\n    .write\n    .format(\"csv\")\n    .mode(\"overwrite\")\n    .save(\"s3a://zeppelin/sample_output_coalesce.csv\")",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-05 16:30:22.754",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559752170191_328097775",
+      "id": "20190605-162930_1343150293",
+      "dateCreated": "2019-06-05 16:29:30.191",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "10_Performance/partitioning",
+  "id": "2EEVNYYMH",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "maria_zeppelin_db:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": [],
+    "postgres_zeppelin_db:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
