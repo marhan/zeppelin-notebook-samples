@@ -1,0 +1,121 @@
+{
+  "paragraphs": [
+    {
+      "text": "%angular\n\n\u003cform class\u003d\"form-inline\"\u003e\n  \u003cdiv class\u003d\"form-group\"\u003e\n    \u003clabel for\u003d\"nameId\"\u003eMy name: \u003c/label\u003e\n    \u003cinput type\u003d\"text\" class\u003d\"form-control\" id\u003d\"nameId\" placeholder\u003d\"My name ...\" ng-model\u003d\"myname\"\u003e\u003c/input\u003e\n  \u003c/div\u003e\n  \u003cbutton type\u003d\"submit\" class\u003d\"btn btn-primary\" ng-click\u003d\"z.angularBind(\u0027myname\u0027,myname,\u002720190605-183240_1702857193\u0027)\"\u003e Bind\u003c/button\u003e\n\u003c/form\u003e",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-05 18:41:29.328",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\u003cform class\u003d\"form-inline\"\u003e\n  \u003cdiv class\u003d\"form-group\"\u003e\n    \u003clabel for\u003d\"nameId\"\u003eMy name: \u003c/label\u003e\n    \u003cinput type\u003d\"text\" class\u003d\"form-control\" id\u003d\"nameId\" placeholder\u003d\"My name ...\" ng-model\u003d\"myname\"\u003e\u003c/input\u003e\n  \u003c/div\u003e\n  \u003cbutton type\u003d\"submit\" class\u003d\"btn btn-primary\" ng-click\u003d\"z.angularBind(\u0027myname\u0027,myname,\u002720190605-183240_1702857193\u0027)\"\u003e Bind\u003c/button\u003e\n\u003c/form\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559759546017_-901475769",
+      "id": "20190605-183226_1488892585",
+      "dateCreated": "2019-06-05 18:32:26.017",
+      "dateStarted": "2019-06-05 18:41:26.565",
+      "dateFinished": "2019-06-05 18:41:26.577",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%angular\n\n\u003ch2\u003eHello World, my name is: {{myname}}\u003c/h2\u003e",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-05 18:41:26.664",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\u003ch2\u003eHello World, my name is: {{myname}}\u003c/h2\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559759560605_-1309676615",
+      "id": "20190605-183240_1702857193",
+      "dateCreated": "2019-06-05 18:32:40.605",
+      "dateStarted": "2019-06-05 18:41:26.708",
+      "dateFinished": "2019-06-05 18:41:26.722",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%angular\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-06-05 18:41:26.800",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559759712516_-398796780",
+      "id": "20190605-183512_510567407",
+      "dateCreated": "2019-06-05 18:35:12.516",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "11_Angular/Frontend",
+  "id": "2EEAWKTBK",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "angular:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {}
+}
