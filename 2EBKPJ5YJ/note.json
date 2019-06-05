@@ -124,7 +124,7 @@
     {
       "text": "%sql \n\nselect age, count(1) value\nfrom bank \nwhere age \u003c 30 \ngroup by age \norder by age",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 18:41:20.224",
+      "dateUpdated": "2019-06-05 09:38:32.448",
       "config": {
         "colWidth": 4.0,
         "fontSize": 9.0,
@@ -189,18 +189,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://8c057a26f6da:4040/jobs/job?id\u003d0"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1559673148342_-1781691026",
       "id": "20190604-183228_997963026",
@@ -213,7 +201,7 @@
     {
       "text": "%sql \nselect age, count(1) value \nfrom bank \nwhere age \u003c ${maxAge\u003d30} \ngroup by age \norder by age\n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 18:41:21.659",
+      "dateUpdated": "2019-06-05 09:38:32.590",
       "config": {
         "colWidth": 4.0,
         "fontSize": 9.0,
@@ -305,18 +293,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://8c057a26f6da:4040/jobs/job?id\u003d4"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1559673305645_-1437452260",
       "id": "20190604-183505_489886688",
@@ -329,7 +305,7 @@
     {
       "text": "%sql \nselect age, count(1) value \nfrom bank \nwhere marital\u003d\"${marital\u003dsingle,single|divorced|married}\" \ngroup by age \norder by age",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 18:44:35.079",
+      "dateUpdated": "2019-06-05 09:38:32.660",
       "config": {
         "colWidth": 4.0,
         "fontSize": 9.0,
@@ -447,18 +423,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://8c057a26f6da:4040/jobs/job?id\u003d6"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1559673770835_-690398996",
       "id": "20190604-184250_1624746227",
@@ -471,7 +435,7 @@
     {
       "text": "%spark.sql\nselect age, avg(balance), min(balance), max(balance) from bank group by age order by age\n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 18:34:47.367",
+      "dateUpdated": "2019-06-05 09:38:32.709",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -565,18 +529,6 @@
             "data": ""
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://8c057a26f6da:4040/jobs/job?id\u003d1"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1558605150517_-643688708",
@@ -724,18 +676,6 @@
             "data": ""
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://8c057a26f6da:4040/jobs/job?id\u003d2"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1558605248336_-1683435316",
