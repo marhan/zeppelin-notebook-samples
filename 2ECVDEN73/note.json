@@ -3,7 +3,7 @@
     {
       "text": "%md\n\n# S3 buckets in Spark / Zeppelin\n\nSpark is able to read from and save into S3 buckets. Hadoop is used to configure this functionality. The hyperlinks below will lead you to relevant backround information.\n\n- [Hadoop S3a Doc](https://hadoop.apache.org/docs/current/hadoop-aws/tools/hadoop-aws/index.html#S3A)\n- [apache-spark-with-minio](https://github.com/minio/cookbook/blob/master/docs/apache-spark-with-minio.md)",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 11:26:20.937",
+      "dateUpdated": "2019-06-05 12:08:45.685",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -36,8 +36,8 @@
       "jobName": "paragraph_1559372312177_1934527590",
       "id": "20190601-065832_850901460",
       "dateCreated": "2019-06-01 06:58:32.177",
-      "dateStarted": "2019-06-04 11:26:20.963",
-      "dateFinished": "2019-06-04 11:26:20.973",
+      "dateStarted": "2019-06-05 12:08:45.725",
+      "dateFinished": "2019-06-05 12:08:45.746",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -45,7 +45,7 @@
       "title": "Read TEXT file",
       "text": "%spark\n\n\nval bankText \u003d sc.textFile(\"s3a://zeppelin/loremipsum.txt\")\n            \nbankText.collect().foreach(println)",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 11:26:21.062",
+      "dateUpdated": "2019-06-05 12:08:45.824",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -71,16 +71,28 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\nbankText: org.apache.spark.rdd.RDD[String] \u003d s3a://zeppelin/loremipsum.txt MapPartitionsRDD[51] at textFile at \u003cconsole\u003e:32\n"
+            "data": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\nbankText: org.apache.spark.rdd.RDD[String] \u003d s3a://zeppelin/loremipsum.txt MapPartitionsRDD[49] at textFile at \u003cconsole\u003e:33\n"
           }
         ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://a33b68bac088:4040/jobs/job?id\u003d13"
+          ],
+          "interpreterSettingId": "spark"
+        }
       },
       "apps": [],
       "jobName": "paragraph_1559395845208_825612468",
       "id": "20190601-133045_372817550",
       "dateCreated": "2019-06-01 13:30:45.208",
-      "dateStarted": "2019-06-04 11:26:21.087",
-      "dateFinished": "2019-06-04 11:26:21.395",
+      "dateStarted": "2019-06-05 12:08:45.850",
+      "dateFinished": "2019-06-05 12:08:46.209",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -88,7 +100,7 @@
       "title": "Write TEXT file",
       "text": "%spark\n\n// create some data\nval stringRdd \u003d sc.parallelize(Seq(\"\u003d\u003d\u003d\u003e This is test content in a text file \u003c\u003d\u003d\u003d\"))\n\nstringRdd.saveAsTextFile(\"s3a://zeppelin/sample_output.txt\")",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 11:26:21.491",
+      "dateUpdated": "2019-06-05 12:08:46.251",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -114,58 +126,28 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "stringRdd: org.apache.spark.rdd.RDD[String] \u003d ParallelCollectionRDD[52] at parallelize at \u003cconsole\u003e:33\n"
+            "data": "stringRdd: org.apache.spark.rdd.RDD[String] \u003d ParallelCollectionRDD[50] at parallelize at \u003cconsole\u003e:34\n"
           }
         ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://a33b68bac088:4040/jobs/job?id\u003d14"
+          ],
+          "interpreterSettingId": "spark"
+        }
       },
       "apps": [],
       "jobName": "paragraph_1559372512658_-1925184250",
       "id": "20190601-070152_1652146864",
       "dateCreated": "2019-06-01 07:01:52.659",
-      "dateStarted": "2019-06-04 11:26:21.512",
-      "dateFinished": "2019-06-04 11:26:52.912",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "title": "Delete TEXT file",
-      "text": "%spark\nimport java.net.URI\nimport org.apache.hadoop.conf.Configuration\nimport org.apache.hadoop.fs.{Path, FileSystem}\n\nFileSystem.get(new URI(\"s3a://zeppelin\"), sc.hadoopConfiguration).delete(new Path(\"s3a://zeppelin/sample_output.txt\"), true)",
-      "user": "anonymous",
-      "dateUpdated": "2019-06-04 11:26:52.958",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala",
-        "title": true,
-        "tableHide": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "import java.net.URI\nimport org.apache.hadoop.conf.Configuration\nimport org.apache.hadoop.fs.{Path, FileSystem}\nres23: Boolean \u003d true\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1559484141805_-507453431",
-      "id": "20190602-140221_552545451",
-      "dateCreated": "2019-06-02 14:02:21.808",
-      "dateStarted": "2019-06-04 11:26:52.982",
-      "dateFinished": "2019-06-04 11:26:53.184",
+      "dateStarted": "2019-06-05 12:08:46.280",
+      "dateFinished": "2019-06-05 12:09:17.639",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -173,7 +155,7 @@
       "title": "Read CSV file",
       "text": "%spark\n\nval peopleCsvDf \u003d spark.read.format(\"com.databricks.spark.csv\")\n                .option(\"header\", \"true\")\n                .option(\"delimiter\",\";\")\n                .option(\"charset\", \"UTF-8\")\n                .option(\"treatEmptyValuesAsNulls\", \"True\")\n                .option(\"mode\", \"DROPMALFORMED\")\n                .load(\"s3a://zeppelin/people.csv\")\n                \n\npeopleCsvDf.printSchema\npeopleCsvDf.show",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 11:26:53.282",
+      "dateUpdated": "2019-06-05 12:09:17.679",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -202,12 +184,25 @@
           }
         ]
       },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://a33b68bac088:4040/jobs/job?id\u003d15",
+            "http://a33b68bac088:4040/jobs/job?id\u003d16"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "apps": [],
       "jobName": "paragraph_1559372354554_-1810404279",
       "id": "20190601-065914_2031281241",
       "dateCreated": "2019-06-01 06:59:14.555",
-      "dateStarted": "2019-06-04 11:26:53.310",
-      "dateFinished": "2019-06-04 11:26:54.066",
+      "dateStarted": "2019-06-05 12:09:17.701",
+      "dateFinished": "2019-06-05 12:09:18.103",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -215,7 +210,7 @@
       "title": "Write CSV file",
       "text": "%spark\n\ncase class Record(key: Int, value: String)\nval recordDf \u003d spark.createDataFrame((1 to 100).map(i \u003d\u003e Record(i, s\"val_$i\")))\n                \nrecordDf.write\n    .format(\"com.databricks.spark.csv\")\n    .mode(\"overwrite\")\n    .save(\"s3a://zeppelin/sample_output_partitioned.csv\")\n    \n                \nrecordDf\n    .coalesce(1) // \u003c- create one file\n    .write\n    .format(\"com.databricks.spark.csv\")\n    .mode(\"overwrite\")\n    .save(\"s3a://zeppelin/sample_output_coalesce.csv\")\n\n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 11:26:54.112",
+      "dateUpdated": "2019-06-05 12:09:18.181",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -245,53 +240,25 @@
           }
         ]
       },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://a33b68bac088:4040/jobs/job?id\u003d17",
+            "http://a33b68bac088:4040/jobs/job?id\u003d18"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "apps": [],
       "jobName": "paragraph_1559487068811_1863005427",
       "id": "20190602-145108_1864350521",
       "dateCreated": "2019-06-02 14:51:08.813",
-      "dateStarted": "2019-06-04 11:26:54.135",
-      "dateFinished": "2019-06-04 11:27:35.336",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "title": "Delete CSV file",
-      "text": "%spark\nimport java.net.URI\nimport org.apache.hadoop.conf.Configuration\nimport org.apache.hadoop.fs.{Path, FileSystem}\n\nFileSystem.get(new URI(\"s3a://zeppelin\"), sc.hadoopConfiguration).delete(new Path(\"s3a://zeppelin/sample_output_partitioned.csv\"), true)\nFileSystem.get(new URI(\"s3a://zeppelin\"), sc.hadoopConfiguration).delete(new Path(\"s3a://zeppelin/sample_output_coalesce.csv\"), true)",
-      "user": "anonymous",
-      "dateUpdated": "2019-06-04 11:27:35.358",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala",
-        "title": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "import java.net.URI\nimport org.apache.hadoop.conf.Configuration\nimport org.apache.hadoop.fs.{Path, FileSystem}\nres26: Boolean \u003d true\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1559487763612_-1554713414",
-      "id": "20190602-150243_1419732682",
-      "dateCreated": "2019-06-02 15:02:43.612",
-      "dateStarted": "2019-06-04 11:27:35.386",
-      "dateFinished": "2019-06-04 11:27:35.680",
+      "dateStarted": "2019-06-05 12:09:18.208",
+      "dateFinished": "2019-06-05 12:09:59.399",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -299,7 +266,7 @@
       "title": "Read JSON file",
       "text": "%spark\n\n\nval employeesDF \u003d spark.read.json(\"s3a://zeppelin/employees.json\")\n\nemployeesDF.printSchema\nemployeesDF.show",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 12:54:59.386",
+      "dateUpdated": "2019-06-05 12:09:59.444",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -327,12 +294,25 @@
           }
         ]
       },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://a33b68bac088:4040/jobs/job?id\u003d19",
+            "http://a33b68bac088:4040/jobs/job?id\u003d20"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "apps": [],
       "jobName": "paragraph_1559652754147_-1971985759",
       "id": "20190604-125234_306559602",
       "dateCreated": "2019-06-04 12:52:34.147",
-      "dateStarted": "2019-06-04 12:54:59.408",
-      "dateFinished": "2019-06-04 12:54:59.668",
+      "dateStarted": "2019-06-05 12:09:59.478",
+      "dateFinished": "2019-06-05 12:09:59.810",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -340,7 +320,7 @@
       "title": "Read JSON file via SQL",
       "text": "%spark\nval sqlDF \u003d spark.sql(\"SELECT * FROM json.`s3a://zeppelin/employees.json`\")\n  \nsqlDF.show()",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 18:58:02.903",
+      "dateUpdated": "2019-06-05 12:09:59.878",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -376,8 +356,8 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://8c057a26f6da:4040/jobs/job?id\u003d8",
-            "http://8c057a26f6da:4040/jobs/job?id\u003d9"
+            "http://a33b68bac088:4040/jobs/job?id\u003d21",
+            "http://a33b68bac088:4040/jobs/job?id\u003d22"
           ],
           "interpreterSettingId": "spark"
         }
@@ -386,8 +366,8 @@
       "jobName": "paragraph_1559480793817_746979507",
       "id": "20190602-130633_755114115",
       "dateCreated": "2019-06-02 13:06:33.820",
-      "dateStarted": "2019-06-04 18:57:07.547",
-      "dateFinished": "2019-06-04 18:57:09.934",
+      "dateStarted": "2019-06-05 12:09:59.898",
+      "dateFinished": "2019-06-05 12:10:00.226",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -395,7 +375,7 @@
       "title": "Write JSON file",
       "text": "%spark\n\nval otherPeopleDF \u003d spark.read.json(\"s3a://zeppelin/employees.json\")\n\notherPeopleDF.write.mode(\"overwrite\").json(\"s3a://zeppelin/sample_output.json\")\n\n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 12:59:26.576",
+      "dateUpdated": "2019-06-05 12:10:00.298",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -423,12 +403,25 @@
           }
         ]
       },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://a33b68bac088:4040/jobs/job?id\u003d23",
+            "http://a33b68bac088:4040/jobs/job?id\u003d24"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "apps": [],
       "jobName": "paragraph_1559652942813_-1086113280",
       "id": "20190604-125542_3348471",
       "dateCreated": "2019-06-04 12:55:42.813",
-      "dateStarted": "2019-06-04 12:59:26.597",
-      "dateFinished": "2019-06-04 12:59:39.294",
+      "dateStarted": "2019-06-05 12:10:00.338",
+      "dateFinished": "2019-06-05 12:10:13.061",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -436,7 +429,7 @@
       "title": "Write Parquet file",
       "text": "%spark\n\ncase class Record(key: Int, value: String)\nval recordDf \u003d spark.createDataFrame((1 to 100).map(i \u003d\u003e Record(i, s\"val_$i\")))\n\nrecordDf.write.parquet(\"s3a://zeppelin/sample_output.parquet\")\n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 11:27:35.683",
+      "dateUpdated": "2019-06-05 12:10:13.122",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -466,20 +459,32 @@
           }
         ]
       },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://a33b68bac088:4040/jobs/job?id\u003d25"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "apps": [],
       "jobName": "paragraph_1559486111956_-762488362",
       "id": "20190602-143511_237558558",
       "dateCreated": "2019-06-02 14:35:11.956",
-      "dateStarted": "2019-06-04 11:27:35.766",
-      "dateFinished": "2019-06-04 11:28:04.806",
+      "dateStarted": "2019-06-05 12:10:13.149",
+      "dateFinished": "2019-06-05 12:10:41.783",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Delete parquet file from S3",
-      "text": "%spark\nimport java.net.URI\nimport org.apache.hadoop.conf.Configuration\nimport org.apache.hadoop.fs.{Path, FileSystem}\n\nFileSystem.get(new URI(\"s3a://zeppelin\"), sc.hadoopConfiguration).delete(new Path(\"s3a://zeppelin/sample_output.parquet\"), true)",
+      "title": "Delete created files",
+      "text": "%spark\nimport java.net.URI\nimport org.apache.hadoop.conf.Configuration\nimport org.apache.hadoop.fs.{Path, FileSystem}\n\nval fs \u003d FileSystem.get(new URI(\"s3a://zeppelin\"), sc.hadoopConfiguration)\n\nfs.delete(new Path(\"s3a://zeppelin/sample_output.json\"), true)\nfs.delete(new Path(\"s3a://zeppelin/sample_output.txt\"), true)\nfs.delete(new Path(\"s3a://zeppelin/sample_output.parquet\"), true)\nfs.delete(new Path(\"s3a://zeppelin/sample_output_partitioned.csv\"), true)\nfs.delete(new Path(\"s3a://zeppelin/sample_output_coalesce.csv\"), true)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 11:28:04.906",
+      "dateUpdated": "2019-06-05 12:10:41.796",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -492,9 +497,7 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/scala",
-        "tableHide": false,
-        "title": true,
-        "editorHide": false
+        "title": true
       },
       "settings": {
         "params": {},
@@ -505,24 +508,36 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "import java.net.URI\nimport org.apache.hadoop.conf.Configuration\nimport org.apache.hadoop.fs.{Path, FileSystem}\nres28: Boolean \u003d true\n"
+            "data": "import java.net.URI\nimport org.apache.hadoop.conf.Configuration\nimport org.apache.hadoop.fs.{Path, FileSystem}\nfs: org.apache.hadoop.fs.FileSystem \u003d S3AFileSystem{uri\u003ds3a://zeppelin, workingDir\u003ds3a://zeppelin/user/root, inputPolicy\u003dnormal, partSize\u003d104857600, enableMultiObjectsDelete\u003dtrue, maxKeys\u003d5000, readAhead\u003d65536, blockSize\u003d33554432, multiPartThreshold\u003d2147483647, boundedExecutor\u003dBlockingThreadPoolExecutorService{SemaphoredDelegatingExecutor{permitCount\u003d25, available\u003d25, waiting\u003d0}, activeCount\u003d0}, unboundedExecutor\u003djava.util.concurrent.ThreadPoolExecutor@c1dd067[Running, pool size \u003d 10, active threads \u003d 0, queued tasks \u003d 0, completed tasks \u003d 191], statistics {3532 bytes read, 13030 bytes written, 1032 read ops, 0 large read ops, 1098 write ops}, metrics {{Context\u003dS3AFileSystem} {..."
           }
         ]
       },
       "apps": [],
-      "jobName": "paragraph_1559484365852_-191905094",
-      "id": "20190602-140605_1097026455",
-      "dateCreated": "2019-06-02 14:06:05.853",
-      "dateStarted": "2019-06-04 11:28:04.924",
-      "dateFinished": "2019-06-04 11:28:05.117",
+      "jobName": "paragraph_1559736123081_-1371571717",
+      "id": "20190605-120203_297843212",
+      "dateCreated": "2019-06-05 12:02:03.081",
+      "dateStarted": "2019-06-05 12:10:41.837",
+      "dateFinished": "2019-06-05 12:10:42.275",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark\n",
       "user": "anonymous",
-      "dateUpdated": "2019-06-04 18:56:46.727",
-      "config": {},
+      "dateUpdated": "2019-06-05 12:10:42.339",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
       "settings": {
         "params": {},
         "forms": {}
@@ -531,7 +546,7 @@
       "jobName": "paragraph_1559674606721_251085818",
       "id": "20190604-185646_421109311",
       "dateCreated": "2019-06-04 18:56:46.722",
-      "status": "READY",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     }
   ],
