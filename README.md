@@ -1,8 +1,9 @@
 # Zeppelin sample Notebook (Work in progress)
 
-Apache Zeppelin sample Notebooks for different use cases and external systems.
+Apache Zeppelin sample Notebooks for several use cases and connections to different external systems.
 
-This repository is used in a Docker based Zeppelin instance, hosted in [another Git repository](https://github.com/marhan/docker-zeppelin).
+This repository can be used by any Zeppelin.  
+A sample Zeppelin Setup with Docker is hosted at the following [Git repository](https://github.com/marhan/docker-zeppelin-tutorial).
 
 ### TODO
 
@@ -10,7 +11,6 @@ This repository is used in a Docker based Zeppelin instance, hosted in [another 
 - [ ] Introductions and descriptions in all Notebooks
 - [ ] Use case with Forms
 - [ ] Use case with Properties
-- [ ] Use case with Java
 - [ ] Use case with Python
 - [ ] Use case with Matlab
 - [ ] Use case with Pandas
